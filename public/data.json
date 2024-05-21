@@ -1,0 +1,25 @@
+{
+    "couses": [
+          {
+            "name": "Kelas Belajar Javascript MERN",
+            "image": "https://i.ibb.co/qmt3DCw/js.png",
+            "availableSeats": 20,
+            "price": "1.100.000",
+            "groupWaLink": "groupWaLink.com",
+            "description": "Belajar mudah dan dari dasar",
+            "tutorName": "Nugraha",
+            "tutorEmail": "miqbalnzxc@gmail.com",
+            "status": "pending",
+            "submitted": "2024-02-28T20:01:12.168Z",
+            "totalEnrolled": 0,
+            "reason": null
+          }
+    ],
+    "comments": [
+      { "id": "1", "text": "a comment about post 1", "postId": "1" },
+      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+  }

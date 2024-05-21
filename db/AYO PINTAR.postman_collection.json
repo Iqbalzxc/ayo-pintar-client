@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "8becc537-9a78-4190-b38a-96b57d3b71cc",
+		"name": "AYO PINTAR",
+		"description": "PROJECT AKHIR MSIB SANBER AYO PINTAR🫡",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33859087",
+		"_collection_link": "https://orange-resonance-824518.postman.co/workspace/2eee9458-b035-442e-9477-95c2aa7d3b32/collection/33859087-8becc537-9a78-4190-b38a-96b57d3b71cc?action=share&source=collection_link&creator=33859087"
+	},
+	"item": [
+		{
+			"name": "CART",
+			"item": [
+				{
+					"name": "ADD TO CART",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tes Cart 2\",\r\n    \"classId\": \"66407d62db55f505e5ead1962\",\r\n    \"email\": \"miqbalnmin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/add-to-chart",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"add-to-chart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CART ITEM ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/cart-item/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart-item",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CART ITEM BY EMAIL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/cart/:email",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								":email"
+							],
+							"variable": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CART ITEM BY ID DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/delete-cart-item/66407d62db55f505e5ead1962",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"delete-cart-item",
+								"66407d62db55f505e5ead1962"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Iqbal\",\r\n    \"age\": \"22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/set-token",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"set-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NEW-CLASS",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kelas Belajar React\",\r\n    \"image\": \"test guru ayo pintar.jpg\",\r\n    \"availableSeats\": \"30\",\r\n    \"price\": \"1.000.000\",\r\n    \"groupWaLink\": \"youtube.com\",\r\n    \"description\": \"Belajar mudah dan menyenangkan\",\r\n    \"tutorName\": \"Nugraha\",\r\n    \"tutorEmail\": \"miqbalnzxc@gmail.com\",\r\n    \"status\": \"pending\",\r\n    \"submitted\": \"2024-02-28T20:01:12.168Z\",\r\n    \"totalEnrolled\": 2,\r\n    \"reason\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/new-class",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"new-class"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/classes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"classes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES BY EMAIL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/classes/:email",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"classes",
+						":email"
+					],
+					"variable": [
+						{
+							"key": "email",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES MANAGE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/classes-manage",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"classes-manage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES UPDATE STATUS REASON",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"approved\",\r\n    \"reason\": \"null\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/change-status/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"change-status",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES APPROVED",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/approved-classes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"approved-classes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/class/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"class",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASSES UPDATE ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Kelas Belajar Javascript MERN\",\r\n        \"availableSeats\": \"20\",\r\n        \"description\": \"Belajar mudah dan dari dasar\",\r\n        \"price\": \"1.100.000\",\r\n        \"groupWaLink\": \"groupWaLink.com\",\r\n        \"status\": \"pending\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/update-class/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"update-class",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
