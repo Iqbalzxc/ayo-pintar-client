@@ -38,8 +38,11 @@ const SelectedClass = () => {
 
 
   // CALCULATE TOTAL PRICE
-  const totalPrice = classes.reduce((acc, item) => acc + item.price, 0);
-  const price = totalPrice
+  const totalPrice = classes.reduce((acc, item) => {
+    const price = parseFloat(item.price.toString().replace(/\./g, ''));
+    return acc + price;
+  }, 0);
+  const price = totalPrice;
 
 
   // HANDLE PAY
@@ -177,7 +180,7 @@ const SelectedClass = () => {
               <div className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex justify-between mb-2">
                   <span className="font-semibold">Total Pembayaran</span>
-                  <span className="font-semibold">Rp.{price.toLocaleString('id-ID')}</span>
+                  <span className="font-semibold">Rp{price.toLocaleString('id-ID')}</span>
                 </div>
                 <button disabled={price <= 0 } onClick={() => navigate("/dashboard/user/payment", { state : { price: price, itemId: null }})} className="bg-secondary text-white py-2 px-4 rounded-lg mt-4 w-full">
                   Bayar disini
