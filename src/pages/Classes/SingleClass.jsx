@@ -64,7 +64,7 @@ const SingleClass = () => {
             .catch((err) => {
               console.log(err);
               alert("Gagal menambahkan kelas");
-              navigate('/classes')
+              return navigate('/classes')
             });
         }
       })

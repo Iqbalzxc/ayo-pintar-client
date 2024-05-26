@@ -65,7 +65,7 @@ const Classes = () => {
             .catch((err) => {
               console.log(err);
               alert("Gagal menambahkan kelas, silahkan coba lagi");
-              navigate("/classes");
+              return navigate("/classes");
             });
         }
       })
