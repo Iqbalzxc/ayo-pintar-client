@@ -1,31 +1,20 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  HiOutlineLockClosed,
-  HiOutlineLockOpen,
-  HiOutlinePhone,
-  HiOutlineUserPlus,
-} from "react-icons/hi2";
-import {
-  MdOutlineMailOutline,
-  MdOutlinePictureInPicture,
-} from "react-icons/md";
+import { HiOutlineLockClosed, HiOutlineLockOpen, HiOutlinePhone, HiOutlineUserPlus } from "react-icons/hi2";
+import { MdOutlineMailOutline, MdOutlinePictureInPicture } from "react-icons/md";
 import { AiOutlinePicture, AiOutlineUser } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
 import axios from "axios";
 
+
 // REGISTER PAGE
 const Register = () => {
   const navigate = useNavigate();
   const { signUp, updateUser, setError } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
+  const { register, handleSubmit, watch, formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     setError("");
@@ -47,10 +36,7 @@ const Register = () => {
 
             if (user.email && user.displayName) {
               return axios
-                .post(
-                  "https://ayo-pintar-server.onrender.com/new-user",
-                  userImp
-                )
+                .post("http://localhost:3000/new-user", userImp)
                 .then(() => {
                   navigate("/");
                   setError();
@@ -95,6 +81,7 @@ const Register = () => {
               />
             </div>
 
+
             {/* EMAIL */}
             <div className="mb-4">
               <label
@@ -130,6 +117,7 @@ const Register = () => {
                 className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
               />
 
+
               {/* CONFIRM PASSWORD */}
             </div>
             <div className="mb-4">
@@ -155,6 +143,7 @@ const Register = () => {
             </div>
           </div>
 
+
           {/* NO TELEPON */}
           <div className="flex items-center gap-5">
             <div className="mb-4">
@@ -173,6 +162,7 @@ const Register = () => {
               />
             </div>
 
+
             {/* PHOTO */}
             <div className="mb-4">
               <label
@@ -190,6 +180,7 @@ const Register = () => {
               />
             </div>
           </div>
+
 
           {/* GENDER */}
           <div className="mb-4">
@@ -212,6 +203,7 @@ const Register = () => {
             </div>
           </div>
 
+
           {/* ADDRESS */}
           <div className="mb-4">
             <div>
@@ -231,6 +223,7 @@ const Register = () => {
             </div>
           </div>
 
+
           {/* BUTTON */}
           <div className="text-center">
             <button
@@ -239,6 +232,7 @@ const Register = () => {
             >
               Daftar
             </button>
+
 
             {/* CHECK PASSWORD */}
             {errors.confimPassword &&
@@ -249,6 +243,7 @@ const Register = () => {
               )}
           </div>
 
+
           {/* ALREADY HAVE ACCOUNT */}
         </form>
         <p className="text-center mt-4">
@@ -258,6 +253,7 @@ const Register = () => {
             Login
           </Link>
         </p>
+
 
         {/* LOGIN GOOGLE */}
         <GoogleLogin />

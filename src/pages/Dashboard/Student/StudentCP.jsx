@@ -34,7 +34,7 @@ const StudentCP = () => {
               Kamu dapat mengakses halaman dari sini
             </h2>
             <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1 flex-wrap">
-              <Link to="/dashboard/enrolled-class">Kelas Saya</Link>
+              <Link to="/dashboard/enrolled/class">Kelas Saya</Link>
             </div>
             <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1">
               <Link to="/dashboard/my-selected">Pilihan Saya</Link>

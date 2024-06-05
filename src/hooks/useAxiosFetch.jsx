@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useAxiosFetch = () => {
   const axiosInstance = axios.create({
-    baseURL: "https://ayo-pintar-server.onrender.com",
+    baseURL: "http://localhost:3000/",
   });
 
   // INTERCEPTORS

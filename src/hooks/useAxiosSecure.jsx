@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: "https://ayo-pintar-server.onrender.com",
+    baseURL: "http://localhost:3000",
   });
   useEffect(() => {
     // ADD A REQUEST INTERCEPTOR
