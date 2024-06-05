@@ -1,19 +1,26 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  signOut,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup,
+} from "firebase/auth";
 import axios from "axios";
 import { app } from "../../config/firebase.init";
 
 export const AuthContext = createContext();
 
-
 // MANAGE LOGIN, REGISTER, INCLUDE WITH GOOGLE
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
   const [error, setError] = useState("");
 
   const auth = getAuth(app);
-
 
   // SIGNUP NEW USER
   const signUp = async (email, password) => {
@@ -26,7 +33,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
   // LOGIN USER
   const login = async (email, password) => {
     try {
@@ -38,7 +44,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
   // LOGOUT USER
   const logout = async () => {
     try {
@@ -48,7 +53,6 @@ const AuthProvider = ({ children }) => {
       throw error;
     }
   };
-
 
   // UPDATE USER
   const updateUser = async (name, photo) => {
@@ -65,7 +69,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
   // LOGIN WITH GOOGLE
   const googleProvider = new GoogleAuthProvider();
   const googleLogin = async () => {
@@ -78,7 +81,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
   // OBSERVER FOR USER
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -86,7 +88,7 @@ const AuthProvider = ({ children }) => {
 
       if (user) {
         axios
-          .post("http://localhost:3000/api/set-token", {
+          .post("https://ayo-pintar-server.onrender.com/api/set-token", {
             email: user.email,
             name: user.displayName,
           })
@@ -105,7 +107,18 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const contextVale = { user, signUp, login, logout, updateUser, googleLogin, error, setError, loader, setLoader };
+  const contextVale = {
+    user,
+    signUp,
+    login,
+    logout,
+    updateUser,
+    googleLogin,
+    error,
+    setError,
+    loader,
+    setLoader,
+  };
   return (
     <AuthContext.Provider value={contextVale}>{children}</AuthContext.Provider>
   );
