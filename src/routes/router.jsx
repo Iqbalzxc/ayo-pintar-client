@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
         path: "/class/:id",
         element: <SingleClass />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/class/${params.id}`),
+          fetch(`https://ayo-pintar-server.onrender.com/class/${params.id}`),
       },
     ],
   },
@@ -86,8 +86,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "class-details",
-        element: <ClassDetails/>
-      }
+        element: <ClassDetails />,
+      },
     ],
   },
 ]);

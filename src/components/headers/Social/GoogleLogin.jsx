@@ -7,13 +7,14 @@ const GoogleLogin = () => {
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
 
-
   // HANDLE LOGIN GOOGLE
   const handleLogin = () => {
-    googleLogin().then((userCredential) => {
+    googleLogin()
+      .then((userCredential) => {
         const user = userCredential.user;
         // console.log(user)
-        if (user) { const userImp = {
+        if (user) {
+          const userImp = {
             name: user?.displayName,
             email: user?.email,
             photoURL: user?.photoURL,
@@ -25,7 +26,7 @@ const GoogleLogin = () => {
 
           if (user.email && user.displayName) {
             return axios
-              .post("http://localhost:3000/new-user", userImp)
+              .post("https://ayo-pintar-server.onrender.com/new-user", userImp)
               .then(() => {
                 navigate("/");
                 return "Pendaftaran Berhasil";
@@ -59,6 +60,5 @@ const GoogleLogin = () => {
     </div>
   );
 };
-
 
 export default GoogleLogin;
