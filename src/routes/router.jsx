@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../layout/mainLayout";
+import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Tutors from "../pages/Tutors/Tutors";
 import Classes from "../pages/Classes/Classes";
@@ -15,6 +15,8 @@ import MyPaymentHistory from "../pages/Dashboard/Student/Payment/History/MyPayme
 import AsTutor from "../pages/Dashboard/Student/Apply/AsTutor";
 import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import ClassDetails from "../pages/Dashboard/Student/Enroll/ClassDetails";
+import Blog from "../pages/Blog/Blog";
+import Faq from "../pages/Home/Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +36,14 @@ export const router = createBrowserRouter([
         element: <Classes />,
       },
       {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "faq",
+        element: <Faq />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -45,7 +55,7 @@ export const router = createBrowserRouter([
         path: "/class/:id",
         element: <SingleClass />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/class/${params.id}`),
+          fetch(`https://ayo-pintar-server.onrender.com/class/${params.id}`),
       },
     ],
   },
@@ -86,8 +96,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "class-details",
-        element: <ClassDetails/>
-      }
+        element: <ClassDetails />,
+      },
     ],
   },
 ]);

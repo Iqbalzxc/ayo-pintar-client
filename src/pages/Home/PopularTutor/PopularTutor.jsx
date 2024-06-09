@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import img from "../../../assets/home/foto-profile.jpg";
 
-
 // POPULAR TUTOR
 const PopularTutor = () => {
   const [tutors, setTutors] = useState([]);
@@ -20,7 +19,7 @@ const PopularTutor = () => {
   return (
     <div>
       <div className="md:w-[80] mx-auto my-36">
-        <h1 className="text-5xl font-bold text-center">
+        <h1 className="text-5xl font-bold text-center dark:text-white">
           <span className="text-secondary">Tutor</span> Favorit
         </h1>
         <div className="w-[40%] text-center mx-auto my-4">
