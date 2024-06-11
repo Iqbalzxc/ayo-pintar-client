@@ -33,3 +33,13 @@ body {
   background: #b68bdcf1;
   transition: 1s;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f97777;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #c85757;
+}
