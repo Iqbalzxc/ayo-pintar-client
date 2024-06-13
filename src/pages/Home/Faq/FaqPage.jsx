@@ -61,6 +61,7 @@ const faq = [
 ];
 
 const Faq = () => {
+  return <div></div>;
   const [activeKey, setActiveKey] = useState(null);
 
   const toggleAccordion = (eventKey) => {

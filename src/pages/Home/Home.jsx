@@ -5,7 +5,7 @@ import PopularClasses from "./PopularClasses/PopularClasses";
 import PopularTutor from "./PopularTutor/PopularTutor";
 import useAuth from "../../hooks/useAuth";
 import Testimonial from "./Testimonial/Testimonial";
-import Faq from "./Faq/Faq";
+import Faq from "./Faq/FaqPage";
 
 // HOME
 const Home = () => {
