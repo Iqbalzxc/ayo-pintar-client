@@ -16,7 +16,7 @@ import AsTutor from "../pages/Dashboard/Student/Apply/AsTutor";
 import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import ClassDetails from "../pages/Dashboard/Student/Enroll/ClassDetails";
 import Blog from "../pages/Blog/Blog";
-import Faq from "../pages/Home/Faq/Faq";
+import FaqPage from "../pages/FaqPage/FaqPage";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
 import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
 
@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "faq",
-        element: <Faq />,
+        element: <FaqPage />,
       },
       {
         path: "/login",
