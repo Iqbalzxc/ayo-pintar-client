@@ -16,6 +16,7 @@ import AsTutor from "../pages/Dashboard/Student/Apply/AsTutor";
 import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import ClassDetails from "../pages/Dashboard/Student/Enroll/ClassDetails";
 import Blog from "../pages/Blog/Blog";
+import FaqPage from "../pages/FaqPage/FaqPage";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
 import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
 
