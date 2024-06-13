@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useUser from "../../../hooks/useUser";
 
+
+const KEY = import.meta.env.VITE_IMG_TOKEN
+
 const AddClasses = () => {
+  const API_URL = `https://api.imgbb.com/1/upload?key=${KEY}&name=`
   const axiosSecure = useAxiosSecure();
   const { currentUser, isLoading } = useUser();
   const { image, setImage } = useState(null);
@@ -14,8 +18,27 @@ const AddClasses = () => {
     const newData = Object.fromEntries(formData);
     formData.append('file', image);
     console.log(newData);
-    
-  }
+  
+    fetch(API_URL, {
+      method: "POST",
+      body: formData
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+      if(data.success === true) {
+        console.log(data.data.display_url);
+        newData.image = data.data.display_url;
+        newData.tutorName = currentUser?.name;
+        newData.tutorEmail = currentUser?.email;
+        newData.status = 'pending';
+        newData.submitted = new Date();
+        newData.totalEnrolled = 0;
+        axiosSecure.post(`/new-class`, newData).then(res => {
+          alert("Kelas berhasil ditambahkan");
+          console.log(res.data);
+        })
+      }
+  })
+};
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
