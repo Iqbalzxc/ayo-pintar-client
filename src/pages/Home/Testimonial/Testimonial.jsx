@@ -90,10 +90,10 @@ const Testimonial = () => {
       </div>
 
       <Swiper
-        style={{
-          "--swiper-navigation-color": "#F97777",
-          "--swiper-pagination-color": "#F97777",
-        }}
+      style={{
+        "--swiper-navigation-color": "#F97777",
+        "--swiper-pagination-color": "#F97777",
+      }}
         slidesPerView={1}
         spaceBetween={8}
         pagination={{ clickable: true }}
