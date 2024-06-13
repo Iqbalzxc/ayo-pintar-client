@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
 import img from "../../assets/home/foto-profile.jpg";
 
-
 // TUTOR FAV
 const Tutors = () => {
   const [tutors, setTutors] = useState([]);
@@ -21,7 +20,7 @@ const Tutors = () => {
   return (
     <div>
       <div className="md:w-[80] mx-auto my-36">
-        <h1 className="text-5xl font-bold text-center">
+        <h1 className="text-5xl font-bold text-center dark:text-white">
           <span className="text-secondary">Tutor</span> Favorit
         </h1>
         <div className="w-[40%] text-center mx-auto my-4">
@@ -35,7 +34,7 @@ const Tutors = () => {
         <>
           <div className="grid md-28 md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-4 mx-auto mt-20">
             {tutors?.slice(0, 4).map((tutor, i) => (
-              <div className="flex dark:text-white hover:-translate-y-2 duration-200 cursor-pointer flex-col shadow-md py-8 px-8 rounded-md">
+              <div className="flex dark:text-white dark:bg-zinc-900 hover:-translate-y-2 duration-200 cursor-pointer flex-col shadow-md py-8 px-8 rounded-md">
                 <div className="flex-col flex gap-6 md:gap-8">
                   <img
                     className="rounded-full border-4 border-gray-300 h-24 w-24 mx-auto"

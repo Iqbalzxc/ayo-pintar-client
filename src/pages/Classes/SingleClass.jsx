@@ -4,14 +4,21 @@ import useUser from "../../hooks/useUser";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { DialogActions } from "@mui/material";
-import { FaBook, FaLanguage, FaLevelUpAlt, FaTimes, FaUser, FaUsers } from "react-icons/fa";
+import {
+  FaBook,
+  FaLanguage,
+  FaLevelUpAlt,
+  FaTimes,
+  FaUser,
+  FaUsers,
+} from "react-icons/fa";
 import { GiClassicalKnowledge } from "react-icons/gi";
 import { MdBookOnline, MdTimelapse, MdTimeline } from "react-icons/md";
 import bannerImg1 from "../../assets/home/banner-1.jpg";
 import bannerImg2 from "../../assets/home/banner-2.jpg";
 
 const SingleClass = () => {
-  const lesson = useLoaderData();
+  const classes = useLoaderData();
   const { currentUser } = useUser();
   const role = currentUser?.role;
   const navigate = useNavigate();
@@ -19,7 +26,6 @@ const SingleClass = () => {
   const [isLoading, setIsLoading] = useState(false);
   const axiosFetch = useAxiosFetch();
   const axiosSecure = useAxiosSecure();
-
 
   // IF USER NOT LOGIN
   const handleSelect = (id) => {
@@ -35,8 +41,7 @@ const SingleClass = () => {
       .then((res) => setEnrolledClasses(res.data))
       .catch((err) => console.log(err));
 
-
-      // GET CART ITEM
+    // GET CART ITEM
     axiosSecure
       .get(`/cart-item/${id}?email=${currentUser.email}`)
       .then((res) => {
@@ -64,7 +69,7 @@ const SingleClass = () => {
             .catch((err) => {
               console.log(err);
               alert("Gagal menambahkan kelas");
-              return navigate('/classes')
+              return navigate("/classes");
             });
         }
       })
@@ -91,19 +96,17 @@ const SingleClass = () => {
         <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-100 shadow-md rounded-lg">
           <div className="container mx-auto">
             <div className="grid grid-cols-12 gap-6 md:gap-8">
-
-
               {/* THIS LEFT */}
               <div className="lg:col-span-8 col-span-12">
                 <div className="single-course-details">
                   <div className="xl:h-[470] h-[350px] mb-10 course-main-thumb">
                     <img
-                      src={lesson?.image}
+                      src={classes?.image}
                       alt="image.jpg"
                       className="rounded-md object-full w-full h-full block"
                     />
                   </div>
-                  <h2 className="text-2xl mb-2">{lesson?.name}</h2>
+                  <h2 className="text-2xl mb-2">{classes?.name}</h2>
 
                   <div className="author-meta mt-6 sm:flex lg:space-x-16 sm:space-x-5 space-y-5 sm:space-y-0 items-center">
                     <div className="flex space-x-4 items-center group">
@@ -122,7 +125,7 @@ const SingleClass = () => {
                         <p className="text-secondary">
                           Tutor
                           <a href="#" className="text-black">
-                            : {lesson.tutorName}
+                            : {classes.tutorName}
                           </a>
                         </p>
                       </div>
@@ -131,7 +134,7 @@ const SingleClass = () => {
                       <span className="text-secondary">
                         Update terakhir:
                         <a href="#" className="text-black ml-1">
-                          {new Date(lesson.submitted).toLocaleDateString()}
+                          {new Date(classes.submitted).toLocaleDateString()}
                         </a>
                       </span>
                     </div>
@@ -269,14 +272,13 @@ const SingleClass = () => {
                 </div>
               </div>
 
-
               {/* THIS RIGHT */}
               <div className="lg:col-span-4 col-span-12 mt-8 md:mt-0"></div>
               <div className="sidebarWrapper space-y-[30px]">
                 <div className="widget custom-text space-y-5">
                   <a className="h-[220px] rounded relative block" href="#">
                     <img
-                      src={lesson.image}
+                      src={classes.image}
                       alt=""
                       className="block w-full h-full object-cover rounded"
                     />
@@ -284,20 +286,20 @@ const SingleClass = () => {
                       <img src="/play.png" alt="" />
                     </div>
                   </a>
-                  <h3>{lesson.price}</h3>
+                  <h3>{classes.price}</h3>
                   <button
-                    onClick={() => handleSelect(lesson._id)}
+                    onClick={() => handleSelect(classes._id)}
                     title={
                       role === "admin" || role === "tutor"
                         ? "Tutor/Admin tidak bisa memilih"
-                          ? lesson.availableSeats < 1
+                          ? classes.availableSeats < 1
                           : "Tidak ada kelas tersedia"
                         : "Kamu dapat memilih kelas"
                     }
                     disabled={
                       role === "admin" ||
                       role === "tutor" ||
-                      lesson.availableSeats < 1
+                      classes.availableSeats < 1
                     }
                     className="btn btn-primary w-full text-center bg-secondary py-2 px-6 text-white"
                   >
@@ -309,7 +311,7 @@ const SingleClass = () => {
                         <FaUser className="inline-flex" />
                         <div className="text-black font-semibold">Tutor</div>
                       </div>
-                      <div className="flex-none">{lesson.tutorName}</div>
+                      <div className="flex-none">{classes.tutorName}</div>
                     </li>
 
                     <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
@@ -319,7 +321,7 @@ const SingleClass = () => {
                           Siswa terdaftar
                         </div>
                       </div>
-                      <div className="flex-none">{lesson.totalEnrolled}</div>
+                      <div className="flex-none">{classes.totalEnrolled}</div>
                     </li>
 
                     <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
