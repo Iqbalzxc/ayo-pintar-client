@@ -17,7 +17,7 @@ import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import ClassDetails from "../pages/Dashboard/Student/Enroll/ClassDetails";
 import Blog from "../pages/Blog/Blog";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
-import FaqPage from "../pages/FaqPage/FaqPage";
+import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +105,10 @@ export const router = createBrowserRouter([
         path: "tutor-cp",
         element: <TutorCP />,
       },
+      {
+        path: "add-classes",
+        element: <AddClasses />
+      }
     ],
   },
 ]);
