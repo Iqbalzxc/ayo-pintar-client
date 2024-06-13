@@ -99,7 +99,7 @@ export const router = createBrowserRouter([
       {
         path: "class-details",
         element: <ClassDetails />,
-      }, 
+      },
 
       // Tutor Routes
       {

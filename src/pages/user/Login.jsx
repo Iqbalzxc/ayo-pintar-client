@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import useAuth from "../../hooks/useAuth";
 
-
 // LOGIN PAGE
 const Login = () => {
   const [showPassword, setshowPassword] = useState(false);
@@ -19,7 +18,7 @@ const Login = () => {
     const data = new FormData(e.target);
     const formData = Object.fromEntries(data);
     // SET LOADER TO TRUE WHEN LOGIN ATTEMPT STARTS
-    setLoader(true); 
+    setLoader(true);
     login(formData.email, formData.password)
       .then(() => {
         alert("Login berhasil");
@@ -27,7 +26,7 @@ const Login = () => {
       })
       .catch((err) => {
         // SET A USER-FRIENDLY ERROR MESSAGE
-        setError("Email atau password salah"); 
+        setError("Email atau password salah");
         setLoader(false);
       });
   };
@@ -38,8 +37,8 @@ const Login = () => {
         Login
       </h1>
       <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, laborum
-        numquam molestias a repudiandae nam!
+        Selamat datang di Ayo Pintar, tempat di mana setiap langkah merupakan
+        bagian dari perjalanan menuju kesuksesan
       </p>
 
       <div className="mx-auto max-w-lg mb-0 mt-6 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
@@ -92,7 +91,7 @@ const Login = () => {
           {error && <p className="text-center text-red-500">{error}</p>}{" "}
           {/* DISPLAY ERROR MESSAGE BELOW THE LOGIN BUTTON */}
           <p className="text-center text-sm text-gray-500">
-            Tidak punya akun?{" "}
+            Belum punya akun?{" "}
             <Link className="underline" to="/register">
               Daftar disini
             </Link>
