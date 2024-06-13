@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import photoUrl from "../../assets/home/foto-profile.jpg";
 import { FaBars } from "react-icons/fa";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
+import Swal from "sweetalert2"
 
 // THIS IS LINK NAVBAR
 const navLinks = [
@@ -86,7 +87,7 @@ const NavBar = () => {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    // console.log("Logged out");
+    console.log("Logged out");
     Swal.fire({
       title: "Apakah anda yakin?",
       text: "Anda akan keluar dari sesi ini",
