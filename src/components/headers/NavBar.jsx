@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { ThemeProvider, THEME_ID, createTheme } from "@mui/material/styles";
 import { Switch } from "@mui/material";
 import { motion } from "framer-motion";
 import photoUrl from "../../assets/home/foto-profile.jpg";
 import { FaBars } from "react-icons/fa";
-
+import { AuthContext } from "../../utilities/providers/AuthProvider";
+import Swal from "sweetalert2"
 
 // THIS IS LINK NAVBAR
 const navLinks = [
   { name: "Home", route: "/" },
   { name: "Tutor", route: "/tutors" },
   { name: "Kelas", route: "/classes" },
+  { name: "Blog", route: "/blog" },
+  { name: "FAQ", route: "/faq" },
 ];
-
 
 // THEME NAVBAR
 const theme = createTheme({
@@ -30,7 +32,7 @@ const NavBar = () => {
   const [isFixed, setIsFixed] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [navBg, setNavBg] = useState("bg-[#15151580]");
-  const user = true;
+  const { logout, user } = useContext(AuthContext);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -83,8 +85,32 @@ const NavBar = () => {
     }
   }, [scrollPosition]);
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     console.log("Logged out");
+    Swal.fire({
+      title: "Apakah anda yakin?",
+      text: "Anda akan keluar dari sesi ini",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, keluar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout()
+          .then(() => {
+            Swal.fire({
+              title: "Berhasil keluar!",
+              text: "kamu baru saja keluar.",
+              icon: "success",
+            });
+          })
+          .catch((err) => {
+            Swal.fire("Error!", err.message, "error");
+          });
+      }
+    });
   };
 
   return (
@@ -100,14 +126,12 @@ const NavBar = () => {
     >
       <div className="lg:w-[95%] mx-auto sm:px-6 lg:px-6">
         <div className="px-4 py-4 flex items-center justify-between">
-
-
           {/* LOGO AYO PINTAR */}
           <div
             onClick={() => navigate("/")}
             className="flex-shrink-0 cursor-pointer pl-7 md:p-0 flex items-center"
           >
-            <div>
+            <div className="dark:text-white">
               <h1 className="text-2xl inline-flex gap-3 items-center font-bold">
                 Ayo Pintar{" "}
                 <img
@@ -122,7 +146,6 @@ const NavBar = () => {
             </div>
           </div>
 
-
           {/* MOBILE MENU ICONS */}
           <div className="md:hidden flex items-center">
             <button
@@ -134,11 +157,10 @@ const NavBar = () => {
             </button>
           </div>
 
-
           {/* NAVIGATIONAL LINKS */}
-          <div className="hidden md:block text-black dark:text-white">
-            <div className="flex">
-              <ul className="ml-10 flex items-center space-x-4 pr-4">
+          <div className="hidden md:flex text-black dark:text-white justify-center items-center w-full">
+            <div className="flex flex-1 justify-center">
+              <ul className="flex space-x-7">
                 {navLinks.map((Link) => (
                   <li key={Link.route}>
                     <NavLink
@@ -160,49 +182,6 @@ const NavBar = () => {
                     </NavLink>
                   </li>
                 ))}
-
-
-                {/* BASED ON USER */}
-                {user ? null : isLogin ? (
-                  <li>
-                    <NavLink
-                      to="/register"
-                      className={({ isActive }) =>
-                        `font-bold ${
-                          isActive
-                            ? "text-secondary"
-                            : `${
-                                navBg.includes("bg-transparent")
-                                  ? "text-white"
-                                  : "text-black dark:text-white"
-                              }`
-                        } hover:text-secondary duration-300`
-                      }
-                    >
-                      Register
-                    </NavLink>
-                  </li>
-                ) : (
-                  <li>
-                    <NavLink
-                      to="/login"
-                      className={({ isActive }) =>
-                        `font-bold ${
-                          isActive
-                            ? "text-secondary"
-                            : `${
-                                navBg.includes("bg-transparent")
-                                  ? "text-white"
-                                  : "text-black dark:text-white"
-                              }`
-                        } hover:text-secondary duration-300`
-                      }
-                    >
-                      Login
-                    </NavLink>
-                  </li>
-                )}
-
                 {user && (
                   <li>
                     <NavLink
@@ -223,42 +202,74 @@ const NavBar = () => {
                     </NavLink>
                   </li>
                 )}
-
-                {user && (
-                  <li>
-                    <img
-                      src={photoUrl}
-                      alt="foto profile"
-                      className="h-[40px] rounded-full w-[40px]"
-                    />
-                  </li>
-                )}
-
-                {user && (
-                  <li>
-                    <NavLink
-                      onClick={handleLogout}
-                      className={
-                        "font-bold px-3 py-2 bg-secondary text-white rounded-xl"
-                      }
-                    >
-                      {" "}
-                      Logout
-                    </NavLink>
-                  </li>
-                )}
-
-
-                {/* COLOR TOGGLE */}
-                <li>
-                  <ThemeProvider theme={theme}>
-                    <div className="flex flex-col justify-center items-center">
-                      <Switch onChange={() => setIsDarkMode(!isDarkMode)} />
-                      <h1 className="text-[8px]">Light/Dark</h1>
-                    </div>
-                  </ThemeProvider>
-                </li>
               </ul>
+            </div>
+
+            {/* BASED ON USER */}
+            <div className="flex items-center space-x-4">
+              {user ? null : isLogin ? (
+                <NavLink
+                  to="/register"
+                  className={({ isActive }) =>
+                    `font-bold ${
+                      isActive
+                        ? "text-secondary"
+                        : `${
+                            navBg.includes("bg-transparent")
+                              ? "text-white"
+                              : "text-white dark:text-white"
+                          }`
+                    }  bg-secondary font-bold px-6 py-2 rounded-xl`
+                  }
+                >
+                  Register
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    `font-bold ${
+                      isActive
+                        ? "text-secondary"
+                        : `${
+                            navBg.includes("bg-transparent")
+                              ? "text-secondary"
+                              : "text-secondary dark:text-white"
+                          }`
+                    } hover:text-white hover:bg-secondary duration-300 
+                    border border-secondary px-8 py-2 rounded-xl`
+                  }
+                >
+                  Login
+                </NavLink>
+              )}
+
+              {user && (
+                <img
+                  src={photoUrl}
+                  alt="foto profile"
+                  className="h-[40px] rounded-full w-[40px]"
+                />
+              )}
+
+              {user && (
+                <NavLink
+                  onClick={handleLogout}
+                  className={
+                    "font-bold px-6 py-2 bg-secondary text-white rounded-xl"
+                  }
+                >
+                  Log Out
+                </NavLink>
+              )}
+
+              {/* COLOR TOGGLE */}
+              <ThemeProvider theme={theme}>
+                <div className="flex flex-col justify-center items-center">
+                  <Switch onChange={() => setIsDarkMode(!isDarkMode)} />
+                  <h1 className="text-[8px]">Light/Dark</h1>
+                </div>
+              </ThemeProvider>
             </div>
           </div>
         </div>

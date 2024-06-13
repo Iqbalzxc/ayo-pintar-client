@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import Card from "./Card";
 
-
-// POPULAR CLASS 
+// POPULAR CLASS
 const PopularClasses = () => {
   const axiosFetch = useAxiosFetch();
   const [classes, setClasses] = useState([]);
@@ -20,7 +19,7 @@ const PopularClasses = () => {
   // console.log(classes);
   return (
     <div className="md:w-[80] mx-auto my-36">
-      <h1 className="text-5xl font-bold text-center">
+      <h1 className="text-5xl font-bold text-center dark:text-white">
         <span className="text-secondary">Kelas/Pelajaran</span> Paling Diminati
       </h1>
       <div className="w-[40%] text-center mx-auto my-4">

@@ -6,7 +6,9 @@ const Gallery = () => {
   return (
     <div className="md:w-[80%] mx-auto my-28">
       <div className="md:w-[80%] mx-auto my-28">
-        <h1 className="text-5xl font-bold text-center">Pembelajaran</h1>
+        <h1 className="text-5xl font-bold text-center dark:text-white">
+          Pembelajaran
+        </h1>
       </div>
 
       {/* Image container */}
