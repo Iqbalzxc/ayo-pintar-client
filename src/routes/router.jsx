@@ -19,6 +19,7 @@ import Blog from "../pages/Blog/Blog";
 import FaqPage from "../pages/FaqPage/FaqPage";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
 import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
+import MyClasses from "../pages/Dashboard/Tutor/MyClasses";
 
 export const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
       {
         path: "add-classes",
         element: <AddClasses />
+      },
+      {
+        path: "my-classes",
+        element: <MyClasses />
       }
     ],
   },
