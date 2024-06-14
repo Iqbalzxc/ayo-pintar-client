@@ -20,6 +20,8 @@ import FaqPage from "../pages/FaqPage/FaqPage";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
 import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
 import MyClasses from "../pages/Dashboard/Tutor/MyClasses";
+import PendingClass from "../pages/Dashboard/Tutor/PendingClass";
+import ApprovedClass from "../pages/Dashboard/Tutor/ApprovedClass";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +116,14 @@ export const router = createBrowserRouter([
       {
         path: "my-classes",
         element: <MyClasses />
+      },
+      {
+        path: "my-pending",
+        element: <PendingClass />
+      },
+      {
+        path: "my-approved",
+        element: <ApprovedClass />
       }
     ],
   },
