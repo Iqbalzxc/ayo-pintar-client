@@ -22,6 +22,7 @@ import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
 import MyClasses from "../pages/Dashboard/Tutor/MyClasses";
 import PendingClass from "../pages/Dashboard/Tutor/PendingClass";
 import ApprovedClass from "../pages/Dashboard/Tutor/ApprovedClass";
+import BlogPage from "../pages/Blog/BlogPage";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "blog/:id",
+        element: <BlogPage/>
       },
       {
         path: "faq",
