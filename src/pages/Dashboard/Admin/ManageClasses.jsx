@@ -13,6 +13,8 @@ const ManageClasses = () => {
   const [classes, setClasses] = useState([]);
   const [page, setPage] = useState(1);
   const [paginatedData, setPaginatedData] = useState([]);
+  const [feedbackClass, setFeedbackClass] = useState(null);
+  const [reason, setReason] = useState('');
   const itemPerPage = 5;
   const totalPage = Math.ceil(classes.length / itemPerPage);
 
@@ -47,6 +49,8 @@ const ManageClasses = () => {
         title: 'Apakah kamu yakin?',
         text: 'Anda akan menolak kelas ini!',
         icon: 'warning',
+        input: 'text',
+        inputPlaceholder: 'Berikan alasan penolakan...',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -54,17 +58,36 @@ const ManageClasses = () => {
       });
 
       if (result.isConfirmed) {
-        const res = await axiosSecure.patch(`/change-status/${id}`, { status: 'rejected' });
+        const res = await axiosSecure.patch(`/change-status/${id}`, { status: 'rejected', reason: result.value });
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             title: 'Tolak saja',
             text: 'Berhasil ditolak',
             icon: 'success',
           });
-          const updateClasses = classes.map(cls => cls._id === id ? { ...cls, status: 'rejected' } : cls);
+          const updateClasses = classes.map(cls => cls._id === id ? { ...cls, status: 'rejected', reason: result.value } : cls);
           setClasses(updateClasses);
           console.log(res.data);
         }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleFeedback = (cls) => {
+    setFeedbackClass(cls);
+    setReason(cls.reason || '');
+  };
+
+  const handleSaveFeedback = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axiosSecure.patch(`/change-status/${feedbackClass._id}`, { status: feedbackClass.status, reason });
+      if (res.data.modifiedCount > 0) {
+        setClasses(classes.map(cls => cls._id === feedbackClass._id ? { ...cls, reason } : cls));
+        setFeedbackClass(null);
+        Swal.fire('Umpan Balik Disimpan!', 'Umpan balik telah disimpan.', 'success');
       }
     } catch (err) {
       console.log(err);
@@ -115,9 +138,13 @@ const ManageClasses = () => {
                           </td>
                           <td className="whitespace-nowrap px-6 py-4">
                             <div className="flex gap-2">
-                              <button onClick={() => handleApprove(cls._id)} className="text-[12px] cursor-pointer disabled:bg-green-700 bg-green-500 py-1 rounded-md px-2 text-white">Setujui</button>
-                              <button disabled={cls.status === "approved" || cls.status === "checking"} onClick={() => handleReject(cls._id)} className="cursor-pointer disabled:bg-red-800 bg-red-600 py-1 rounded-md px-2 text-white">Tolak</button>
-                              <button disabled={cls.status === 'rejected' || cls.status === 'checking'} onClick={() => handleReject(cls._id)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white">Umpan Balik</button>
+                              <button onClick={() => handleApprove(cls._id)} className="text-[12px] cursor-pointer disabled:bg-green-700 bg-green-500 py-1 rounded-md px-2 text-white" disabled={cls.status === 'approved'}>
+                                Setujui
+                              </button>
+                              <button onClick={() => handleReject(cls._id)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white"> Tolak </button>
+                              <button onClick={() => handleFeedback(cls)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white">
+                                Umpan Balik
+                              </button>
                             </div>
                           </td>
                         </tr>
@@ -133,6 +160,30 @@ const ManageClasses = () => {
       <Stack spacing={2} className="flex justify-center mt-4">
         <Pagination count={totalPage} page={page} onChange={handlePageChange} color="primary" />
       </Stack>
+
+      {feedbackClass && (
+        <div className='fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center'>
+          <div className='bg-white p-4 rounded-lg shadow-lg w-full max-w-xl'>
+            <h2 className='text-2xl mb-2'>Umpan Balik untuk {feedbackClass.name}</h2>
+            <form onSubmit={handleSaveFeedback}>
+              <div className='mb-4'>
+                <label className='block mb-1'>Alasan / Umpan Balik</label>
+                <textarea
+                  name='reason'
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                  className='border p-2 w-full'
+                  rows='4'
+                />
+              </div>
+              <div className='flex justify-between mt-4'>
+                <button type='submit' className='bg-green-500 text-white py-1 px-3 rounded'>Save</button>
+                <button type='button' onClick={() => setFeedbackClass(null)} className='bg-gray-500 text-white py-1 px-3 rounded'>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
