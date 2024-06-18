@@ -90,61 +90,62 @@ const ManageUsers = () => {
 
       {editingUser && (
         <div className='fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center'>
-          <div className='bg-white p-5 rounded-lg shadow-lg w-full max-w-3xl'>
-            <h2 className='text-2xl mb-4'>Edit Pengguna</h2>
+          <div className='bg-white p-4 rounded-lg shadow-lg w-full max-w-xl'>
+            <h2 className='text-2xl mb-2'>Edit Pengguna</h2>
             <form onSubmit={handleSaveUpdate}>
-              <div className='grid grid-cols-2 gap-4'>
-                <div className='mb-4'>
+              <div className='grid grid-cols-2 gap-2'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Nama</label>
-                  <input type='text' name='name' value={editingUser.name} onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='name' value={editingUser.name} onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Email</label>
-                  <input type='email' name='email' value={editingUser.email} onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })} className='border p-2 w-full' />
+                  <input type='email' name='email' value={editingUser.email} onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Role</label>
-                  <select name='role' value={editingUser.role} onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })} className='border p-2 w-full'>
+                  <select name='role' value={editingUser.role} onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })} className='border p-1 w-full'>
                     <option value='admin'>Admin</option>
                     <option value='user'>User</option>
+                    <option value='tutor'>Tutor</option>
                   </select>
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Gender</label>
-                  <input type='text' name='gender' value={editingUser.gender} onChange={(e) => setEditingUser({ ...editingUser, gender: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='gender' value={editingUser.gender} onChange={(e) => setEditingUser({ ...editingUser, gender: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Address</label>
-                  <input type='text' name='address' value={editingUser.address} onChange={(e) => setEditingUser({ ...editingUser, address: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='address' value={editingUser.address} onChange={(e) => setEditingUser({ ...editingUser, address: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Phone</label>
-                  <input type='text' name='phone' value={editingUser.phone} onChange={(e) => setEditingUser({ ...editingUser, phone: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='phone' value={editingUser.phone} onChange={(e) => setEditingUser({ ...editingUser, phone: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Photo URL</label>
-                  <input type='text' name='photoUrl' value={editingUser.photoUrl} onChange={(e) => setEditingUser({ ...editingUser, photoUrl: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='photoUrl' value={editingUser.photoUrl} onChange={(e) => setEditingUser({ ...editingUser, photoUrl: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>About</label>
-                  <input type='text' name='about' value={editingUser.about} onChange={(e) => setEditingUser({ ...editingUser, about: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='about' value={editingUser.about} onChange={(e) => setEditingUser({ ...editingUser, about: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Title</label>
-                  <input type='text' name='title' value={editingUser.title} onChange={(e) => setEditingUser({ ...editingUser, title: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='title' value={editingUser.title} onChange={(e) => setEditingUser({ ...editingUser, title: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>University</label>
-                  <input type='text' name='university' value={editingUser.university} onChange={(e) => setEditingUser({ ...editingUser, university: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='university' value={editingUser.university} onChange={(e) => setEditingUser({ ...editingUser, university: e.target.value })} className='border p-1 w-full' />
                 </div>
-                <div className='mb-4'>
+                <div className='mb-2'>
                   <label className='block mb-1'>Skills</label>
-                  <input type='text' name='skills' value={editingUser.skills} onChange={(e) => setEditingUser({ ...editingUser, skills: e.target.value })} className='border p-2 w-full' />
+                  <input type='text' name='skills' value={editingUser.skills} onChange={(e) => setEditingUser({ ...editingUser, skills: e.target.value })} className='border p-1 w-full' />
                 </div>
               </div>
               <div className='flex justify-between mt-4'>
-                <button type='submit' className='bg-green-500 text-white py-1 px-4 rounded'>Save</button>
-                <button type='button' onClick={() => setEditingUser(null)} className='bg-gray-500 text-white py-1 px-4 rounded'>Cancel</button>
+                <button type='submit' className='bg-green-500 text-white py-1 px-3 rounded'>Save</button>
+                <button type='button' onClick={() => setEditingUser(null)} className='bg-gray-500 text-white py-1 px-3 rounded'>Cancel</button>
               </div>
             </form>
           </div>
