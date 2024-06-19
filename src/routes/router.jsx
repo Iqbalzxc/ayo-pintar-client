@@ -25,6 +25,7 @@ import ApprovedClass from "../pages/Dashboard/Tutor/ApprovedClass";
 import AdminHome from "../pages/Dashboard/Admin/AdminHome";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import ManageTutor from "../pages/Dashboard/Admin/ManageTutor";
 
 export const router = createBrowserRouter([
   {
@@ -141,6 +142,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-users",
         element: <ManageUsers />
+      },
+      {
+        path: "manage-tutor",
+        element: <ManageTutor />
       }
     ],
   },

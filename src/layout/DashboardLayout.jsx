@@ -26,17 +26,17 @@ const adminNavItems = [
   {
     to: "/dashboard/manage-users",
     icon: <FaUsers className="text-2xl" />,
-    label: "Manage Pengguna",
+    label: "Kelola Pengguna",
   },
   {
     to: "/dashboard/manage-class",
     icon: <BsFillPostcardFill className="text-2xl" />,
-    label: "Manage Kelas",
+    label: "Kelola Kelas",
   },
   {
-    to: "/dashboard/manage-applications",
+    to: "/dashboard/manage-tutor",
     icon: <TbBrandAppleArcade className="text-2xl" />,
-    label: "Manage Aplikasi",
+    label: "Kelola Tutor",
   },
 ];
 
