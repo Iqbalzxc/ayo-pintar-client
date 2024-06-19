@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoChevronUp, GoChevronDown } from "react-icons/go";
+import { Link } from "react-router-dom"; 
 
 const faq = [
   {
@@ -44,20 +45,6 @@ const faq = [
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   },
-  {
-    id: 7,
-    eventKey: 6,
-    question: "Apakah Saya Boleh Mendownload Videonya?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 8,
-    eventKey: 7,
-    question: "Apakah boleh ganti Kelas ketika sudah Membeli?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
 ];
 
 const Faq = () => {
@@ -75,7 +62,7 @@ const Faq = () => {
       <div className="w-[40%] text-center mx-auto my-4">
         <p className="text-gray-500">Pertanyaan yang sering diajukan</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-5 mb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-5 mb-10">
         {faq.map((data) => (
           <div key={data.id}>
             <div
@@ -100,6 +87,13 @@ const Faq = () => {
             )}
           </div>
         ))}
+      </div>
+      <div className="w-full text-center mt-8">
+        <Link to="/faq">
+          <button className="bg-secondary text-white py-2 px-5 rounded-full shadow-md transition duration-300 transform hover:bg-red-500">
+            Lihat Selengkapnya
+          </button>
+        </Link>
       </div>
     </div>
   );
