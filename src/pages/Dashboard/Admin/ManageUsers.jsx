@@ -10,6 +10,10 @@ const ManageUsers = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
+  const [image, setImage] = useState(null);
+
+  const KEY = import.meta.env.VITE_IMG_TOKEN;
+  const API_URL = `https://api.imgbb.com/1/upload?key=${KEY}&name=`;
 
   useEffect(() => {
     axiosFetch.get("/users")
@@ -44,22 +48,37 @@ const ManageUsers = () => {
     setEditingUser(user);
   };
 
-  const handleSaveUpdate = (e) => {
+  const handleSaveUpdate = async (e) => {
     e.preventDefault();
-    const updatedUser = {
-      ...editingUser,
-      [e.target.name]: e.target.value,
-    };
+    
+    let updatedUser = { ...editingUser };
+    
+    if (image) {
+      const formData = new FormData();
+      formData.append('image', image);
+      const res = await fetch(`${API_URL}${image.name}`, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+      updatedUser.photoUrl = data.data.url;
+    }
 
     axiosSecure.put(`/update-user/${editingUser._id}`, updatedUser)
       .then(res => {
         if (res.data.modifiedCount > 0) {
           setUsers(users.map(user => user._id === editingUser._id ? updatedUser : user));
           setEditingUser(null);
+          setImage(null);
           Swal.fire('Updated!', 'Pengguna telah diperbarui.', 'success');
         }
       })
       .catch(err => console.log(err));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   const getPhotoURL = (user) => {
@@ -124,7 +143,7 @@ const ManageUsers = () => {
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>Photo URL</label>
-                  <input type='text' name='photoUrl' value={editingUser.photoUrl} onChange={(e) => setEditingUser({ ...editingUser, photoUrl: e.target.value })} className='border p-1 w-full' />
+                  <input type='file' required name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>About</label>
