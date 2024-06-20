@@ -131,7 +131,7 @@ const CheckoutPayment = ({ price, cartItm }) => {
     <>
       <div className="text-center">
         <h1 className="text-2xl font-bold">
-          Jumlah Pembayaran : <span className="text-secondary">{price}</span>
+          Jumlah Pembayaran : <span className="text-secondary">Rp{price.toLocaleString('id-ID')}</span>
         </h1>
       </div>
       <form onSubmit={handleSubmit}>
