@@ -90,10 +90,10 @@ const Testimonial = () => {
       </div>
 
       <Swiper
-      style={{
-        "--swiper-navigation-color": "#F97777",
-        "--swiper-pagination-color": "#F97777",
-      }}
+        style={{
+          "--swiper-navigation-color": "#F97777",
+          "--swiper-pagination-color": "#F97777",
+        }}
         slidesPerView={1}
         spaceBetween={8}
         pagination={{ clickable: true }}
@@ -111,7 +111,7 @@ const Testimonial = () => {
         {testimonialData.map((testimonial) => (
           <SwiperSlide
             key={testimonial.id}
-            className="shadow-md bg-gray-100 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
+            className="shadow-md bg-slate-50 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
           >
             <div className="rounded-lg p-5 mb-2">
               <div className="h-52 pr-5 overflow-y-auto mt-2 ">

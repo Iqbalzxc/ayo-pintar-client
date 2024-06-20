@@ -5,7 +5,9 @@ import PopularClasses from "./PopularClasses/PopularClasses";
 import PopularTutor from "./PopularTutor/PopularTutor";
 import useAuth from "../../hooks/useAuth";
 import Testimonial from "./Testimonial/Testimonial";
-import Faq from "./Faq/FaqPage";
+import Faq from "./Faq/Faq";
+import AboutUs from "./AboutUs/AboutUs";
+import OurTeam from "./OurTeam/OurTeam";
 
 // HOME
 const Home = () => {
@@ -21,6 +23,8 @@ const Home = () => {
         <PopularTutor />
         <Testimonial />
         <Faq />
+        <AboutUs />
+        <OurTeam />
       </div>
     </section>
   );

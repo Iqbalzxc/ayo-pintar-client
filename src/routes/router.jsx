@@ -26,6 +26,7 @@ import AdminHome from "../pages/Dashboard/Admin/AdminHome";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
 import ManageTutor from "../pages/Dashboard/Admin/ManageTutor";
+import BlogPage from "../pages/Blog/BlogPage";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "blog/:id",
+        element: <BlogPage/>
       },
       {
         path: "faq",

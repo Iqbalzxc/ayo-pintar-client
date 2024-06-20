@@ -98,7 +98,7 @@ const ManageUsers = () => {
                 <p className="flex-1 mx-2">{user.email}</p>
                 <p className="flex-1 mx-2">{user.role}</p>
                 <button onClick={() => handleUpdate(user)} className='bg-blue-500 text-white py-1 px-2 rounded'>Edit</button>
-                <button onClick={() => handleDelete(user._id)} className='bg-red-500 text-white py-1 px-2 rounded'>Delete</button>
+                <button onClick={() => handleDelete(user._id)} className='bg-red-500 text-white py-1 px-2 rounded'>Hapus</button>
               </div>
             ))}
           </div>
@@ -130,35 +130,35 @@ const ManageUsers = () => {
                   </select>
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Gender</label>
+                  <label className='block mb-1'>Jenis Kelamin</label>
                   <input type='text' name='gender' value={editingUser.gender} onChange={(e) => setEditingUser({ ...editingUser, gender: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Address</label>
+                  <label className='block mb-1'>Alamat</label>
                   <input type='text' name='address' value={editingUser.address} onChange={(e) => setEditingUser({ ...editingUser, address: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Phone</label>
+                  <label className='block mb-1'>Nomor HP</label>
                   <input type='text' name='phone' value={editingUser.phone} onChange={(e) => setEditingUser({ ...editingUser, phone: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Photo URL</label>
+                  <label className='block mb-1'>Unggah Foto</label>
                   <input type='file' required name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>About</label>
+                  <label className='block mb-1'>Deskripsikan Diri Anda</label>
                   <input type='text' name='about' value={editingUser.about} onChange={(e) => setEditingUser({ ...editingUser, about: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Title</label>
+                  <label className='block mb-1'>Gelar</label>
                   <input type='text' name='title' value={editingUser.title} onChange={(e) => setEditingUser({ ...editingUser, title: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>University</label>
+                  <label className='block mb-1'>Universitas</label>
                   <input type='text' name='university' value={editingUser.university} onChange={(e) => setEditingUser({ ...editingUser, university: e.target.value })} className='border p-1 w-full' />
                 </div>
                 <div className='mb-2'>
-                  <label className='block mb-1'>Skills</label>
+                  <label className='block mb-1'>Keahlian</label>
                   <input type='text' name='skills' value={editingUser.skills} onChange={(e) => setEditingUser({ ...editingUser, skills: e.target.value })} className='border p-1 w-full' />
                 </div>
               </div>
