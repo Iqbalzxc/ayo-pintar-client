@@ -89,7 +89,7 @@ const SelectedClass = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="flex h-screen items-center justify-center">Loading...</div>;
   }
 
   return (

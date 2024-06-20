@@ -24,9 +24,9 @@ const EnrolledClasses = () => {
 
   return (
     <div>
-      <h1 className="text-2xl my-6">Kelas Saya</h1>
+      <h1 className="text-4xl my-6 text-center font-bold">Kelas <span className="text-secondary">Saya</span></h1>
       {data.length === 0 ? (
-        <p>No enrolled classes found.</p>
+        <p className="text-center">Tidak ada kelas yang diikuti</p>
       ) : (
         <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6">
           {data.map((item, index) => (

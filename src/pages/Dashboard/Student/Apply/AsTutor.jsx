@@ -42,7 +42,7 @@ const AsTutor = () => {
   }, [currentUser, axiosFetch]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="flex h-screen items-center justify-center">Loading...</p>;
   }
 
   return (
