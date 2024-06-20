@@ -19,7 +19,7 @@ const AdminHome = () => {
   return (
     <div>
       <div>
-        <h1 className="text-4xl font-bold my-7">
+        <h1 className="text-4xl font-bold my-7 text-center">
           Selamat Datang,{" "}
           <span className="text-secondary">{currentUser?.name}</span>
         </h1>
