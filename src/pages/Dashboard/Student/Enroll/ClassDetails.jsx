@@ -12,11 +12,11 @@ const ClassDetails = () => {
     if (id) {
       axiosSecure.get(`/class/${id}`)
         .then((res) => {
-          console.log("Response from server:", res.data); 
+          console.log("Response from server:", res.data);
           setData(res.data);
         })
         .catch((err) => {
-          console.error("Error fetching class details:", err); 
+          console.error("Error fetching class details:", err);
         });
     }
   }, [id, axiosSecure]);
@@ -24,6 +24,10 @@ const ClassDetails = () => {
   if (!data) {
     return <p className="flex h-screen items-center justify-center">Loading...</p>;
   }
+
+  const groupWaLink = data.groupWaLink.startsWith('http')
+    ? data.groupWaLink
+    : `https://${data.groupWaLink}`;
 
   return (
     <div className="container mx-auto my-12 p-6 max-w-4xl bg-white shadow-lg rounded-lg">
@@ -33,7 +37,7 @@ const ClassDetails = () => {
       <p className="text-lg text-gray-700 mb-6 leading-relaxed">{data.description}</p>
       <p className="text-lg font-semibold mb-4 text-gray-900">Klik dibawah untuk bergabung ke grup pembelajaran😉</p>
       <a
-        href={data.groupWaLink}
+        href={groupWaLink}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block bg-secondary text-white text-center font-bold py-3 px-5 rounded-lg transition-transform transform hover:scale-105 shadow-lg"
