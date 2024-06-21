@@ -43,7 +43,8 @@ const EnrolledClasses = () => {
                 </div>
                 <div className="flex flex-col w-full mt-4">
                   <p className="font-bold text-gray-500 mb-2">{`Rp${item.classes.price.toLocaleString('id-ID')}`}</p>
-                  <Link to={`/dashboard/class-details`}>
+                  {/* <Link to={`/dashboard/class-details`}> */}
+                  <Link to={`/dashboard/class-details?id=${item.classes._id}`}>
                     <button className="bg-secondary font-bold rounded-xl text-white px-3 py-1 shadow-md">Lihat</button>
                   </Link>
                 </div>

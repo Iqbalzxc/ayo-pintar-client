@@ -57,9 +57,8 @@ const MyPaymentHistory = () => {
   return (
     <div>
       <div className="text-center mt-6 mb-16">
-        <p className="text-gray-400">Hai, <span className="text-secondary font-bold">{currentUser.name}</span> Selamat datang...!</p>
         <h1 className="text-4xl font-bold">Riwayat <span className="text-secondary">Pembayaranku</span></h1>
-        <p className="text-gray-500 text-sm my-3">Kamu bisa melihat riwayat pembayaranmu disini</p>
+        <p className="text-gray-500 text-sm my-3">Hai, <span className="text-secondary font-bold">{currentUser.name}</span> kamu bisa melihat riwayat pembayaran disini</p>
       </div>
 
       {/* TABEL */}
