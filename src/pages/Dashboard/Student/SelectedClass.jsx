@@ -102,7 +102,7 @@ const SelectedClass = () => {
 
       <div className="h-screen py-8">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-4">Keranjang: </h2>
+          <h2 className="text-2xl font-semibold mb-4">Keranjang : </h2>
           <div className="flex flex-col md:flex-row gap-4">
 
 
@@ -112,7 +112,7 @@ const SelectedClass = () => {
                 <table className="w-full">
                   <thead>
                     <tr>
-                      <th className="text-left font-semibold">#</th>
+                      <th className="text-left font-semibold">No.</th>
                       <th className="text-left font-semibold">Nama Kelas</th>
                       <th className="text-left font-semibold">Harga</th>
                       <th className="text-left font-semibold">Tanggal</th>
