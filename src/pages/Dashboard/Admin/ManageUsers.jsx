@@ -52,7 +52,7 @@ const ManageUsers = () => {
     e.preventDefault();
     
     let updatedUser = { ...editingUser };
-    
+
     if (image) {
       const formData = new FormData();
       formData.append('image', image);
@@ -70,7 +70,7 @@ const ManageUsers = () => {
           setUsers(users.map(user => user._id === editingUser._id ? updatedUser : user));
           setEditingUser(null);
           setImage(null);
-          Swal.fire('Updated!', 'Pengguna telah diperbarui.', 'success');
+          Swal.fire('Update!', 'Pengguna telah diperbarui.', 'success');
         }
       })
       .catch(err => console.log(err));
@@ -78,11 +78,19 @@ const ManageUsers = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);
+    if (file.size > 5 * 1024 * 1024) { // Check apakah 5 mb
+      Swal.fire({
+        icon: 'error',
+        title: 'Ukuran file terlalu besar',
+        text: 'Ukuran file tidak boleh melebihi 5 MB',
+      });
+    } else {
+      setImage(file);
+    }
   };
 
   const getPhotoURL = (user) => {
-    return user.photoURL || user.photoUrl || 'https://via.placeholder.com/150'; // Placeholder image URL
+    return user.photoURL || user.photoUrl || 'https://via.placeholder.com/150'; // Placeholder image 
   };
 
   return (
@@ -143,7 +151,7 @@ const ManageUsers = () => {
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>Unggah Foto</label>
-                  <input type='file' required name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
+                  <input type='file' name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>Deskripsikan Diri Anda</label>
