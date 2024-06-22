@@ -195,14 +195,20 @@ const BlogPage = () => {
           "--swiper-pagination-color": "#F97777",
         }}
         spaceBetween={10}
-        slidesPerView={3}
+        slidesPerView={1}
         pagination={{ clickable: true }}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 3 },
+          1200: { slidesPerView: 3 },
+        }}
         className="mySwiper"
       >
         {recommendedArticles.map((article) => (
           <SwiperSlide key={article.id}>
             <Link key={article.id} to={`/blog/${article.id}`} className="block">
-              <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-neutral-800 mx-auto hover:shadow-xl mb-10">
+              <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-zinc-900 mx-auto hover:shadow-xl mb-10">
                 <div className="relative overflow-hidden h-40">
                   <img
                     className="w-full h-full object-cover object-center absolute top-0 left-0"

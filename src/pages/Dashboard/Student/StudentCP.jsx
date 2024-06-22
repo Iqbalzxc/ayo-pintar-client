@@ -33,13 +33,13 @@ const StudentCP = () => {
             <h2 className="font-bold">
               Kamu dapat mengakses halaman dari sini
             </h2>
-            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1 flex-wrap">
+            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1 flex-wrap mb-1">
               <Link to="/dashboard/enrolled-class">Kelas Saya</Link>
             </div>
-            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1">
+            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1 mb-1">
               <Link to="/dashboard/my-selected">Pilihan Saya</Link>
             </div>
-            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1">
+            <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1 mb-1">
               <Link to="/dashboard/my-payments">Riwayat Pembayaran</Link>
             </div>
             <div className="border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-2 py-1">

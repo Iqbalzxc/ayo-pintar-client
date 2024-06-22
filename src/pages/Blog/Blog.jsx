@@ -68,7 +68,7 @@ const Blog = () => {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-16 mt-10">
         {blog.map((article) => (
           <Link key={article.id} to={`/blog/${article.id}`} className="block">
             <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white dark:bg-neutral-800 mx-auto transition duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
@@ -85,8 +85,8 @@ const Blog = () => {
                   <span className="text-sm text-gray-400">{article.date}</span>
                 </div>
                 <div className="font-bold text-lg dark:text-white">
-                  {article.title.length > 60
-                    ? `${article.title.substring(0, 60)}...`
+                  {article.title.length > 50
+                    ? `${article.title.substring(0, 50)}...`
                     : article.title}
                 </div>
               </div>
