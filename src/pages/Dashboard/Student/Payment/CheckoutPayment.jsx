@@ -91,7 +91,7 @@ const CheckoutPayment = ({ price, cartItm }) => {
           res.updatedResult.modifiedCount > 0
         ) {
           setSucceeded("Pembayaran berhasil, kamu dapat mengakses kelas ini");
-          navigate("/dashboard/my-classes"); 
+          navigate("/dashboard/user/payment"); 
         } else {
           setSucceeded("Pembayaran gagal, silakan coba lagi");
         }
