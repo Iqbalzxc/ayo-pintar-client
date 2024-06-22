@@ -4,6 +4,7 @@ import useUser from "../../hooks/useUser";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { DialogActions } from "@mui/material";
+import { AiOutlineCheck } from "react-icons/ai";
 import {
   FaBook,
   FaLanguage,
@@ -93,9 +94,9 @@ const SingleClass = () => {
           </div>
         </div>
 
-        <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-100 shadow-md rounded-lg">
+        <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-100 dark:bg-neutral-700 shadow-md rounded-lg">
           <div className="container mx-auto">
-            <div className="grid grid-cols-12 gap-6 md:gap-8">
+            <div className="grid grid-cols-12 gap-6 md:gap-8px">
               {/* THIS LEFT */}
               <div className="lg:col-span-8 col-span-12">
                 <div className="single-course-details">
@@ -124,7 +125,7 @@ const SingleClass = () => {
                       <div className="flex-1">
                         <p className="text-secondary">
                           Tutor
-                          <a href="#" className="text-black">
+                          <a href="#" className="text-black dark:text-white">
                             : {classes.tutorName}
                           </a>
                         </p>
@@ -133,7 +134,7 @@ const SingleClass = () => {
                     <div>
                       <span className="text-secondary">
                         Update terakhir:
-                        <a href="#" className="text-black ml-1">
+                        <a href="#" className="text-black dark:text-white ml-1">
                           {new Date(classes.submitted).toLocaleDateString()}
                         </a>
                       </span>
@@ -171,22 +172,20 @@ const SingleClass = () => {
                             <h4 className="text-2xl">Apa yang kamu pelajari</h4>
                             <ul className="grid sm:grid-cols-2 grid-cols-1 gap-6">
                               <li className="flex space-x-3">
-                                <div className="flex-none relative top-1">
-                                  <img src="/correct-mark.png" alt="" />
+                                <div className="text-xl flex-none relative top-1 text-green-500">
+                                  <AiOutlineCheck />
                                 </div>
                                 <div className="flex-1">Bagaimana belajar</div>
                               </li>
-
                               <li className="flex space-x-3">
-                                <div className="flex-none relative top-1">
-                                  <img src="/correct-mark.png" alt="" />
+                                <div className="text-xl flex-none relative top-1 text-green-500">
+                                  <AiOutlineCheck />
                                 </div>
                                 <div className="flex-1">Bagaimana belajar</div>
                               </li>
-
                               <li className="flex space-x-3">
-                                <div className="flex-none relative top-1">
-                                  <img src="/correct-mark.png" alt="" />
+                                <div className="text-xl flex-none relative top-1 text-green-500">
+                                  <AiOutlineCheck />
                                 </div>
                                 <div className="flex-1">Bagaimana belajar</div>
                               </li>
@@ -196,38 +195,38 @@ const SingleClass = () => {
                           <div>
                             <h4 className="text-2xl">Apa yang kamu pelajari</h4>
                             <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-5">
-                              <div className="bg-white rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
+                              <div className="bg-white dark:bg-zinc-800 rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
                                 <span className="flex-none">
                                   <img src="/logo.png" alt="logo.jpg" />
                                 </span>
-                                <span className="flex-1 text-black">
+                                <span className="flex-1 text-black dark:text-white">
                                   Pelajari bidang 1
                                 </span>
                               </div>
 
-                              <div className="bg-white rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
+                              <div className="bg-white dark:bg-zinc-800 rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
                                 <span className="flex-none">
                                   <img src="/logo.png" alt="logo.jpg" />
                                 </span>
-                                <span className="flex-1 text-black">
+                                <span className="flex-1 text-black dark:text-white">
                                   Pelajari bidang 2
                                 </span>
                               </div>
 
-                              <div className="bg-white rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
+                              <div className="bg-white dark:bg-zinc-800 rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
                                 <span className="flex-none">
                                   <img src="/logo.png" alt="logo.jpg" />
                                 </span>
-                                <span className="flex-1 text-black">
+                                <span className="flex-1 text-black dark:text-white">
                                   Pelajari bidang 2
                                 </span>
                               </div>
 
-                              <div className="bg-white rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
+                              <div className="bg-white dark:bg-zinc-800 rounded px-5 py-[18px] flex shadow-box2 space-x-[10px] items-center">
                                 <span className="flex-none">
                                   <img src="/logo.png" alt="logo.jpg" />
                                 </span>
-                                <span className="flex-1 text-black">
+                                <span className="flex-1 text-black dark:text-white">
                                   Pelajari bidang 3
                                 </span>
                               </div>
@@ -273,200 +272,176 @@ const SingleClass = () => {
               </div>
 
               {/* THIS RIGHT */}
-              <div className="lg:col-span-4 col-span-12 mt-8 md:mt-0"></div>
-              <div className="sidebarWrapper space-y-[30px]">
-                <div className="widget custom-text space-y-5">
-                  <a className="h-[220px] rounded relative block" href="#">
-                    <img
-                      src={classes.image}
-                      alt=""
-                      className="block w-full h-full object-cover rounded"
-                    />
-                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <img src="/play.png" alt="" />
+              <div className="container mx-auto">
+                <div className="flex flex-wrap -mx-1">
+                  <div className="lg:col-span-8 col-span-12 mt-8 md:mt-0">
+                    <div className="space-y-8">
+                      <div className="widget custom-text space-y-5">
+                        <a
+                          href="#"
+                          className="block rounded relative overflow-hidden"
+                        >
+                          <img
+                            src={classes.image}
+                            alt=""
+                            className="max-w-sm h-full object-cover rounded"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <img src="/play.png" alt="" className="w-16 h-16" />
+                          </div>
+                        </a>
+                        <h3 className="text-xl font-bold">
+                          Rp. {classes.price}
+                        </h3>
+                        <button
+                          onClick={() => handleSelect(classes._id)}
+                          title={
+                            (role === "admin" || role === "tutor") &&
+                            classes.availableSeats < 1
+                              ? "Tutor/Admin tidak bisa memilih"
+                              : "Kamu dapat memilih kelas"
+                          }
+                          disabled={
+                            role === "admin" ||
+                            role === "tutor" ||
+                            classes.availableSeats < 1
+                          }
+                          className="btn btn-primary w-full py-2 px-6 text-white bg-secondary hover:bg-red-400"
+                        >
+                          Daftar sekarang
+                        </button>
+                        <ul className="grid gap-1 md:grid-cols-1">
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <FaUser className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Tutor :
+                              </span>
+                            </div>
+                            <span className="text-base">
+                              {classes.tutorName}
+                            </span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <FaUsers className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Siswa terdaftar:
+                              </span>
+                            </div>
+                            <span className="text-base">
+                              {classes.totalEnrolled}
+                            </span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <MdTimelapse className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Waktu:
+                              </span>
+                            </div>
+                            <span className="text-base">
+                              Menyesuaikan murid/siswa
+                            </span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <MdTimeline className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Durasi:
+                              </span>
+                            </div>
+                            <span className="text-base">
+                              1,5 Jam (2 pertemuan/minggu)
+                            </span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <FaBook className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Metode:
+                              </span>
+                            </div>
+                            <span className="text-base">offline & online</span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <FaLevelUpAlt className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Jenjang pendidikan:
+                              </span>
+                            </div>
+                            <span className="text-base">TK, SD, SMP & SMA</span>
+                          </li>
+                          <li className="flex justify-between items-center border-t border-b py-2">
+                            <div className="flex items-center space-x-3">
+                              <FaLanguage className="inline-flex text-secondary" />
+                              <span className="font-semibold text-black dark:text-white">
+                                Bahasa:
+                              </span>
+                            </div>
+                            <span className="text-base">Indonesia</span>
+                          </li>
+                        </ul>
+
+                        <div className="flex space-x-4 items-center pt-3">
+                          <span className="font-semibold">Dibagikan:</span>
+                          {[...Array(4)].map((_, index) => (
+                            <a href="#" key={index} className="flex h-10 w-10">
+                              <img
+                                src="/logo.png"
+                                alt=""
+                                className="w-full h-full object-cover rounded"
+                              />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="widget p-4 bg-white dark:bg-zinc-800 rounded shadow-md">
+                        <h4 className="widget-title text-lg font-bold mb-4">
+                          Kelas terkait
+                        </h4>
+                        <ul className="space-y-4">
+                          <li className="flex items-center space-x-4 border-b border-gray-200 pb-4">
+                            <div className="w-20 h-20 rounded overflow-hidden">
+                              <img
+                                src={bannerImg1}
+                                alt="Kelas terkait"
+                                className="w-full h-full object-cover rounded"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="font-semibold text-black">
+                                Passion di
+                              </div>
+                              <span className="text-secondary font-semibold">
+                                1.000.000
+                              </span>
+                            </div>
+                          </li>
+                          <li className="flex items-center space-x-4 border-b border-gray-200 pb-4">
+                            <div className="w-20 h-20 rounded overflow-hidden">
+                              <img
+                                src={bannerImg2}
+                                alt="Kelas terkait"
+                                className="w-full h-full object-cover rounded"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <div className="font-semibold text-black">
+                                Passion di
+                              </div>
+                              <span className="text-secondary font-semibold">
+                                1.000.000
+                              </span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </a>
-                  <h3>{classes.price}</h3>
-                  <button
-                    onClick={() => handleSelect(classes._id)}
-                    title={
-                      role === "admin" || role === "tutor"
-                        ? "Tutor/Admin tidak bisa memilih"
-                          ? classes.availableSeats < 1
-                          : "Tidak ada kelas tersedia"
-                        : "Kamu dapat memilih kelas"
-                    }
-                    disabled={
-                      role === "admin" ||
-                      role === "tutor" ||
-                      classes.availableSeats < 1
-                    }
-                    className="btn btn-primary w-full text-center bg-secondary py-2 px-6 text-white"
-                  >
-                    Daftar sekarang
-                  </button>
-                  <ul className="list">
-                    <li className="flex space-x-3 border-b border-gray-200 mb-4 pb-4 last:pb-0 last:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <FaUser className="inline-flex" />
-                        <div className="text-black font-semibold">Tutor</div>
-                      </div>
-                      <div className="flex-none">{classes.tutorName}</div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <FaUsers className="inline-flex" />
-                        <div className="text-black font-semibold">
-                          Siswa terdaftar
-                        </div>
-                      </div>
-                      <div className="flex-none">{classes.totalEnrolled}</div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <MdTimelapse className="inline-flex" />
-                        <div className="text-black font-semibold">Waktu</div>
-                      </div>
-                      <div className="flex-none">
-                        Menyesuaikan kebutuhan murid/siswa
-                      </div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <MdTimeline className="inline-flex" />
-                        <div className="text-black font-semibold">Durasi</div>
-                      </div>
-                      <div className="flex-none">
-                        1,5 Jam (2 pertemuan/minggu)
-                      </div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <FaBook className="inline-flex" />
-                        <div className="text-black font-semibold">Metode</div>
-                      </div>
-                      <div className="flex-none">
-                        Tatap muka & bisa request via online
-                      </div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <FaLevelUpAlt className="inline-flex" />
-                        <div className="text-black font-semibold">
-                          Jenjang pendidikan
-                        </div>
-                      </div>
-                      <div className="flex-none">TK, SD, SMP & SMA</div>
-                    </li>
-
-                    <li className="flex space-x-3 border-b border-[#ECECEC] mb-4 pb-4 last:pb-0 past:mb-0 last:border-0">
-                      <div className="flex-1 space-x-3 flex items-center">
-                        <FaLanguage className="inline-flex" />
-                        <div className="text-black font-semibold">Bahasa</div>
-                      </div>
-                      <div className="flex-none">Indonesia</div>
-                    </li>
-                  </ul>
-
-                  <ul className="flex space-x-4 items-center pt-3">
-                    <li className="text-black font-semibold">Dibagikan</li>
-                    <li>
-                      <a href="#" className="flex h-10 w-10">
-                        <img src="/logo.png" alt="" />
-                      </a>
-                    </li>
-
-                    <li>
-                      <a href="#" className="flex h-10 w-10">
-                        <img src="/logo.png" alt="" />
-                      </a>
-                    </li>
-
-                    <li>
-                      <a href="#" className="flex h-10 w-10">
-                        <img src="/logo.png" alt="" />
-                      </a>
-                    </li>
-
-                    <li>
-                      <a href="#" className="flex h-10 w-10">
-                        <img src="/logo.png" alt="" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="widget">
-                  <h4 className="widget-title">Kelas terkait</h4>
-                  <ul className="list">
-                    <li className="flex space-x-4 border-[#ECECEC] mb-6 pb-6 last:pb-0 last:mb-0 last:border-0 border-b">
-                      <div className="flex-none">
-                        <div className="h-20 w-20 rounded">
-                          <img
-                            src={bannerImg1}
-                            alt=""
-                            className="w-full h-full object-cover rounded"
-                          />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex space-x-3 mb-2">
-                          <iconify-icon
-                            icon="heroicons:star-20-solid"
-                            className="text-tertiary"
-                          ></iconify-icon>
-                          <iconify-icon
-                            icon="heroicons:star-20-solid"
-                            className="text-tertiary"
-                          ></iconify-icon>
-                          <iconify-icon
-                            icon="heroicons:star-20-solid"
-                            className="text-tertiary"
-                          ></iconify-icon>
-                          <iconify-icon
-                            icon="heroicons:star-20-solid"
-                            className="text-tertiary"
-                          ></iconify-icon>
-                          <iconify-icon
-                            icon="heroicons:star-20-solid"
-                            className="text-tertiary"
-                          ></iconify-icon>
-                        </div>
-                        <div className="mb-1 font-semibold text-black">
-                          Pasion di
-                        </div>
-                        <span className="text-secondary font-semibold">
-                          1.000.000
-                        </span>
-                      </div>
-                    </li>
-
-                    <li className="flex space-x-4 border-[#ECECEC] pb-6 mb-6 last:pb-0 last:mb-0 last:border-0 border-b">
-                      <div className="flex-none">
-                        <div className="h-20 w-20 rounded">
-                          <img
-                            src={bannerImg2}
-                            alt=""
-                            className="w-full h-full object-cover rounded"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="flex-1">
-                        <div className="mb-1 font-semibold text-black">
-                          Passion di
-                        </div>
-                        <span className="text-secondary font-semibold">
-                          1.000.000
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
+                  </div>
+                  <div className="lg:col-span-4 col-span-12 mt-8 md:mt-0"></div>
                 </div>
               </div>
             </div>
