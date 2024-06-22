@@ -43,9 +43,9 @@ const adminNavItems = [
     label: "Manage Kelas",
   },
   {
-    to: "/dashboard/manage-applications",
+    to: "/dashboard/manage-tutor",
     icon: <TbBrandAppleArcade className="text-2xl" />,
-    label: "Manage Aplikasi",
+    label: "Manage Tutor",
   },
 ];
 
