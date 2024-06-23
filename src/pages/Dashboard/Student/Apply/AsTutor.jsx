@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useUser from "../../../../hooks/useUser";
 import useAxiosFetch from "../../../../hooks/useAxiosFetch";
 import { FiUser, FiMail, FiBriefcase, FiSend } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 const AsTutor = () => {
   const { currentUser } = useUser();
@@ -12,20 +13,19 @@ const AsTutor = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    console.log(name)
     const email = e.target.email.value;
-    console.log(email)
     const experience = e.target.experience.value;
-    console.log(experience)
-    const data = {
-      name, email, experience
-    }
+    const data = { name, email, experience };
 
-    axiosFetch.post(`/ass-tutor`, data).then(res => {
+    axiosFetch.post(`/ass-tutor`, data).then((res) => {
       console.log(res.data);
-      alert("Berhasil daftar")
-    })
-
+      Swal.fire({
+        title: "Berhasil!",
+        text: "Anda berhasil mendaftar sebagai tutor.",
+        icon: "success",
+        confirmButtonText: "OK"
+      });
+    });
   };
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const AsTutor = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
         {!submittedData?.name ? (
           <form onSubmit={onSubmit}>
             <div className="mb-4">
@@ -104,7 +104,7 @@ const AsTutor = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="flex items-center px-4 py-2 bg-secondary text-white rounded-md focus:outline-none"
+                className="flex items-center justify-center px-4 py-2 bg-secondary text-white rounded-md focus:outline-none hover:bg-secondary-dark transition duration-200"
               >
                 <FiSend className="mr-2" />
                 Kirim
@@ -113,10 +113,23 @@ const AsTutor = () => {
           </form>
         ) : (
           <div>
-            <h2 className="text-xl font-bold">Data yang Dikirim</h2>
-            <p>Nama: {submittedData.name}</p>
-            <p>Email: {submittedData.email}</p>
-            <p>Pengalaman: {submittedData.experience}</p>
+            <h2 className="text-xl font-bold mb-4 text-center">Data yang Dikirim</h2>
+            <div className="text-left">
+              <div style={{ display: 'grid', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Nama:</span>
+                  <span style={{ textAlign: 'justify' }}>{submittedData.name}</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Email:</span>
+                  <span style={{ textAlign: 'justify' }}>{submittedData.email}</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Pengalaman:</span>
+                  <span style={{ textAlign: 'justify' }}>{submittedData.experience}</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
