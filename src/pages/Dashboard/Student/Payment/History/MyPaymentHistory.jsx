@@ -3,7 +3,6 @@ import useAxiosFetch from "../../../../../hooks/useAxiosFetch";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
 import useUser from "../../../../../hooks/useUser";
 
-
 // PAYMENTHISTORY
 const MyPaymentHistory = () => {
   const axiosFetch = useAxiosFetch();
@@ -55,44 +54,48 @@ const MyPaymentHistory = () => {
 
   // HISTORY PAYMENT
   return (
-    <div>
+    <div className="p-4">
       <div className="text-center mt-6 mb-16">
         <h1 className="text-4xl font-bold">Riwayat <span className="text-secondary">Pembayaranku</span></h1>
         <p className="text-gray-500 text-sm my-3">Hai, <span className="text-secondary font-bold">{currentUser.name}</span> kamu bisa melihat riwayat pembayaran disini</p>
       </div>
 
       {/* TABEL */}
-      <div>
-        <div>
-          <p className="font-bold text-center">Total Transaksi: {payments.length} </p>
+      <div className="overflow-x-auto">
+        <div className="mb-4">
+          <p className="font-bold text-center">Total Transaksi: {payments.length}</p>
           <p className="font-bold text-center">Total Bayar: {formatCurrency(totalPaidAmount)}</p>
         </div>
 
         <div>
-          <div>
-            <table className="mt-3">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Jumlah</th>
-                  <th>Mata Uang</th>
-                  <th>Tanggal</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
+          <table className="w-full border-secondary">
+            <thead className="bg-secondary">
+              <tr>
+                <th className="p-2 border text-white">No</th>
+                <th className="p-2 border text-white">Jumlah</th>
+                <th className="p-2 border text-white">Mata Uang</th>
+                <th className="p-2 border text-white">Tanggal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                paginatedPayments.length > 0 ? (
                   paginatedPayments.map((payment, idx) => (
-                    <tr key={idx}>
-                      <td>{idx + 1}.</td>
-                      <td className="whitespace-nowrap px-6 py-4">{formatCurrency(payment.amount)}</td>
-                      <td className="whitespace-nowrap px-6 py-4">{payment.currency}</td>
-                      <td className="whitespace-nowrap px-6 py-4">{formatDate(payment.date)}</td>
+                    <tr key={idx} className="text-center">
+                      <td className="p-2 border">{(page - 1) * itemsPerPage + idx + 1}</td>
+                      <td className="p-2 border">{formatCurrency(payment.amount)}</td>
+                      <td className="p-2 border">{payment.currency}</td>
+                      <td className="p-2 border">{formatDate(payment.date)}</td>
                     </tr>
                   ))
-                }
-              </tbody>
-            </table>
-          </div>
+                ) : (
+                  <tr>
+                    <td colSpan="4" className="p-4 text-center">Tidak ada transaksi</td>
+                  </tr>
+                )
+              }
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
