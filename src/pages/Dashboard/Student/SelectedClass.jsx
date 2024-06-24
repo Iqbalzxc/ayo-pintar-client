@@ -156,7 +156,7 @@ const SelectedClass = () => {
                   <span className="font-semibold">Total Pembayaran</span>
                   <span className="font-semibold">Rp{price.toLocaleString('id-ID')}</span>
                 </div>
-                <button disabled={price <= 0} onClick={() => navigate("/dashboard/user/payment", { state: { price: price, itemId: null } })} className="bg-secondary text-white py-2 px-4 rounded-lg mt-4 w-full">
+                <button onClick={() => navigate("/dashboard/user/payment", { state: { price: price, itemId: null } })} className="bg-secondary text-white py-2 px-4 rounded-lg mt-4 w-full">
                   Bayar disini
                 </button>
               </div>
