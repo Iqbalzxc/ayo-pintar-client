@@ -109,7 +109,7 @@ const AddClasses = () => {
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="tutorName"
               >
-                Nama Tutor
+                Nama
               </label>
               <input
                 className="w-full px-4 py-2 border border-secondary rounded-md focus:outline-none focus:ring-red-500"
@@ -127,7 +127,7 @@ const AddClasses = () => {
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="tutorEmail"
               >
-                Email Tutor
+                Email
               </label>
               <input
                 title="Kamu tidak dapat merubah email"
