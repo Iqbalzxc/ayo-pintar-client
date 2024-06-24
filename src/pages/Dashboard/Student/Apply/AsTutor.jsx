@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AsTutor = () => {
   const { currentUser } = useUser();
-  const [submittedData, setSubmittedData] = useState({});
+  const [submittedData, setSubmittedData] = useState(null);
   const [loading, setLoading] = useState(true);
   const axiosFetch = useAxiosFetch();
 
@@ -19,6 +19,7 @@ const AsTutor = () => {
 
     axiosFetch.post(`/ass-tutor`, data).then((res) => {
       console.log(res.data);
+      setSubmittedData(data);
       Swal.fire({
         title: "Berhasil!",
         text: "Anda berhasil mendaftar sebagai tutor.",
@@ -46,9 +47,9 @@ const AsTutor = () => {
   }
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto p-4">
       <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
-        {!submittedData?.name ? (
+        {!submittedData ? (
           <form onSubmit={onSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700" htmlFor="name">
@@ -90,11 +91,11 @@ const AsTutor = () => {
               <label className="block text-gray-700" htmlFor="experience">
                 Pengalaman
               </label>
-              <div className="flex items-center mt-1">
-                <FiBriefcase className="text-gray-500" />
+              <div className="flex items-start mt-1">
+                <FiBriefcase className="text-gray-500 mt-2" />
                 <textarea
                   placeholder="Ceritakan pengalaman anda..."
-                  className="ml-2 w-full border-b border-gray-300 focus:border-secondary outline-none"
+                  className="ml-2 w-full h-32 border-b border-gray-300 focus:border-secondary outline-none resize-none"
                   id="experience"
                   name="experience"
                 ></textarea>
@@ -115,18 +116,18 @@ const AsTutor = () => {
           <div>
             <h2 className="text-xl font-bold mb-4 text-center">Data yang Dikirim</h2>
             <div className="text-left">
-              <div style={{ display: 'grid', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Nama:</span>
-                  <span style={{ textAlign: 'justify' }}>{submittedData.name}</span>
+              <div className="grid gap-2">
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Nama:</span>
+                  <span className="text-justify">{submittedData.name}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Email:</span>
-                  <span style={{ textAlign: 'justify' }}>{submittedData.email}</span>
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Email:</span>
+                  <span className="text-justify">{submittedData.email}</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ minWidth: '120px', fontWeight: 'bold' }}>Pengalaman:</span>
-                  <span style={{ textAlign: 'justify' }}>{submittedData.experience}</span>
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Pengalaman:</span>
+                  <span className="text-justify">{submittedData.experience}</span>
                 </div>
               </div>
             </div>
