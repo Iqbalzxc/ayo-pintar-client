@@ -113,7 +113,7 @@ const CheckoutPayment = ({ price, cartItm }) => {
           <p className="text-lg">Transfer langsung ke rekening berikut:</p>
           <p className="font-bold text-lg">BRI 0123456789</p>
           <p className="text-lg">Atas Nama: Ayo Pintar</p>
-          <p className="text-lg mt-2">Jumlah Transfer: Rp{price.toLocaleString("id-ID")}</p>
+          <p className="text-lg mt-2">Jumlah Transfer: <span className="font-bold border border-black p-1 bg-black text-white">Rp{price.toLocaleString("id-ID")}</span></p>
           <p className="text-sm mt-2">
             Setelah melakukan transfer, unggah bukti transfer di bawah ini dan
             konfirmasi pembayaran ke{" "}
