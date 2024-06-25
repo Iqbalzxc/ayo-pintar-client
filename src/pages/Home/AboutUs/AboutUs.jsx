@@ -6,6 +6,7 @@ const AboutUs = () => {
       <h1 className="text-5xl font-bold text-center dark:text-white mb-8">
         <span className="text-secondary">Tentang</span> Kami
       </h1>
+
       <div className="w-20 mx-auto my-5 border-b-2 border-secondary"></div>
 
       <div className="my-10">
