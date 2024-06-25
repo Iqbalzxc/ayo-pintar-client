@@ -30,7 +30,7 @@ const Hero2 = () => {
             </div>
             <div className="flex flex-wrap items-center gap-5">
               <Link to="/register">
-                <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase">
+                <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase hover:bg-red-600">
                   Daftar Segera!
                 </button>
               </Link>
