@@ -31,6 +31,7 @@ const ManageClasses = () => {
     setPaginatedData(currentData);
   }, [page, classes]);
 
+  // APPROVE
   const handleApprove = async (id) => {
     try {
       const res = await axiosSecure.patch(`/change-status/${id}`, { status: 'approved' });
@@ -43,6 +44,7 @@ const ManageClasses = () => {
     }
   };
 
+  // REJECT
   const handleReject = async (id) => {
     try {
       const result = await Swal.fire({
@@ -75,6 +77,7 @@ const ManageClasses = () => {
     }
   };
 
+  // FEEDBACK
   const handleFeedback = (cls) => {
     setFeedbackClass(cls);
     setReason(cls.reason || '');
@@ -99,61 +102,57 @@ const ManageClasses = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-4xl text-secondary font-bold text-center my-10">
+    <div className="p-4">
+      <h1 className="text-2xl sm:text-4xl text-secondary font-bold text-center my-5 sm:my-10">
         Kelola <span className="text-black">Kelas</span>
       </h1>
-      <div className="">
-        <div className="flex flex-col">
-          <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-              <div className="overflow-hidden">
-                <table className="min-w-full text-left text-sm font-light">
-                  <thead className="border-b font-medium dark:border-neutral-500">
-                    <tr>
-                      <th scope="col" className="px-6 py-4">FOTO</th>
-                      <th scope="col" className="px-6 py-4">NAMA KELAS</th>
-                      <th scope="col" className="px-6 py-4">NAMA TUTOR</th>
-                      <th scope="col" className="px-6 py-4">STATUS</th>
-                      <th scope="col" className="px-6 py-4">DETAIL</th>
+      <div className="overflow-x-auto">
+        <div className="inline-block min-w-full py-2">
+          <div className="overflow-hidden">
+            <table className="min-w-full text-left text-sm font-light">
+              <thead className="border-b font-medium dark:border-neutral-500">
+                <tr>
+                  <th scope="col" className="px-6 py-4">FOTO</th>
+                  <th scope="col" className="px-6 py-4">NAMA KELAS</th>
+                  <th scope="col" className="px-6 py-4">NAMA TUTOR</th>
+                  <th scope="col" className="px-6 py-4">STATUS</th>
+                  <th scope="col" className="px-6 py-4">DETAIL</th>
+                </tr>
+              </thead>
+              <tbody>
+                {classes.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" className="text-center text-2xl font-bold">Tidak ada kelas</td>
+                  </tr>
+                ) : (
+                  paginatedData.map((cls) => (
+                    <tr key={cls._id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+                      <td className="whitespace-nowrap px-6 py-4">
+                        <img src={cls.image} className="h-[35px] w-[35px] object-cover rounded-md" alt="" />
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">{cls.name}</td>
+                      <td className="whitespace-nowrap px-6 py-4">{cls.tutorName}</td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        <span className={`font-bold ${cls.status === "pending" ? "bg-orange-400" : cls.status === "checking" ? "bg-yellow-500" : cls.status === "approved" ? "bg-green-600" : "bg-red-600"} px-2 py-1 uppercase text-white rounded-xl`}>
+                          {cls.status}
+                        </span>
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <button onClick={() => handleApprove(cls._id)} className="text-[12px] cursor-pointer disabled:bg-green-700 bg-green-500 py-1 rounded-md px-2 text-white" disabled={cls.status === 'approved'}>
+                            Setujui
+                          </button>
+                          <button onClick={() => handleReject(cls._id)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white"> Tolak </button>
+                          <button onClick={() => handleFeedback(cls)} className="cursor-pointer bg-blue-600 py-1 rounded-md px-2 text-white">
+                            Umpan Balik
+                          </button>
+                        </div>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {classes.length === 0 ? (
-                      <tr>
-                        <td colSpan="5" className="text-center text-2xl font-bold">Tidak ada kelas</td>
-                      </tr>
-                    ) : (
-                      paginatedData.map((cls) => (
-                        <tr key={cls._id} className="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <img src={cls.image} className="h-[35px] w-[35px]" alt="" />
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">{cls.name}</td>
-                          <td className="whitespace-nowrap px-6 py-4">{cls.tutorName}</td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <span className={`font-bold ${cls.status === "pending" ? "bg-orange-400" : cls.status === "checking" ? "bg-yellow-500" : cls.status === "approved" ? "bg-green-600" : "bg-red-600"} px-2 py-1 uppercase text-white rounded-xl`}>
-                              {cls.status}
-                            </span>
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4">
-                            <div className="flex gap-2">
-                              <button onClick={() => handleApprove(cls._id)} className="text-[12px] cursor-pointer disabled:bg-green-700 bg-green-500 py-1 rounded-md px-2 text-white" disabled={cls.status === 'approved'}>
-                                Setujui
-                              </button>
-                              <button onClick={() => handleReject(cls._id)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white"> Tolak </button>
-                              <button onClick={() => handleFeedback(cls)} className="cursor-pointer bg-red-600 py-1 rounded-md px-2 text-white">
-                                Umpan Balik
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+                  ))
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

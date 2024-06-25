@@ -35,7 +35,7 @@ const MyPaymentHistory = () => {
   }, [currentUser.email]);
 
   // TOTAL AMOUNT
-  const totalPaidAmount = payments.reduce((acc, curr) => acc + curr.amount, 0);
+  // const totalPaidAmount = payments.reduce((acc, curr) => acc + curr.amount, 0);
 
   if (loading) {
     return <p className="flex h-screen items-center justify-center">Loading...</p>;
@@ -63,8 +63,8 @@ const MyPaymentHistory = () => {
       {/* TABEL */}
       <div className="overflow-x-auto">
         <div className="mb-4">
-          <p className="font-bold text-center">Total Transaksi: {payments.length}</p>
-          <p className="font-bold text-center">Total Bayar: {formatCurrency(totalPaidAmount)}</p>
+          <p className="font-bold text-center">Total Transaksi Anda: {payments.length}</p>
+          {/* <p className="font-bold text-center">Total Bayar: {totalPaidAmount}</p> */}
         </div>
 
         <div>
@@ -83,7 +83,7 @@ const MyPaymentHistory = () => {
                   paginatedPayments.map((payment, idx) => (
                     <tr key={idx} className="text-center">
                       <td className="p-2 border">{(page - 1) * itemsPerPage + idx + 1}</td>
-                      <td className="p-2 border">{formatCurrency(payment.amount)}</td>
+                      <td className="p-2 border">{payment.amount}</td>
                       <td className="p-2 border">{payment.currency}</td>
                       <td className="p-2 border">{formatDate(payment.date)}</td>
                     </tr>
