@@ -15,7 +15,7 @@ const Hero = () => {
             <h1 className="md:text-7xl text-4xl font-bold">
               Bagi Putra-Putri Anda
             </h1>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 text-justify">
               <p>
                 Merupakan Bimbel & Privat terbaik di Kota & Kabupaten Cirebon
                 yang menawarkan pembelajaran terbaik dan menyenangkan untuk

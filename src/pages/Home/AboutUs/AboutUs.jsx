@@ -12,7 +12,7 @@ const AboutUs = () => {
         <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
           Sejarah
         </h2>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-600 leading-relaxed text-center">
           Ayo Pintar merupakan aplikasi di bidang pendidikan yang dibuat dengan
           tujuan sebagai platform bimbingan belajar. Berdiri pada tahun 2022 di
           Kota Cirebon, Jawa Barat, awalnya sebagai tempat bimbingan belajar
@@ -26,7 +26,7 @@ const AboutUs = () => {
         <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
           Visi
         </h2>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-600 leading-relaxed text-center">
           Menjadi platform bimbingan belajar terdepan yang memberikan akses
           pendidikan berkualitas secara online untuk meningkatkan potensi
           akademik dan pengembangan diri siswa di seluruh Indonesia.
@@ -37,7 +37,7 @@ const AboutUs = () => {
         <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
           Misi
         </h2>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-600 leading-relaxed text-center">
           Menyediakan pembelajaran yang interaktif dengan menyediakan tutor
           terbaik dan lingkungan belajar yang mendukung pembelajaran siswa.
         </p>

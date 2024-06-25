@@ -33,18 +33,11 @@ const Login = () => {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 dark:text-white">
-      <h1 className="text-2xl font-bold text-secondary sm:text-secondary sm:text-3xl text-center dark:text-white">
-        Login
-      </h1>
-      <p className="mx-auto mt-4 max-w-md text-center text-gray-500 dark:text-gray-300">
-        Selamat datang di Ayo Pintar, tempat di mana setiap langkah merupakan
-        bagian dari perjalanan menuju kesuksesan
-      </p>
 
       <div className="mx-auto max-w-lg mb-0 mt-6 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 dark:bg-zinc-800">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <p className="text-center text-red-400 text-lg font-medium dark:text-white">
-            Masuk ke akun
+          <p className="text-center text-red-400 text-lg font-mono dark:text-white">
+            Silahkan Input Email & Password
           </p>
           <div>
             <label htmlFor="email" className="sr-only">

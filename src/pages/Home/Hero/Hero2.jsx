@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bgImg from "../../../assets/home/banner-2.jpg";
+import bgImg from "../../../assets/home/banner-1.jpg";
 
 // DESIGN START HERO SECTION 2
 const Hero2 = () => {
@@ -16,7 +16,7 @@ const Hero2 = () => {
             <h1 className="md:text-7xl text-4xl font-bold">
               Bagi Putra-Putri Anda
             </h1>
-            <div className="md:w-1/2">
+            <div className="md:w-1/2 text-justify">
               <p>
                 Kami menghadirkan pengalaman pembelajaran yang terintegrasi
                 dengan teknologi untuk memaksimalkan potensi belajar setiap

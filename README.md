@@ -1,3 +1,3 @@
 # Bimbel & Privat Ayo Pintar
 
-![](src/assets/github-cover.jpg/)
+![](src/assets/home/github-cover.jpg/)

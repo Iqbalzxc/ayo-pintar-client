@@ -15,7 +15,7 @@ const layananData = [
   {
     id: 1,
     description:
-      "Di Bimbel Ayo Pintar, kami menawarkan akses ke tutor-tutor favorit yang berkualitas. Para tutor kami dipilih secara ketat berdasarkan pengalaman, keahlian, dan kemampuan untuk memberikan bimbingan yang efektif. Mereka tidak hanya menguasai mata pelajaran, tetapi juga mampu mendukung dan menginspirasi siswa dalam perjalanan belajar mereka.",
+      "Di Bimbel Ayo Pintar, kami menawarkan akses ke tutor-tutor favorit yang berkualitas. Para tutor kami dipilih secara ketat berdasarkan pengalaman & keahlian.",
     image: Layanan1,
     name: "Tutor Favorit Berkualitas",
     category: "Pendidikan",
@@ -23,15 +23,15 @@ const layananData = [
   {
     id: 2,
     description:
-      "Kami menyediakan berbagai kelas untuk setiap tingkatan pendidikan mulai dari TK, SD hingga SMA, yang dirancang untuk memenuhi kebutuhan belajar siswa secara komprehensif. Setiap kelas didesain dengan kurikulum yang terstruktur dan metode pengajaran yang inovatif, sesuai dengan perkembangan kurikulum pendidikan terbaru.",
+      "Kami menyediakan berbagai kelas untuk setiap tingkatan pendidikan mulai dari TK, SD hingga SMA, yang dirancang untuk memenuhi kebutuhan belajar siswa secara komprehensif.",
     image: Layanan2,
     name: "Beragam Kelas Berkualitas",
-    category: "Kelas",
+    category: "Smart",
   },
   {
     id: 3,
     description:
-      "Solusi teknologi kami menyediakan platform pembelajaran online yang interaktif dan mudah digunakan. Dengan fitur-fitur canggih seperti kuis interaktif dan pelacakan progres belajar, kami membantu lembaga pendidikan meningkatkan pengalaman belajar online mereka.",
+      "Solusi teknologi kami menyediakan platform pembelajaran online yang interaktif dan mudah digunakan.",
     image: Layanan3,
     name: "Platform Pembelajaran Online",
     category: "Online Learning",

@@ -101,13 +101,11 @@ const CheckoutPayment = ({ price, cartItm }) => {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 mt-24 md:mt-6">
+    <div className="max-w-lg mx-auto p-4">
       <div className="text-center">
         <h1 className="text-2xl font-bold">
           Jumlah Pembayaran :{" "}
-          <span className="text-secondary">
-            Rp{price.toLocaleString("id-ID")}
-          </span>
+          <span className="text-secondary">Rp{price.toLocaleString("id-ID")}</span>
         </h1>
       </div>
       <div className="text-center mt-4">
@@ -115,9 +113,7 @@ const CheckoutPayment = ({ price, cartItm }) => {
           <p className="text-lg">Transfer langsung ke rekening berikut:</p>
           <p className="font-bold text-lg">BRI 0123456789</p>
           <p className="text-lg">Atas Nama: Ayo Pintar</p>
-          <p className="text-lg mt-2">
-            Jumlah Transfer: Rp{price.toLocaleString("id-ID")}
-          </p>
+          <p className="text-lg mt-2">Jumlah Transfer: <span className="font-bold border border-black p-1 bg-black text-white">Rp{price.toLocaleString("id-ID")}</span></p>
           <p className="text-sm mt-2">
             Setelah melakukan transfer, unggah bukti transfer di bawah ini dan
             konfirmasi pembayaran ke{" "}
@@ -128,13 +124,9 @@ const CheckoutPayment = ({ price, cartItm }) => {
               className="text-white font-extrabold underline"
             >
               Admin
-            </a>
-            .
+            </a>.
           </p>
-          <form
-            onSubmit={handleProofUpload}
-            className="mt-4 flex flex-col items-center"
-          >
+          <form onSubmit={handleProofUpload} className="mt-4 flex flex-col items-center">
             <input
               type="file"
               accept="image/*"
@@ -150,17 +142,13 @@ const CheckoutPayment = ({ price, cartItm }) => {
               {isUploading ? "Mengunggah..." : "Unggah Bukti Transfer"}
             </button>
             {uploadSuccess && (
-              <p className="text-green-500 mt-2">
-                Bukti transfer berhasil diunggah!
-              </p>
+              <p className="text-green-500 mt-2">Bukti transfer berhasil diunggah!</p>
             )}
           </form>
         </div>
       </div>
       {message && <p className="text-red-500 mt-4 text-center">{message}</p>}
-      {succeeded && (
-        <p className="text-green-500 mt-4 text-center">{succeeded}</p>
-      )}
+      {succeeded && <p className="text-green-500 mt-4 text-center">{succeeded}</p>}
     </div>
   );
 };
