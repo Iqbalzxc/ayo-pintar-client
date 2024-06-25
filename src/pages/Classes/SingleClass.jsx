@@ -8,16 +8,13 @@ import {
   FaBook,
   FaLanguage,
   FaLevelUpAlt,
-  FaUser,
-  FaUsers,
   FaFacebook,
   FaTwitter,
   FaWhatsapp,
   FaTelegram,
+  FaArrowLeft,
 } from "react-icons/fa";
-import { MdBookOnline, MdTimelapse, MdTimeline } from "react-icons/md";
-import bannerImg1 from "../../assets/home/banner-1.jpg";
-import bannerImg2 from "../../assets/home/banner-2.jpg";
+import { MdTimelapse, MdTimeline } from "react-icons/md";
 
 const SingleClass = () => {
   const classes = useLoaderData();
@@ -89,8 +86,9 @@ const SingleClass = () => {
         data-gr-ext-installed
       >
         {/* THIS HEADER */}
-        <div className="breadcrumbs bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-20 mt-20 section-padding bg-cover bg-center bg-no-repeat">
-          <div className="container mx-auto text-center text-white">
+        <div className="relative py-20 mt-20 bg-cover bg-center bg-no-repeat rounded-lg shadow-lg overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-80"></div>
+          <div className="container mx-auto text-center text-white relative">
             <h2 className="text-4xl font-bold">Detail Kelas</h2>
           </div>
         </div>
@@ -98,9 +96,18 @@ const SingleClass = () => {
         <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-100 dark:bg-zinc-900 shadow-md rounded-lg">
           <div className="container mx-auto">
             <div className="grid grid-cols-12 gap-6 md:gap-8px">
-              {/* THIS LEFT */}
+              {/* LEFT */}
               <div className="lg:col-span-8 col-span-12 p-4">
                 <div className="single-course-details">
+                  <div className="flex justify-between items-center mb-4">
+                    <button
+                      onClick={() => navigate(-1)}
+                      className=" text-secondary flex items-center py-2 px-1 hover:text-red-500"
+                    >
+                      <FaArrowLeft className="mr-2" />
+                      Kembali
+                    </button>
+                  </div>
                   <div className="xl:h-[470] h-[350px] mb-10 course-main-thumb">
                     <img
                       src={classes?.image}
@@ -163,25 +170,14 @@ const SingleClass = () => {
                 </div>
               </div>
 
-              {/* THIS RIGHT */}
-              <div className="lg:col-span-4 col-span-12 mt-8 md:mt-0 p-6">
+              {/* RIGHT */}
+              <div className="lg:col-span-4 col-span-12 md:mt-10 p-6">
                 <div className="space-y-8">
                   <div className="widget custom-text space-y-5">
-                    <a
-                      href="#"
-                      className="block rounded relative overflow-hidden"
-                    >
-                      <img
-                        src={classes.image}
-                        alt=""
-                        className="max-w-sm h-full object-cover rounded"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <img src="/play.png" alt="" className="w-16 h-16" />
-                      </div>
-                    </a>
-
                     <ul className="grid gap-1 md:grid-cols-1">
+                      <h1 className="font-semibold text-xl mb-4">
+                        Informasi Selengkapnya :
+                      </h1>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
                         <div className="flex items-center space-x-2">
                           <MdTimelapse className="inline-flex text-secondary" />
@@ -253,7 +249,7 @@ const SingleClass = () => {
                         role === "tutor" ||
                         classes.availableSeats < 1
                       }
-                      className="btn btn-primary w-full py-2 px-6 text-white bg-secondary hover:bg-red-400"
+                      className="btn btn-primary w-full py-2 px-6 text-white bg-secondary hover:bg-red-500"
                     >
                       Daftar sekarang
                     </button>

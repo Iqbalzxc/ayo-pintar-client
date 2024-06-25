@@ -28,7 +28,6 @@ const Home = () => {
         <Faq />
         <AboutUs />
         <OurTeam />
-        <Footer />
       </div>
     </section>
   );

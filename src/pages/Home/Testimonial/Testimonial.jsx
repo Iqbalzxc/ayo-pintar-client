@@ -91,8 +91,8 @@ const Testimonial = () => {
 
       <Swiper
         style={{
-          "--swiper-navigation-color": "#F97777",
-          "--swiper-pagination-color": "#F97777",
+          "--swiper-navigation-color": "#f1f1f1",
+          "--swiper-pagination-color": "#f1f1f1",
         }}
         slidesPerView={1}
         spaceBetween={8}
