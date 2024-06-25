@@ -19,6 +19,14 @@ import Blog from "../pages/Blog/Blog";
 import FaqPage from "../pages/FaqPage/FaqPage";
 import TutorCP from "../pages/Dashboard/Tutor/TutorCP";
 import AddClasses from "../pages/Dashboard/Tutor/AddClasses";
+import MyClasses from "../pages/Dashboard/Tutor/MyClasses";
+import PendingClass from "../pages/Dashboard/Tutor/PendingClass";
+import ApprovedClass from "../pages/Dashboard/Tutor/ApprovedClass";
+import AdminHome from "../pages/Dashboard/Admin/AdminHome";
+import ManageClasses from "../pages/Dashboard/Admin/ManageClasses";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
+import ManageTutor from "../pages/Dashboard/Admin/ManageTutor";
+import BlogPage from "../pages/Blog/BlogPage";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +48,10 @@ export const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "blog/:id",
+        element: <BlogPage/>
       },
       {
         path: "faq",
@@ -109,6 +121,36 @@ export const router = createBrowserRouter([
       {
         path: "add-classes",
         element: <AddClasses />
+      },
+      {
+        path: "my-classes",
+        element: <MyClasses />
+      },
+      {
+        path: "my-pending",
+        element: <PendingClass />
+      },
+      {
+        path: "my-approved",
+        element: <ApprovedClass />
+      },
+
+      // Admin Routes
+      {
+        path: "admin-home",
+        element: <AdminHome />
+      },
+      {
+        path: "manage-class",
+        element: <ManageClasses />
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers />
+      },
+      {
+        path: "manage-tutor",
+        element: <ManageTutor />
       }
     ],
   },

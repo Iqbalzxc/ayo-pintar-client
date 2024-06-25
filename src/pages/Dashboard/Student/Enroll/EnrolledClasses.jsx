@@ -13,38 +13,42 @@ const EnrolledClasses = () => {
       console.log("Fetching enrolled classes for email:", currentUser.email);
       axiosSecure.get(`/enrolled-classes/${currentUser.email}`)
         .then((res) => {
-          console.log("Response from server:", res.data); // Debugging
+          console.log("Response from server:", res.data);
           setData(res.data);
         })
         .catch((err) => {
-          console.error("Error fetching enrolled classes:", err); // Debugging
+          console.error("Error fetching enrolled classes:", err);
         });
     }
   }, [currentUser]);
 
   return (
-    <div>
-      <h1 className="text-2xl my-6">Kelas Saya</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl md:text-4xl my-6 text-center font-bold">
+        Kelas <span className="text-secondary">Saya</span>
+      </h1>
       {data.length === 0 ? (
-        <p>No enrolled classes found.</p>
+        <p className="text-center">Tidak ada kelas yang diikuti</p>
       ) : (
-        <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.map((item, index) => (
-            <div key={index} className="bg-white shadow-md h-96 mx-3 rounded-3xl flex md:flex-row justify-around items-center overflow-hidden sm:flex-grow sm:h-52 sm:w-3/5">
+            <div key={index} className="bg-white shadow-md rounded-3xl flex flex-col justify-between overflow-hidden">
               <img
                 src={item.classes.image}
-                alt=""
-                className="h-1/2 w-full sm:h=full sm:w-1/2 object-cover"
+                alt={item.classes.name}
+                className="h-48 w-full object-cover"
               />
-              <div className="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
-                <div>
-                  <h1>{item.classes.name}</h1>
-                  <p>{item.classes.tutorName}</p>
+              <div className="flex-1 w-full flex flex-col items-start justify-between p-4">
+                <div className="w-full">
+                  <h1 className="text-lg font-semibold mt-2">{item.classes.name}</h1>
+                  <p>By {item.classes.tutorName}</p>
                 </div>
-                <div className="flex gap-2">
-                  <p className="font-bold text-gray-500">{item.classes.price}</p>
-                  <Link to={`/dashboard/class-details`}>
-                    <button className="bg-secondary font-bold rounded-xl mr-5 text-white px-3 py-1 shadow-md">Lihat</button>
+                <div className="flex flex-col w-full mt-4">
+                  <p className="font-bold text-gray-500 mb-2">{`Rp${item.classes.price.toLocaleString('id-ID')}`}</p>
+                  <Link to={`/dashboard/class-details?id=${item.classes._id}`}>
+                    <button className="bg-secondary font-bold rounded-xl text-white px-3 py-1 shadow-md">
+                      Lihat
+                    </button>
                   </Link>
                 </div>
               </div>

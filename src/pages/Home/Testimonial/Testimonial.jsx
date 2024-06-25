@@ -14,63 +14,63 @@ SwiperCore.use([Pagination, Navigation]);
 const testimonialData = [
   {
     id: 1,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente",
     image: People1,
     name: "People 1",
     school: "Universitas Indonesia",
   },
   {
     id: 2,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente",
     image: People2,
     name: "People 2",
     school: "Institut Teknologi Bandung",
   },
   {
     id: 3,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta",
     image: People3,
     name: "People 3",
     school: "Universitas Gadjah Mada",
   },
   {
     id: 4,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta qua",
     image: People1,
     name: "People 4",
     school: "SMP Negeri 1 Jakarta",
   },
   {
     id: 5,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse",
     image: People2,
     name: "People 5",
     school: "SMA Negeri 8 Jakarta",
   },
   {
     id: 6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit",
     image: People3,
     name: "People 6",
     school: "SD Negeri 1 Surabaya",
   },
   {
     id: 7,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo",
     image: People1,
     name: "People 7",
     school: "Universitas Airlangga",
   },
   {
     id: 8,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo",
     image: People2,
     name: "People 8",
     school: "SMP Negeri 2 Bandung",
   },
   {
     id: 9,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum,  vel optio corporis voluptatem?",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum,",
     image: People3,
     name: "People 9",
     school: "SMA Negeri 3 Bandung",
@@ -90,10 +90,10 @@ const Testimonial = () => {
       </div>
 
       <Swiper
-      style={{
-        "--swiper-navigation-color": "#F97777",
-        "--swiper-pagination-color": "#F97777",
-      }}
+        style={{
+          "--swiper-navigation-color": "#F97777",
+          "--swiper-pagination-color": "#F97777",
+        }}
         slidesPerView={1}
         spaceBetween={8}
         pagination={{ clickable: true }}
@@ -111,26 +111,26 @@ const Testimonial = () => {
         {testimonialData.map((testimonial) => (
           <SwiperSlide
             key={testimonial.id}
-            className="shadow-md bg-gray-100 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
+            className="shadow-md bg-slate-50 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
           >
             <div className="rounded-lg p-5 mb-2">
-              <div className="h-52 pr-5 overflow-y-auto mt-2 ">
-                <p className="text-lg text-justify font-semibold text-gray-800 dark:text-gray-300">
+              <div className="h-40 pr-5 overflow-y-auto">
+                <p className="text-base text-justify font-semibold text-gray-800 dark:text-gray-300 mt-5">
                   "{testimonial.desc}"
                 </p>
               </div>
-              <hr className="border-gray-300 dark:border-gray-600 mb-3" />
+              <hr className="border-gray-300 dark:border-gray-600 my-2" />
               <div className="flex items-center">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="rounded-full w-14 h-15 mr-4"
+                  className="rounded-full w-14 h-14 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-300">
+                  <h5 className="text-base font-semibold text-gray-800 dark:text-slate-300">
                     {testimonial.name}
                   </h5>
-                  <p className="font-semibold text-gray-600">
+                  <p className="text-sm font-semibold text-gray-500">
                     {testimonial.school}
                   </p>
                 </div>

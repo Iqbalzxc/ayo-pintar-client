@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import useUser from "../hooks/useUser";
-import { BiHome, BiHomeAlt, BiLogInCircle, BiSelectMultiple } from "react-icons/bi";
+import {
+  BiHome,
+  BiHomeAlt,
+  BiLogInCircle,
+  BiSelectMultiple,
+} from "react-icons/bi";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { IoLogOut, IoSchoolSharp } from "react-icons/io5";
 import { IoMdDoneAll } from "react-icons/io";
 import { BsFillPostcardFill } from "react-icons/bs";
 import { GiFigurehead } from "react-icons/gi";
 import { SiGoogleclassroom, SiInstructure } from "react-icons/si";
-import { TbBolt, TbBrandAppleArcade, TbLogin } from "react-icons/tb";
-import { MdExplore, MdPayments, MdPending, MdPendingActions } from "react-icons/md";
+import { TbBolt, TbBrandAppleArcade, TbLogin, TbMenu2 } from "react-icons/tb";
+import {
+  MdExplore,
+  MdPayments,
+  MdPending,
+  MdPendingActions,
+} from "react-icons/md";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Scroll from "../hooks/UseScroll";
 import { CircleLoader } from "react-spinners";
-
 
 // ADMIN NAV ITEMS
 const adminNavItems = [
@@ -34,19 +43,18 @@ const adminNavItems = [
     label: "Manage Kelas",
   },
   {
-    to: "/dashboard/manage-applications",
+    to: "/dashboard/manage-tutor",
     icon: <TbBrandAppleArcade className="text-2xl" />,
-    label: "Manage Aplikasi",
+    label: "Manage Tutor",
   },
 ];
-
 
 // DEFAULT MENU ITEMS
 const lastMenuItems = [
   {
     to: "/",
     icon: <BiHomeAlt className="text-2xl" />,
-    label: "Beranda",
+    label: "Home Page",
   },
   { to: "/trending", icon: <TbBolt className="text-2xl" />, label: "Trending" },
   {
@@ -55,7 +63,6 @@ const lastMenuItems = [
     label: "Mengikuti",
   },
 ];
-
 
 // TUTOR NAV ITEMS
 const tutorNavItems = [
@@ -86,7 +93,6 @@ const tutorNavItems = [
   },
 ];
 
-
 // USER NAV ITEMS
 const students = [
   {
@@ -116,14 +122,13 @@ const students = [
   },
 ];
 
-
 const DashboardLayout = () => {
   const [open, setOpen] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { loader, logout } = useAuth();
   const { currentUser } = useUser();
   const navigate = useNavigate();
   const role = currentUser?.role;
-
 
   // HANDLE LOGOUT ALERT
   const handleLogout = () => {
@@ -151,10 +156,6 @@ const DashboardLayout = () => {
     });
   };
 
-
-  // CONST ROLE = "USER";
-
-
   if (loader) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -164,7 +165,8 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
+      {/* Sidebar for Desktop */}
       <div
         className={`${
           open ? "w-72 overflow-y-auto" : "w-[90px] overflow-auto"
@@ -187,10 +189,9 @@ const DashboardLayout = () => {
               }`}
             >
               Ayo Pintar
-            </h1>{" "}
+            </h1>
           </Link>
         </div>
-
 
         {/* NAVLINKS ADMIN ROLE */}
         {role === "admin" && (
@@ -198,31 +199,27 @@ const DashboardLayout = () => {
             <p className={`ml-3 text-gray-500 uppercase ${!open && "hidden"}`}>
               <small>MENU</small>
             </p>
-            {role === "admin" &&
-              adminNavItems.map((menuItem, index) => (
-                <li key={index} className="mb-2">
-                  <NavLink
-                    to={menuItem.to}
-                    className={({ isActive }) =>
-                      `flex ${
-                        isActive ? "bg-red-500 text-white" : "text-black"
-                      } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
-                    }
+            {adminNavItems.map((menuItem, index) => (
+              <li key={index} className="mb-2">
+                <NavLink
+                  to={menuItem.to}
+                  className={({ isActive }) =>
+                    `flex ${
+                      isActive ? "bg-red-500 text-white" : "text-black"
+                    } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
+                  }
+                >
+                  {menuItem.icon}
+                  <span
+                    className={`${!open && "hidden"} origin-left duration-200`}
                   >
-                    {menuItem.icon}
-                    <span
-                      className={`${
-                        !open && "hidden"
-                      } origin-left duration-200`}
-                    >
-                      {menuItem.label}
-                    </span>
-                  </NavLink>
-                </li>
-              ))}
+                    {menuItem.label}
+                  </span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         )}
-
 
         {/* NAVLINKS TUTOR ROLE */}
         {role === "tutor" && (
@@ -252,8 +249,7 @@ const DashboardLayout = () => {
           </ul>
         )}
 
-
-        {/* NAVLINKS TUTOR ROLE */}
+        {/* NAVLINKS USER ROLE */}
         {role === "user" && (
           <ul className="pt-6">
             <p className={`ml-3 text-gray-500 uppercase ${!open && "hidden"}`}>
@@ -317,6 +313,119 @@ const DashboardLayout = () => {
             </button>
           </li>
         </ul>
+      </div>
+
+      {/* MOBILE MENU */}
+      <div className="md:hidden block w-full fixed top-0 left-0 z-20">
+        <div className="flex justify-between items-center bg-pink-100 p-4">
+          <div className="flex items-center gap-2">
+            <img
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              src="/ayo-pintar-logo.png"
+              alt="logo.jpg"
+              className={`cursor-pointer h-[40px]`}
+            />
+            <span className="text-lg font-bold">Ayo Pintar</span>
+          </div>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <TbMenu2 className="text-3xl" />
+          </button>
+        </div>
+        {mobileMenuOpen && (
+          <div className="bg-pink-100 p-4 absolute w-full z-10">
+            <ul className="flex flex-col">
+              <p
+                className={`ml-3 text-gray-500 uppercase ${!open && "hidden"}`}
+              >
+                <small>MENU</small>
+              </p>
+              {role === "admin" &&
+                adminNavItems.map((menuItem, index) => (
+                  <li key={index} className="mb-2">
+                    <NavLink
+                      to={menuItem.to}
+                      className={({ isActive }) =>
+                        `flex ${
+                          isActive ? "bg-red-500 text-white" : "text-black"
+                        } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
+                      }
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {menuItem.icon}
+                      <span>{menuItem.label}</span>
+                    </NavLink>
+                  </li>
+                ))}
+              {role === "tutor" &&
+                tutorNavItems.map((menuItem, index) => (
+                  <li key={index} className="mb-2">
+                    <NavLink
+                      to={menuItem.to}
+                      className={({ isActive }) =>
+                        `flex ${
+                          isActive ? "bg-red-500 text-white" : "text-black"
+                        } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
+                      }
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {menuItem.icon}
+                      <span>{menuItem.label}</span>
+                    </NavLink>
+                  </li>
+                ))}
+              {role === "user" &&
+                students.map((menuItem, index) => (
+                  <li key={index} className="mb-2">
+                    <NavLink
+                      to={menuItem.to}
+                      className={({ isActive }) =>
+                        `flex ${
+                          isActive ? "bg-red-500 text-white" : "text-black"
+                        } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
+                      }
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {menuItem.icon}
+                      <span>{menuItem.label}</span>
+                    </NavLink>
+                  </li>
+                ))}
+              <p
+                className={`ml-3 text-gray-500 uppercase ${!open && "hidden"}`}
+              >
+                <small>NAVIGASI</small>
+              </p>
+              {lastMenuItems.map((menuItem, index) => (
+                <li key={index} className="mb-2">
+                  <NavLink
+                    to={menuItem.to}
+                    className={({ isActive }) =>
+                      `flex ${
+                        isActive ? "bg-red-500 text-white" : "text-black"
+                      } duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4`
+                    }
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {menuItem.icon}
+                    <span>{menuItem.label}</span>
+                  </NavLink>
+                </li>
+              ))}
+              <li>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex duration-150 rounded-md p-2 cursor-pointer hover:bg-secondary hover:text-white font-bold text-sm items-center gap-x-4"
+                >
+                  <TbLogin className="text-2xl" />
+                  <span>Logout</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="h-screen overscroll-y-auto px-8 flex-1">
