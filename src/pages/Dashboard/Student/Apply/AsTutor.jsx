@@ -24,7 +24,7 @@ const AsTutor = () => {
         title: "Berhasil!",
         text: "Anda berhasil mendaftar sebagai tutor.",
         icon: "success",
-        confirmButtonText: "OK"
+        confirmButtonText: "OK",
       });
     });
   };
@@ -38,16 +38,20 @@ const AsTutor = () => {
           setSubmittedData(res.data);
           setLoading(false);
         })
-        .catch((err) => console.error("Error fetching applied tutor data:", err));
+        .catch((err) =>
+          console.error("Error fetching applied tutor data:", err)
+        );
     }
   }, [currentUser, axiosFetch]);
 
   if (loading) {
-    return <p className="flex h-screen items-center justify-center">Loading...</p>;
+    return (
+      <p className="flex h-screen items-center justify-center">Loading...</p>
+    );
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mt-24 md:mt-6">
       <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
         {!submittedData ? (
           <form onSubmit={onSubmit}>
@@ -114,7 +118,9 @@ const AsTutor = () => {
           </form>
         ) : (
           <div>
-            <h2 className="text-xl font-bold mb-4 text-center">Data yang Dikirim</h2>
+            <h2 className="text-xl font-bold mb-4 text-center">
+              Data yang Dikirim
+            </h2>
             <div className="text-left">
               <div className="grid gap-2">
                 <div className="flex justify-between">
@@ -127,7 +133,9 @@ const AsTutor = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="min-w-[120px] font-bold">Pengalaman:</span>
-                  <span className="text-justify">{submittedData.experience}</span>
+                  <span className="text-justify">
+                    {submittedData.experience}
+                  </span>
                 </div>
               </div>
             </div>

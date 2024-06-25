@@ -19,7 +19,7 @@ const AdminHome = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 mt-24 md:mt-6">
       <div className="my-7">
         <h1 className="text-2xl md:text-4xl font-bold text-center">
           Selamat Datang,{" "}

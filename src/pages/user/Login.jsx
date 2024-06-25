@@ -32,18 +32,18 @@ const Login = () => {
   };
 
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-      <h1 className="text-2xl font-bold text-secondary sm:text-secondary sm:text-3xl text-center">
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 dark:text-white">
+      <h1 className="text-2xl font-bold text-secondary sm:text-secondary sm:text-3xl text-center dark:text-white">
         Login
       </h1>
-      <p className="mx-auto mt-4 max-w-md text-center text-gray-500">
+      <p className="mx-auto mt-4 max-w-md text-center text-gray-500 dark:text-gray-300">
         Selamat datang di Ayo Pintar, tempat di mana setiap langkah merupakan
         bagian dari perjalanan menuju kesuksesan
       </p>
 
-      <div className="mx-auto max-w-lg mb-0 mt-6 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+      <div className="mx-auto max-w-lg mb-0 mt-6 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8 dark:bg-zinc-800">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <p className="text-center text-red-400 text-lg font-medium">
+          <p className="text-center text-red-400 text-lg font-medium dark:text-white">
             Masuk ke akun
           </p>
           <div>
@@ -55,10 +55,10 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Masukkan email"
-                className="w-full border outline-none rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full border outline-none rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                <MdOutlineAlternateEmail className="h-4 w-4 text-gray-400" />
+                <MdOutlineAlternateEmail className="h-4 w-4 text-gray-400 dark:text-gray-300" />
               </span>
             </div>
           </div>
@@ -71,13 +71,13 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Masukkan password"
-                className="w-full border outline-none rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full border outline-none rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
               <span
                 onClick={() => setshowPassword(!showPassword)}
                 className="cursor-pointer absolute inset-y-0 end-0 grid place-content-center px-4"
               >
-                <MdOutlineRemoveRedEye className="h-4 w-4 text-gray-400" />
+                <MdOutlineRemoveRedEye className="h-4 w-4 text-gray-400 dark:text-gray-300" />
               </span>
             </div>
           </div>
@@ -88,9 +88,12 @@ const Login = () => {
           >
             {loader ? "Logging in..." : "Login"}
           </button>
-          {error && <p className="text-center text-red-500">{error}</p>}{" "}
-          {/* DISPLAY ERROR MESSAGE BELOW THE LOGIN BUTTON */}
-          <p className="text-center text-sm text-gray-500">
+          {error && (
+            <p className="text-center text-red-500 dark:text-red-400">
+              {error}
+            </p>
+          )}
+          <p className="text-center text-sm text-gray-500 dark:text-gray-300">
             Belum punya akun?{" "}
             <Link className="underline" to="/register">
               Daftar disini
