@@ -87,13 +87,13 @@ const SingleClass = () => {
       >
         {/* THIS HEADER */}
         <div className="relative py-20 mt-20 bg-cover bg-center bg-no-repeat rounded-lg shadow-lg overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 opacity-80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-400"></div>
           <div className="container mx-auto text-center text-white relative">
             <h2 className="text-4xl font-bold">Detail Kelas</h2>
           </div>
         </div>
 
-        <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-100 dark:bg-zinc-900 shadow-md rounded-lg">
+        <div className="nav-tab-wrapper tabs section-padding mt-8 bg-gray-50 dark:bg-zinc-900 shadow-md rounded-lg mb-6">
           <div className="container mx-auto">
             <div className="grid grid-cols-12 gap-6 md:gap-8px">
               {/* LEFT */}
@@ -115,25 +115,16 @@ const SingleClass = () => {
                       className="rounded-md object-full w-full h-full block"
                     />
                   </div>
-                  <h2 className="text-3xl mb-2 font-bold">{classes?.name}</h2>
+                  <h2 className="text-3xl mb-2 font-bold font-sans">{classes?.name}</h2>
 
                   <div className="author-meta mt-6 sm:flex lg:space-x-16 sm:space-x-5 space-y-5 sm:space-y-0 items-center">
                     <div className="flex space-x-4 items-center group">
                       <div className="flex-none">
-                        <div className="h-12 w-12 rounded">
-                          <img
-                            src={
-                              "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            }
-                            alt="image.jpg"
-                            className="object-cover w-full h-full rounded"
-                          />
-                        </div>
                       </div>
                       <div className="flex-1">
                         <p className="text-secondary">
                           Tutor
-                          <a href="#" className="text-black dark:text-white">
+                          <a href="#" className="text-black dark:text-white font-sans">
                             : {classes.tutorName}
                           </a>
                         </p>
@@ -142,7 +133,7 @@ const SingleClass = () => {
                     <div>
                       <span className="text-secondary">
                         Update terakhir:
-                        <a href="#" className="text-black dark:text-white ml-1">
+                        <a href="#" className="text-black dark:text-white ml-1 font-sans">
                           {new Date(classes.submitted).toLocaleDateString()}
                         </a>
                       </span>
@@ -152,10 +143,10 @@ const SingleClass = () => {
                   <div id="tabs-content">
                     <div id="tab1" className="tab-content">
                       <div>
-                        <h3 className="text-2xl mt-8 font-semibold">
+                        <h3 className="text-2xl mt-8 font-semibold font-sans">
                           Deskripsi Kelas
                         </h3>
-                        <div className="mt-4 text-justify dark:text-white">
+                        <div className="mt-4 text-justify dark:text-white font-sans">
                           {classes.description
                             .split("\n")
                             .map((paragraph, index) => (
@@ -175,7 +166,7 @@ const SingleClass = () => {
                 <div className="space-y-8">
                   <div className="widget custom-text space-y-5">
                     <ul className="grid gap-1 md:grid-cols-1">
-                      <h1 className="font-semibold text-xl mb-4">
+                      <h1 className="font-semibold text-xl mb-4 font-sans">
                         Informasi Selengkapnya :
                       </h1>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
@@ -186,7 +177,7 @@ const SingleClass = () => {
                           </span>
                         </div>
                         <span className="text-base md:text-right sm:ml-auto">
-                          Menyesuaikan murid/siswa
+                          Menyesuaikan Siswa ( Tersedia di Kelas Privat )
                         </span>
                       </li>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
@@ -208,7 +199,7 @@ const SingleClass = () => {
                           </span>
                         </div>
                         <span className="text-base md:text-right sm:ml-auto">
-                          offline & online
+                          Offline & Online
                         </span>
                       </li>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
@@ -235,7 +226,7 @@ const SingleClass = () => {
                       </li>
                     </ul>
 
-                    <h3 className="text-xl font-bold">Rp. {classes.price}</h3>
+                    <h3 className="text-xl font-bold">Rp{classes.price}</h3>
                     <button
                       onClick={() => handleSelect(classes._id)}
                       title={
@@ -249,32 +240,32 @@ const SingleClass = () => {
                         role === "tutor" ||
                         classes.availableSeats < 1
                       }
-                      className="btn btn-primary w-full py-2 px-6 text-white bg-secondary hover:bg-red-500"
+                      className="btn btn-primary w-full py-2 px-6 text-white bg-secondary hover:bg-red-600 rounded"
                     >
-                      Daftar sekarang
+                      Daftar Sekarang!
                     </button>
                     <div className="flex space-x-4 items-center pt-3">
                       <span className="font-semibold">Bagikan:</span>
                       <a
-                        href="#"
+                        href="https://facebook.com"
                         className="flex h-8 w-8 bg-blue-500 hover:bg-blue-700 text-white rounded-full items-center justify-center"
                       >
                         <FaFacebook className="w-4 h-4" />
                       </a>
                       <a
-                        href="#"
+                        href="https://x.com"
                         className="flex h-8 w-8 bg-blue-400 hover:bg-blue-600 text-white rounded-full items-center justify-center"
                       >
                         <FaTwitter className="w-4 h-4" />
                       </a>
                       <a
-                        href="#"
+                        href="https://whatsapp.com"
                         className="flex h-8 w-8 bg-green-400 hover:bg-green-600 text-white rounded-full items-center justify-center"
                       >
                         <FaWhatsapp className="w-4 h-4" />
                       </a>
                       <a
-                        href="#"
+                        href="https://telegram.com"
                         className="flex h-8 w-8 bg-blue-500 hover:bg-blue-700 text-white rounded-full items-center justify-center"
                       >
                         <FaTelegram className="w-4 h-4" />

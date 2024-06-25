@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bgImg from "../../../assets/home/banner-2.jpg";
+import bgImg from "../../../assets/home/banner-1.jpg";
 
 // DESIGN START HERO SECTION 2
 const Hero2 = () => {
