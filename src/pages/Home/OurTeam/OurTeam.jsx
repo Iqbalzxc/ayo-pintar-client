@@ -40,14 +40,14 @@ const OurTeam = () => {
     {
       name: "Ikhtifadudin Al Ghifari R",
       position: "UI/UX Designer",
-      collage: "STMIK IKMI Cirebon",
+      collage: "IT Telkom Purwokerto",
       photo: Profil4,
     },
   ];
 
   return (
     <div className="md:w-[80%] mx-auto my-32">
-      <h1 className="text-4xl font-bold text-center dark:text-white mb-8">
+      <h1 className="text-5xl font-bold text-center dark:text-white mb-8">
         <span className="text-secondary">Tim</span> Kami
       </h1>
       <div className="w-[30%] mx-auto my-5 border-b-2 border-secondary"></div>
