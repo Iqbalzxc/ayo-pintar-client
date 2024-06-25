@@ -1,5 +1,3 @@
-# Bimbel&Privat-Ayo-Pintar
+# Bimbel & Privat Ayo Pintar
 
-![](/src/assets/github-cover.png)
-
-# Ayo-Pintar-starter-file
+![](src/assets/github-cover.jpg/)

@@ -1,89 +1,83 @@
 import React, { useContext, useEffect, useState } from "react";
-import useAxiosFetch from "../../hooks/useAxiosFetch";
 import { Transition } from "@headlessui/react";
 import { Link, useNavigate } from "react-router-dom";
 import useUser from "../../hooks/useUser";
+import useAxiosFetch from "../../hooks/useAxiosFetch";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { toast } from "react-toastify";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
-  const { currentUser, isLoading, refetch } = useUser(); 
-  const navigate = useNavigate();
-  const role = currentUser?.role;
-  const [enrolledClasses, setEnrolledClasses] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [enrolledClasses, setEnrolledClasses] = useState([]);
+  const { currentUser } = useUser();
+  const navigate = useNavigate();
   const axiosFetch = useAxiosFetch();
   const axiosSecure = useAxiosSecure();
 
-  const handleHover = (index) => {
-    setHoveredCard(index);
-  };
+  const handleHover = (index) => setHoveredCard(index);
 
   useEffect(() => {
     axiosFetch
       .get("/classes")
       .then((res) => setClasses(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [axiosFetch]);
 
-
-  // REDIRECT LOGIN
   const handleSelect = (id) => {
     if (!currentUser) {
       alert("Silahkan login terlebih dahulu");
-      return navigate("/login");
+      navigate("/login");
+      return;
     }
 
-    // GET ENROLLED CLASS
     axiosSecure
       .get(`/enrolled-classes/${currentUser.email}`)
-      .then((res) => setEnrolledClasses(res.data))
-      .catch((err) => console.log(err));
-      
-
-      // GET CART ITEM 
-    axiosSecure
-      .get(`/cart-item/${id}?email=${currentUser.email}`)
       .then((res) => {
-        if (res.data.classId === id) {
-          return alert("Sudah dipilih");
-        } else if (enrolledClasses.find((item) => item.classes._id === id)) {
-          return alert("Sudah bergabung");
-        } else {
-          const data = {
-            classId: id,
-            userMail: currentUser.email,
-            date: new Date(),
-          };
-          axiosSecure
-            .post("/add-to-cart", data)
-            .then((res) => {
-              alert("Berhasil menambahkan kelas");
-              console.log(res.data);
-            })
-            .catch((err) => {
-              console.log(err);
-              alert("Gagal menambahkan kelas, silahkan coba lagi");
-              return navigate("/classes");
-            });
-        }
+        setEnrolledClasses(res.data);
+
+        axiosSecure
+          .get(`/cart-item/${id}?email=${currentUser.email}`)
+          .then((res) => {
+            if (res.data.classId === id) {
+              alert("Sudah dipilih");
+            } else if (
+              enrolledClasses.some((item) => item.classes._id === id)
+            ) {
+              alert("Sudah bergabung");
+            } else {
+              const data = {
+                classId: id,
+                userMail: currentUser.email,
+                date: new Date(),
+              };
+
+              axiosSecure
+                .post("/add-to-cart", data)
+                .then((res) => {
+                  alert("Berhasil menambahkan kelas");
+                })
+                .catch((err) => {
+                  console.log(err);
+                  alert("Gagal menambahkan kelas, silahkan coba lagi");
+                });
+            }
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
 
-  
   return (
     <div>
       <div className="mt-20 pt-3">
         <h1 className="text-4xl font-bold text-center text-secondary">Kelas</h1>
       </div>
 
-      <div className="my-16 w-[90%] mx-auto grid sm:grid-col-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="my-16 w-[90%] mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {classes.map((cls, index) => (
           <div
             key={index}
-            className={`relative hover:translate-y-2 duration-150 hover:ring-[2px] hover:ring-secondary w-64 mx-auto ${
+            className={`relative hover:translate-y-2 duration-150 hover:ring-2 hover:ring-secondary w-64 mx-auto ${
               cls.availableSeats < 1 ? "bg-red-300" : "bg-white"
             } dark:bg-slate-600 rounded-lg shadow-lg overflow-hidden cursor-pointer`}
             onMouseEnter={() => handleHover(index)}
@@ -97,10 +91,9 @@ const Classes = () => {
               />
               <img
                 src={cls.image}
-                alt=""
+                alt={cls.name}
                 className="object-cover w-full h-full"
               />
-
               <Transition
                 show={hoveredCard === index}
                 enter="transition-opacity duration-300"
@@ -135,9 +128,6 @@ const Classes = () => {
                 </div>
               </Transition>
             </div>
-
-
-            {/* DETAILS */}
             <div className="px-6 py-2">
               <h3 className="font-semibold mb-1">{cls.name}</h3>
               <p className="text-gray-500 text-xs">Tutor: {cls.tutorName}</p>
@@ -146,12 +136,11 @@ const Classes = () => {
                   Kuota tersedia: {cls.availableSeats}
                 </span>
                 <span className="text-green-500 font-semibold">
-                  {cls.price}
+                  Rp. {cls.price}
                 </span>
               </div>
-
               <Link to={`/class/${cls._id}`}>
-                <button className="px-4 py-2 mt-4 mb-2 w-full mx-auto text-white disabled:bg-red-300 bg-secondary duration-300 rounded hover:bg-red-700">
+                <button className="px-4 py-2 mt-4 mb-2 w-full text-white disabled:bg-red-300 bg-secondary duration-300 rounded hover:bg-red-700">
                   Lihat
                 </button>
               </Link>

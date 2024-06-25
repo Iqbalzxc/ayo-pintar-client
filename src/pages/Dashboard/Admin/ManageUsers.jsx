@@ -21,6 +21,7 @@ const ManageUsers = () => {
       .catch(err => console.log(err));
   }, []);
 
+  // DELETE USER
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Apakah kamu yakin?',
@@ -44,6 +45,7 @@ const ManageUsers = () => {
     });
   };
 
+  // UPDATE USER
   const handleUpdate = (user) => {
     setEditingUser(user);
   };
@@ -52,7 +54,7 @@ const ManageUsers = () => {
     e.preventDefault();
     
     let updatedUser = { ...editingUser };
-    
+
     if (image) {
       const formData = new FormData();
       formData.append('image', image);
@@ -70,7 +72,7 @@ const ManageUsers = () => {
           setUsers(users.map(user => user._id === editingUser._id ? updatedUser : user));
           setEditingUser(null);
           setImage(null);
-          Swal.fire('Updated!', 'Pengguna telah diperbarui.', 'success');
+          Swal.fire('Update!', 'Pengguna telah diperbarui.', 'success');
         }
       })
       .catch(err => console.log(err));
@@ -78,27 +80,36 @@ const ManageUsers = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);
+    // CHECK APAKAH 5 MB
+    if (file.size > 5 * 1024 * 1024) { 
+      Swal.fire({
+        icon: 'error',
+        title: 'Ukuran file terlalu besar',
+        text: 'Ukuran file tidak boleh melebihi 5 MB',
+      });
+    } else {
+      setImage(file);
+    }
   };
 
   const getPhotoURL = (user) => {
-    return user.photoURL || user.photoUrl || 'https://via.placeholder.com/150'; // Placeholder image URL
+    return user.photoURL || user.photoUrl || 'https://via.placeholder.com/150'; 
   };
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className='text-center text-4xl font-bold my-7'>Kelola <span className='text-secondary'>Pengguna</span></h1>
+      <h1 className='text-center text-4xl font-bold my-7'>Manage <span className='text-secondary'>Pengguna</span></h1>
       <div className="shadow-lg rounded-lg overflow-hidden">
         {users.length > 0 ? (
           <div className="divide-y divide-gray-200">
             {users.map((user) => (
-              <div key={user._id} className='flex items-center justify-between p-4'>
+              <div key={user._id} className='flex flex-col md:flex-row items-center justify-between p-4'>
                 <img src={getPhotoURL(user)} alt={user.name} className='w-10 h-10 rounded-full' />
-                <h2 className="flex-1 mx-2">{user.name}</h2>
-                <p className="flex-1 mx-2">{user.email}</p>
-                <p className="flex-1 mx-2">{user.role}</p>
-                <button onClick={() => handleUpdate(user)} className='bg-blue-500 text-white py-1 px-2 rounded'>Edit</button>
-                <button onClick={() => handleDelete(user._id)} className='bg-red-500 text-white py-1 px-2 rounded'>Hapus</button>
+                <h2 className="flex-1 mx-2 text-center md:text-left">{user.name}</h2>
+                <p className="flex-1 mx-2 text-center md:text-left">{user.email}</p>
+                <p className="flex-1 mx-2 text-center md:text-left">{user.role}</p>
+                <button onClick={() => handleUpdate(user)} className='bg-blue-500 text-white py-1 px-2 rounded my-1 md:my-0'>Edit</button>
+                <button onClick={() => handleDelete(user._id)} className='bg-red-500 text-white py-1 px-2 rounded my-1 md:my-0'>Hapus</button>
               </div>
             ))}
           </div>
@@ -112,7 +123,7 @@ const ManageUsers = () => {
           <div className='bg-white p-4 rounded-lg shadow-lg w-full max-w-xl'>
             <h2 className='text-2xl mb-2'>Edit Pengguna</h2>
             <form onSubmit={handleSaveUpdate}>
-              <div className='grid grid-cols-2 gap-2'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                 <div className='mb-2'>
                   <label className='block mb-1'>Nama</label>
                   <input type='text' name='name' value={editingUser.name} onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })} className='border p-1 w-full' />
@@ -143,7 +154,7 @@ const ManageUsers = () => {
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>Unggah Foto</label>
-                  <input type='file' required name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
+                  <input type='file' name='image' onChange={handleImageChange} className='block mt-[5px] w-full border border-secondary shadow-sm rounded-md text-sm focus:z-10 focus:border-red-500 focus:ring-red-500 file:border-0 file:bg-secondary file:text-white file:mr-4 file:py-3 file:px-4' />
                 </div>
                 <div className='mb-2'>
                   <label className='block mb-1'>Deskripsikan Diri Anda</label>

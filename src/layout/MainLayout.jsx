@@ -6,7 +6,7 @@ const MainLayout = () => {
     <main className="dark:bg-black overflow-hidden">
       <NavBar />
       <Outlet />
-      <footer>Footer</footer>
+      <footer></footer>
     </main>
   );
 };
