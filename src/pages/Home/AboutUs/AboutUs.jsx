@@ -5,47 +5,41 @@ const AboutUs = () => {
     <div className="md:w-[80%] mx-auto my-32">
       <h1 className="text-4xl font-bold text-center dark:text-white">
         <span className="text-secondary">Tentang</span> Kami
-        <div className="w-[30%] mx-auto my-5"></div>
-        <p className="text-gray-500 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
       </h1>
+      <div className="w-[30%] mx-auto my-5 border-b-2 border-secondary"></div>
 
       <div className="md:w-[100%] mx-auto my-10">
-        <h1 className="text-2xl font-bold dark:text-white">Sejarah</h1>
+        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+          Sejarah
+        </h2>
+        <p className="text-gray-600 text-center leading-relaxed">
+          Ayo Pintar merupakan aplikasi di bidang pendidikan yang dibuat dengan
+          tujuan sebagai platform bimbingan belajar. Berdiri pada tahun 2022 di
+          Kota Cirebon, Jawa Barat, awalnya sebagai tempat bimbingan belajar
+          berbasis offline. Kini, Ayo Pintar telah berkembang menjadi aplikasi
+          yang dapat diakses secara online. Kami menyediakan mentor yang ahli
+          dan berpengalaman untuk siswa dari berbagai tingkatan pendidikan.
+        </p>
+      </div>
 
-        <div className="w-[100%] mx-auto my-1">
-          <p className="text-gray-500">
-            Ayo Pintar merupakan aplikasi dibidang pendidikan yang dibuat dengan
-            tujuan sebagai platfrom bimbingan belajar, Awal Berdiri pada tahun
-            2022 atau satu setengah tahun lalu tepatnya di Kota Cirebon Jawa
-            Barat, saat pertama kali dibuat, Ayo Pintar merupakan sebuah tempat
-            bimbingan belajar berbasis luring, kini sudah berkembang dan dapat
-            diakses lewat aplikasi. Ayo Pintar juga menyediakan mentor mentor
-            yang berpengalaman dari kalangan mahasiswa yang ahli dalam mengajar.
-            Ayo Pintar diperuntukan bagi siswa dari TK, SD, SMP, dan SMA.
-          </p>
+      <div className="md:w-[100%] mx-auto my-10">
+        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+          Visi
+        </h2>
+        <p className="text-gray-600 text-center leading-relaxed">
+          Mencerdaskan kehidupan bangsa Indonesia
+        </p>
+      </div>
 
-          <div className="md:w-[100%] mx-auto my-10">
-            <h1 className="text-2xl font-bold dark:text-white">Visi</h1>
-
-            <div className="w-[100%] mx-auto my-1">
-              <p className="text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </p>
-
-              <div className="md:w-[100%] mx-auto my-10">
-                <h1 className="text-2xl font-bold dark:text-white">Misi</h1>
-
-                <div className="w-[100%] mx-auto my-1">
-                  <p className="text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="md:w-[100%] mx-auto my-10">
+        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+          Misi
+        </h2>
+        <p className="text-gray-600 text-center leading-relaxed">
+          Menyediakan pembelajaran yang interaktif tanpa membuat ngantuk dengan
+          menyediakan tutor terbaik dan lingkungan belajar yang mendukung
+          pembelajaran siswa
+        </p>
       </div>
     </div>
   );
