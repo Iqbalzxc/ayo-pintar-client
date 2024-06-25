@@ -14,24 +14,24 @@ SwiperCore.use([Pagination, Navigation]);
 const testimonialData = [
   {
     id: 1,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum",
+    desc: "Mantap, berkat Ayo Pintar saya sudah bisa membaca ejaan bahasa Indonesia dengan baik dan benar",
     image: People1,
-    name: "People 1",
-    school: "Universitas Indonesia",
+    name: "Azzura Starlee",
+    school: "SDN 1 Karang Pilang",
   },
   {
     id: 2,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt",
+    desc: "Saya tidak menyangka sekarang sudah punya bisnis sendiri. Setelah saya mengikuti kelas di Ayo Pintar saya sudah mendapat penghasilan sendiri padahal saya dulu sulit keluar dari rantai pinjol",
     image: People2,
-    name: "People 2",
-    school: "Institut Teknologi Bandung",
+    name: "Boedi Baike",
+    school: "SMA 1 Surabaya",
   },
   {
     id: 3,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit",
+    desc: "Terima kasih Ayo Pintar. Mimpi saya sekarang terwujud dan bisa selangkah lebih dekat untuk menjadi hokage",
     image: People3,
-    name: "People 3",
-    school: "Universitas Gadjah Mada",
+    name: "Raden Sakti",
+    school: "SMA Negeri I Konoha",
   },
   {
     id: 4,
@@ -85,15 +85,15 @@ const Testimonial = () => {
       </h1>
       <div className="w-[40%] text-center mx-auto my-4 mb-9">
         <p className="text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Berikut testimoni dari pengguna Ayo Pintar
         </p>
       </div>
 
       <Swiper
-      style={{
-        "--swiper-navigation-color": "#F97777",
-        "--swiper-pagination-color": "#F97777",
-      }}
+        style={{
+          "--swiper-navigation-color": "#F97777",
+          "--swiper-pagination-color": "#F97777",
+        }}
         slidesPerView={1}
         spaceBetween={8}
         pagination={{ clickable: true }}

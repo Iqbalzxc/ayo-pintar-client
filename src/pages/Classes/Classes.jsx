@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
-  const { currentUser, isLoading, refetch } = useUser(); 
+  const { currentUser, isLoading, refetch } = useUser();
   const navigate = useNavigate();
   const role = currentUser?.role;
   const [enrolledClasses, setEnrolledClasses] = useState([]);
@@ -27,7 +27,6 @@ const Classes = () => {
       .catch((err) => console.log(err));
   }, []);
 
-
   // REDIRECT LOGIN
   const handleSelect = (id) => {
     if (!currentUser) {
@@ -40,9 +39,8 @@ const Classes = () => {
       .get(`/enrolled-classes/${currentUser.email}`)
       .then((res) => setEnrolledClasses(res.data))
       .catch((err) => console.log(err));
-      
 
-      // GET CART ITEM 
+    // GET CART ITEM
     axiosSecure
       .get(`/cart-item/${id}?email=${currentUser.email}`)
       .then((res) => {
@@ -72,11 +70,12 @@ const Classes = () => {
       .catch((err) => console.log(err));
   };
 
-  
   return (
     <div>
       <div className="mt-20 pt-3">
-        <h1 className="text-4xl font-bold text-center text-secondary">Kelas</h1>
+        <h1 className="text-4xl font-bold text-center dark:text-white">
+          <span className="text-secondary">Pilihan</span> Kelas
+        </h1>
       </div>
 
       <div className="my-16 w-[90%] mx-auto grid sm:grid-col-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -135,7 +134,6 @@ const Classes = () => {
                 </div>
               </Transition>
             </div>
-
 
             {/* DETAILS */}
             <div className="px-6 py-2">
