@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAxiosFetch from "../../../hooks/useAxiosFetch";
 import Card from "./Card";
 
@@ -32,6 +33,14 @@ const PopularClasses = () => {
         {classes.slice(0, 6).map((item, index) => (
           <Card key={index} item={item} />
         ))}
+      </div>
+
+      <div className="text-center mt-8">
+        <Link to="/classes">
+          <button className="px-6 py-3 text-white bg-secondary duration-300 rounded-full hover:bg-red-700">
+            Lihat Semua Kelas
+          </button>
+        </Link>
       </div>
     </div>
   );

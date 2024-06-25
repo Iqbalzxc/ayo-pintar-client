@@ -3,14 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import {
   HiOutlineLockClosed,
-  HiOutlineLockOpen,
   HiOutlinePhone,
   HiOutlineUserPlus,
 } from "react-icons/hi2";
-import {
-  MdOutlineMailOutline,
-  MdOutlinePictureInPicture,
-} from "react-icons/md";
+import { MdOutlineMailOutline } from "react-icons/md";
 import { AiOutlinePicture, AiOutlineUser } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import GoogleLogin from "../../components/headers/Social/GoogleLogin";
@@ -72,8 +68,10 @@ const Register = () => {
   const password = watch("password");
   return (
     <div className="flex justify-center items-center pt-14 bg-array-100">
-      <div className="bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6">Pendaftaran</h2>
+      <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-center mb-6 dark:text-white">
+          Pendaftaran
+        </h2>
 
         {/* FORM */}
         {/* {NAME} */}
@@ -82,7 +80,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="name"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <HiOutlineUserPlus className="inline-block mr-2 mb-1 text-lg" />
                 Nama
@@ -91,7 +89,7 @@ const Register = () => {
                 type="text"
                 placeholder="Masukkan nama anda"
                 {...register("name", { required: true })}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>
 
@@ -99,7 +97,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <MdOutlineMailOutline className="inline-block mr-2 mb-1 text-lg" />
                 Email
@@ -108,7 +106,7 @@ const Register = () => {
                 type="email"
                 placeholder="Masukkan email"
                 {...register("email", { required: true })}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>
           </div>
@@ -118,7 +116,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="password"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <HiOutlineLockClosed className="inline-block mr-2 mb-1 text-lg" />
                 Password
@@ -127,7 +125,7 @@ const Register = () => {
                 type="password"
                 placeholder="Masukkan password"
                 {...register("password", { required: true })}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
 
               {/* CONFIRM PASSWORD */}
@@ -135,7 +133,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="confimpassword"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <HiOutlineLockClosed className="inline-block mr-2 mb-1 text-lg" />
                 Konfirmasi Password
@@ -150,7 +148,7 @@ const Register = () => {
                     value === password ||
                     "Password, tidak sama, silahkan coba lagi!",
                 })}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>
           </div>
@@ -160,7 +158,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="phoneNumber"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <HiOutlinePhone className="inline-block mr-2 mb-1 text-lg" />
                 Nomor Telepon
@@ -169,7 +167,7 @@ const Register = () => {
                 type="tel"
                 placeholder="Input nomor telepon"
                 {...register("phone", { required: true })}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>
 
@@ -177,7 +175,7 @@ const Register = () => {
             <div className="mb-4">
               <label
                 htmlFor="photoUrl"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <AiOutlinePicture className="inline-block mr-2 mb-1 text-lg" />
                 URL Foto
@@ -186,7 +184,7 @@ const Register = () => {
                 type="text"
                 placeholder="Unggah foto"
                 {...register("photoUrl")}
-                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>
           </div>
@@ -196,14 +194,14 @@ const Register = () => {
             <div>
               <label
                 htmlFor="gender"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <AiOutlineUser className="inline-block mr-2 mb-1 text-lg" />
                 Jenis Kelamin
               </label>
               <select
                 {...register("gender", { required: true })}
-                className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               >
                 <option value="">Pilih Jenis Kelamin</option>
                 <option value="male">Laki-Laki</option>
@@ -217,7 +215,7 @@ const Register = () => {
             <div>
               <label
                 htmlFor="address"
-                className="block text-gray-700 font-bold mb-2"
+                className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <HiOutlineLocationMarker className="inline-block mr-2 mb-1 text-lg" />
                 Alamat
@@ -225,7 +223,7 @@ const Register = () => {
               <textarea
                 {...register("address", { required: true })}
                 rows="3"
-                className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300"
+                className="w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
                 placeholder="Masukkan alamat anda"
               ></textarea>
             </div>
@@ -251,7 +249,7 @@ const Register = () => {
 
           {/* ALREADY HAVE ACCOUNT */}
         </form>
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 dark:text-gray-300">
           Sudah punya akun?{" "}
           <Link to="/login" className="underline text-secondary ml-1">
             {" "}

@@ -320,7 +320,6 @@ const DashboardLayout = () => {
         <div className="flex justify-between items-center bg-pink-100 p-4">
           <div className="flex items-center gap-2">
             <img
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               src="/ayo-pintar-logo.png"
               alt="logo.jpg"
               className={`cursor-pointer h-[40px]`}

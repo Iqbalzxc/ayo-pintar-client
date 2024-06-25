@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const StudentCP = () => {
   const { currentUser } = useUser();
   return (
-    <div className="h-screen flex flex-col justify-center items-center p-4">
+    <div className="h-screen flex flex-col justify-center items-center p-4 mt-20 md:mt-5">
       <div className="w-full max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
         <div className="flex justify-center mb-4">
           <img
@@ -18,10 +18,7 @@ const StudentCP = () => {
           />
         </div>
         <h1 className="text-2xl sm:text-4xl capitalize font-bold text-center mb-2">
-          Hi,{" "}
-          <span className="text-secondary">
-            {currentUser?.name}!
-          </span>{" "}
+          Hi, <span className="text-secondary">{currentUser?.name}!</span>{" "}
           Selamat datang
         </h1>
         <p className="text-center text-base py-2">
@@ -33,16 +30,28 @@ const StudentCP = () => {
             Kamu dapat mengakses halaman dari sini
           </h2>
           <div className="space-y-2">
-            <Link to="/dashboard/enrolled-class" className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2">
+            <Link
+              to="/dashboard/enrolled-class"
+              className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2"
+            >
               Kelas Saya
             </Link>
-            <Link to="/dashboard/my-selected" className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2">
+            <Link
+              to="/dashboard/my-selected"
+              className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2"
+            >
               Pilihan Saya
             </Link>
-            <Link to="/dashboard/my-payments" className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2">
+            <Link
+              to="/dashboard/my-payments"
+              className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2"
+            >
               Riwayat Pembayaran
             </Link>
-            <Link to="/dashboard/apply-tutor" className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2">
+            <Link
+              to="/dashboard/apply-tutor"
+              className="block border border-secondary rounded-lg hover:bg-secondary hover:text-white duration-200 px-4 py-2"
+            >
               Daftar Sebagai Tutor
             </Link>
           </div>

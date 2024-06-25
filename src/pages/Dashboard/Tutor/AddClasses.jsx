@@ -57,9 +57,11 @@ const AddClasses = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
+    <div className="max-w-2xl mx-auto p-4 mt-20 md:mt-6">
       <div className="my-10">
-        <h1 className="text-center text-3xl font-bold">Tambahkan <span className="text-secondary">Kelas Anda</span></h1>
+        <h1 className="text-center text-3xl font-bold">
+          Tambahkan <span className="text-secondary">Kelas Anda</span>
+        </h1>
       </div>
 
       <form
@@ -67,7 +69,7 @@ const AddClasses = () => {
         className="mx-auto p-6 bg-white rounded shadow"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 items-center">
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="name"
@@ -83,7 +85,7 @@ const AddClasses = () => {
               className="w-full px-4 py-2 border border-secondary rounded-md focus:outline-none focus:ring-red-500"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="image"
@@ -104,7 +106,7 @@ const AddClasses = () => {
             Silahkan isi kolom dibawah ini sesuai dengan kemauan anda
           </h1>
           <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
-            <div className="mb-6">
+            <div className="mb-4">
               <label
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="tutorName"
@@ -122,7 +124,7 @@ const AddClasses = () => {
               />
             </div>
 
-            <div className="mb-6">
+            <div className="mb-4">
               <label
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="tutorEmail"
@@ -142,7 +144,7 @@ const AddClasses = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-3 items-center">
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="availableSeats"
@@ -158,7 +160,7 @@ const AddClasses = () => {
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
               htmlFor="price"
@@ -175,7 +177,7 @@ const AddClasses = () => {
           </div>
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             className="block text-gray-700 font-bold mb-2"
             htmlFor="groupWaLink"
@@ -183,7 +185,12 @@ const AddClasses = () => {
             Whatsapp Link
           </label>
           <p className="text-[12px] my-2 mt-2 text-secondary text-justify">
-            Grup Whatsapp untuk pembelajaran tutor dan murid, sebelum itu harap masukkan <span className="text-secondary font-bold underline">Admin +6285872893120 </span>ke grup tersebut.
+            Grup Whatsapp untuk pembelajaran tutor dan murid, sebelum itu harap
+            masukkan{" "}
+            <span className="text-secondary font-bold underline">
+              Admin +6285872893120{" "}
+            </span>
+            ke grup tersebut.
           </p>
           <input
             required
@@ -194,7 +201,7 @@ const AddClasses = () => {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             className="block text-gray-700 font-bold mb-2"
             htmlFor="description"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const ClassDetails = () => {
@@ -7,10 +8,12 @@ const ClassDetails = () => {
   const axiosSecure = useAxiosSecure();
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
-      axiosSecure.get(`/class/${id}`)
+      axiosSecure
+        .get(`/class/${id}`)
         .then((res) => {
           console.log("Response from server:", res.data);
           setData(res.data);
@@ -22,20 +25,41 @@ const ClassDetails = () => {
   }, [id, axiosSecure]);
 
   if (!data) {
-    return <p className="flex h-screen items-center justify-center">Loading...</p>;
+    return (
+      <p className="flex h-screen items-center justify-center">Loading...</p>
+    );
   }
 
-  const groupWaLink = data.groupWaLink.startsWith('http')
+  const groupWaLink = data.groupWaLink.startsWith("http")
     ? data.groupWaLink
     : `https://${data.groupWaLink}`;
 
   return (
-    <div className="container mx-auto my-12 p-4 max-w-4xl bg-white shadow-lg rounded-lg">
-      <h1 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center text-gray-800">{data.name}</h1>
-      <img src={data.image} alt={data.name} className="w-full h-48 md:h-64 object-cover rounded-lg mb-4 md:mb-6 shadow-md" />
-      <p className="text-base md:text-lg font-semibold mb-1 text-gray-900">By tutor : {data.tutorName}</p>
-      <p className="text-sm md:text-lg text-gray-700 mb-4 md:mb-6 leading-relaxed text-justify">{data.description}</p>
-      <p className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-900">Klik dibawah untuk bergabung ke grup pembelajaran😉</p>
+    <div className="container mx-auto mt-24 md:mt-8 p-4 max-w-4xl bg-white shadow-lg rounded-lg">
+      <button
+        onClick={() => navigate(-1)}
+        className="flex items-center text-secondary mb-4 md:mb-6"
+      >
+        <FiArrowLeft className="mr-2" />
+        Kembali
+      </button>
+      <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-center text-gray-800">
+        {data.name}
+      </h1>
+      <img
+        src={data.image}
+        alt={data.name}
+        className="w-full h-40 md:h-64 object-cover rounded-lg mb-4 md:mb-6 shadow-md"
+      />
+      <p className="text-base md:text-lg font-semibold mb-1 text-gray-900">
+        By tutor : {data.tutorName}
+      </p>
+      <p className="text-sm md:text-lg text-gray-700 mb-4 md:mb-6 leading-relaxed text-justify">
+        {data.description}
+      </p>
+      <p className="text-base md:text-lg font-semibold mb-2 md:mb-4 text-gray-900">
+        Klik dibawah untuk bergabung ke grup pembelajaran😉
+      </p>
       <a
         href={groupWaLink}
         target="_blank"
