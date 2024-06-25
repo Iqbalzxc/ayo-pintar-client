@@ -28,7 +28,7 @@ const Footer = () => {
                 Ayo Pintar
               </a>
               <div className="mt-2">
-                <h2 className="text-lg font-semibold mb-2 text-white">Alamat Kami</h2>
+                <h2 className="text-lg font-semibold mb-2 text-white">Alamat Kami :</h2>
                 <p className="text-white">Jl. Ahmad Yamin No. 123, Kota Cirebon, Indonesia</p>
               </div>
             </div>
@@ -36,14 +36,14 @@ const Footer = () => {
 
           {/* Hubungi Kami */}
           <div className="md:col-span-1">
-            <h2 className="text-lg font-semibold mb-4 text-white">Hubungi Kami</h2>
+            <h2 className="text-lg font-semibold mb-4 text-white underline">Hubungi Kami</h2>
             <p className="text-white">Email: AyoPintar@gmail.com</p>
-            <p className="text-white">WhatsApp: +62 858-7289-3120 (Iqbal)</p>
+            <p className="text-white">WhatsApp: +62 123456789 (Admin)</p>
           </div>
 
           {/* Produk dan Panduan */}
           <div className="md:col-span-1">
-            <h2 className="text-lg font-semibold mb-4 text-white">Layanan dan Panduan</h2>
+            <h2 className="text-lg font-semibold mb-4 text-white underline">Layanan dan Panduan</h2>
             <ul className="space-y-2">
               <li>
                 <Link className="text-white" to="/faq">FAQ</Link>
@@ -56,7 +56,7 @@ const Footer = () => {
 
           {/* Sosial Media */}
           <div className="md:col-span-1">
-            <h2 className="text-lg font-semibold mb-4 text-white">Sosial Media</h2>
+            <h2 className="text-lg font-semibold mb-4 text-white underline">Sosial Media</h2>
             <ul className="space-y-2">
               <li>
                 <a className="text-white"

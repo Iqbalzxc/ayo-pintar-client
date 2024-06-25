@@ -80,11 +80,11 @@ const testimonialData = [
 const Testimonial = () => {
   return (
     <div className="md:w-[80] mx-auto my-36">
-      <h1 className="text-5xl font-bold text-center dark:text-white">
+      <h1 className="text-5xl font-bold text-center text-secondary dark:text-white">
         Testimonial
       </h1>
       <div className="w-[40%] text-center mx-auto my-4 mb-9">
-        <p className="text-gray-500">
+        <p className="text-black dark:text-white">
           Berikut testimoni dari pengguna Ayo Pintar
         </p>
       </div>
@@ -111,11 +111,11 @@ const Testimonial = () => {
         {testimonialData.map((testimonial) => (
           <SwiperSlide
             key={testimonial.id}
-            className="shadow-md bg-gray-100 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
+            className="shadow-md bg-secondary dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
           >
             <div className="rounded-lg p-5 mb-2">
               <div className="h-52 pr-5 overflow-y-auto mt-2 ">
-                <p className="text-lg text-justify font-semibold text-gray-800 dark:text-gray-300">
+                <p className="text-lg text-justify font-semibold text-white dark:text-gray-300">
                   "{testimonial.desc}"
                 </p>
               </div>
@@ -127,10 +127,10 @@ const Testimonial = () => {
                   className="rounded-full w-14 h-15 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-300">
+                  <h5 className="text-lg font-semibold text-white dark:text-slate-300">
                     {testimonial.name}
                   </h5>
-                  <p className="font-semibold text-gray-600">
+                  <p className="font-semibold text-white">
                     {testimonial.school}
                   </p>
                 </div>

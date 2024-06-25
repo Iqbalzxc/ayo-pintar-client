@@ -104,7 +104,7 @@ const ManageClasses = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl sm:text-4xl text-secondary font-bold text-center my-5 sm:my-10">
-        Kelola <span className="text-black">Kelas</span>
+        Manage <span className="text-black">Kelas</span>
       </h1>
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full py-2">

@@ -45,7 +45,7 @@ const Layanan = () => {
         <span className="text-secondary">Layanan</span> Kami
       </h1>
       <div className="w-[40%] text-center mx-auto my-4 mb-9">
-        <p className="text-gray-500">Temukan layanan kami yang menarik</p>
+        <p className="text-black dark:text-white">Temukan layanan kami yang menarik</p>
       </div>
 
       <Swiper
@@ -66,11 +66,11 @@ const Layanan = () => {
         {layananData.map((layanan) => (
           <SwiperSlide
             key={layanan.id}
-            className="shadow-md bg-gray-100 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-full md:w-72 mb-2"
+            className="shadow-md bg-secondary dark:bg-zinc-900 rounded-lg px-8 mx-auto w-full md:w-72 mb-2"
           >
             <div className="rounded-lg p-5 mb-2">
               <div className="h-52 pr-5 overflow-y-auto mt-2">
-                <p className="text-lg text-justify font-semibold text-gray-800 dark:text-gray-300">
+                <p className="text-lg text-justify font-semibold text-white dark:text-gray-300">
                   "{layanan.description}"
                 </p>
               </div>
@@ -82,10 +82,10 @@ const Layanan = () => {
                   className="rounded-full w-14 h-15 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-300">
+                  <h5 className="text-lg font-semibold text-white dark:text-slate-300">
                     {layanan.name}
                   </h5>
-                  <p className="font-semibold text-gray-600">
+                  <p className="font-semibold text-white underline">
                     {layanan.category}
                   </p>
                 </div>

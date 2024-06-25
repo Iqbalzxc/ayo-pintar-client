@@ -74,7 +74,7 @@ const Faq = () => {
         <span className="text-secondary">Frequently Asked</span> Question
       </h1>
       <div className="w-[40%] text-center mx-auto my-4">
-        <p className="text-gray-500">Pertanyaan yang sering diajukan</p>
+        <p className="text-black dark:text-white">Pertanyaan yang sering diajukan</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-5 mb-10">
         {faq.map((data) => (

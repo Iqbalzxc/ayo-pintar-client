@@ -129,7 +129,7 @@ const NavBar = () => {
                   className="w-8 h-8"
                 />
               </h1>
-              <p className="font-bold text-[13px] tracking-[8px]">
+              <p className="font-bold text-[13px] tracking-[2px]">
                 Smart Learning
               </p>
             </div>

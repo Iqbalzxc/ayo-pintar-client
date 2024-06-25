@@ -58,7 +58,7 @@ const ManageTutors = () => {
   return (
     <div className="container mx-auto px-4 py-8 mt-20 md:mt-6">
       <h1 className="text-4xl font-bold text-center mt-3">
-        Kelola <span className="text-secondary">Tutor</span>
+        Manage <span className="text-secondary">Tutor</span>
       </h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tutors.map((tutor) => renderTutorCard(tutor))}

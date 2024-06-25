@@ -24,7 +24,7 @@ const PopularClasses = () => {
         <span className="text-secondary">Kelas/Pelajaran</span> Paling Diminati
       </h1>
       <div className="w-[40%] text-center mx-auto my-4">
-        <p className="text-gray-500">
+        <p className="text-black dark:text-white">
           Berikut ini merupakan kelas yang paling sering diikuti oleh siswa.
         </p>
       </div>

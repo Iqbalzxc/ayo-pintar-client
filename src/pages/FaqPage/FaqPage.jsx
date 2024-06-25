@@ -71,7 +71,7 @@ const FaqPage = () => {
       <h1 className="text-4xl font-bold text-center mb-2 dark:text-white">
         <span className="text-secondary">Frequently Asked</span> Questions
       </h1>
-      <p className="text-center text-gray-500 mb-8">
+      <p className="text-center text-black dark:text-white mb-8">
         Pertanyaan yang sering diajukan
       </p>
       <div className="flex justify-center mb-6">

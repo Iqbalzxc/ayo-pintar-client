@@ -11,7 +11,7 @@ const Gallery = () => {
       </h1>
 
       <div className="w-[50%] text-center mx-auto my-10">
-        <p className="text-gray-500">
+        <p className="text-black dark:text-white">
           Berikut ini merupakan dokumentasi pembelajaran Ayo Pintar
         </p>
       </div>

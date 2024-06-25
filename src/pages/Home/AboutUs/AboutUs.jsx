@@ -9,10 +9,10 @@ const AboutUs = () => {
       <div className="w-20 mx-auto my-5 border-b-2 border-secondary"></div>
 
       <div className="my-10">
-        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+        <h2 className="text-2xl font-bold text-center mb-4 text-secondary">
           Sejarah
         </h2>
-        <p className="text-gray-600 leading-relaxed text-center">
+        <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
           Ayo Pintar merupakan aplikasi di bidang pendidikan yang dibuat dengan
           tujuan sebagai platform bimbingan belajar. Berdiri pada tahun 2022 di
           Kota Cirebon, Jawa Barat, awalnya sebagai tempat bimbingan belajar
@@ -23,10 +23,10 @@ const AboutUs = () => {
       </div>
 
       <div className="my-10">
-        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+        <h2 className="text-2xl font-bold text-center mb-4 text-secondary">
           Visi
         </h2>
-        <p className="text-gray-600 leading-relaxed text-center">
+        <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
           Menjadi platform bimbingan belajar terdepan yang memberikan akses
           pendidikan berkualitas secara online untuk meningkatkan potensi
           akademik dan pengembangan diri siswa di seluruh Indonesia.
@@ -34,10 +34,10 @@ const AboutUs = () => {
       </div>
 
       <div className="my-10">
-        <h2 className="text-2xl font-bold text-center dark:text-white mb-4">
+        <h2 className="text-2xl font-bold text-center text-secondary mb-4">
           Misi
         </h2>
-        <p className="text-gray-600 leading-relaxed text-center">
+        <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
           Menyediakan pembelajaran yang interaktif dengan menyediakan tutor
           terbaik dan lingkungan belajar yang mendukung pembelajaran siswa.
         </p>

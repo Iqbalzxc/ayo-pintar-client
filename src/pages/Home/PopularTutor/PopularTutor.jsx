@@ -23,7 +23,7 @@ const PopularTutor = () => {
           <span className="text-secondary">Tutor</span> Favorit
         </h1>
         <div className="w-[40%] text-center mx-auto my-4">
-          <p className="text-gray-500">
+          <p className="text-black dark:text-white">
             Berikut ini merupakan Tutor favorit yang dipilih siswa.
           </p>
         </div>
