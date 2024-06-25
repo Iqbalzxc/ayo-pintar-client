@@ -1,7 +1,7 @@
 import React from "react";
 import useUser from "../../../hooks/useUser";
-import WelcomeImg from "../../../assets/dashboard/urban-welcome.svg";
-import { Link } from "react-router-dom";
+import bgImg from "../../../assets/dashboard/welcome.png";
+import { Link } from "react-router-dom"; 
 
 const StudentCP = () => {
   const { currentUser } = useUser();
@@ -11,8 +11,8 @@ const StudentCP = () => {
         <div className="flex justify-center mb-4">
           <img
             onContextMenu={(e) => e.preventDefault()}
-            src={WelcomeImg}
-            alt="welcome.jpg"
+            src={bgImg}
+            alt="bg.jpg"
             className="h-[200px] w-auto"
             placeholder="blur"
           />

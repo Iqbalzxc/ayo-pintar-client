@@ -29,37 +29,21 @@ const Footer = () => {
 
             <div className="mt-6">
               <p className="text-white">
-                Jl. Ahmad Yamin No. 123, Kota Cirebon, Indonesia
+              Jl. Perjuangan, Sunyaragi, Kec. Kesambi, Kota Cirebon, Jawa Barat 45132, Indonesia
               </p>
             </div>
           </div>
 
-          {/* Bagian Menu */}
+          {/* Bagian Layanan & Bantuan */}
           <div className="w-full lg:w-4 mb-8 lg:mb-0">
-            <h5 className="text-lg font-bold mb-3">Menu</h5>
+            <h5 className="text-lg font-bold mb-3">Bantuan</h5>
             <ul>
               <li>
                 <a
-                  href="/"
+                  href="/faq"
                   className="block text-gray-300 hover:text-secondary"
                 >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/tutors"
-                  className="block text-gray-300 hover:text-secondary"
-                >
-                  Tutor
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/classes"
-                  className="block text-gray-300 hover:text-secondary"
-                >
-                  Kelas
+                  FAQ
                 </a>
               </li>
               <li>
@@ -68,14 +52,6 @@ const Footer = () => {
                   className="block text-gray-300 hover:text-secondary"
                 >
                   Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/faq"
-                  className="block text-gray-300 hover:text-secondary"
-                >
-                  FAQ
                 </a>
               </li>
             </ul>
@@ -140,7 +116,7 @@ const Footer = () => {
               >
                 <FaTwitter />
               </a>
-              <a href="" className="text-gray-300 hover:text-secondary">
+              <a href="https://youtube.com" className="text-gray-300 hover:text-secondary">
                 <FaYoutube />
               </a>
             </div>

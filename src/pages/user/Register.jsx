@@ -13,6 +13,22 @@ import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
 import axios from "axios";
 
+// mengunggah gambar
+const uploadImage = async (file) => {
+  const formData = new FormData();
+  formData.append('image', file);
+
+  const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_TOKEN}`;
+
+  try {
+    const response = await axios.post(url, formData);
+    return response.data.data.url;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error;
+  }
+};
+
 // REGISTER PAGE
 const Register = () => {
   const navigate = useNavigate();
@@ -23,61 +39,59 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  
+  const onSubmit = async (data) => {
     setError("");
 
-    signUp(data.email, data.password).then((result) => {
-      const user = result.user;
-      if (user) {
-        return updateUser(data.name, data.photoUrl)
-          .then(() => {
-            const userImp = {
-              name: user?.displayName,
-              email: user?.email,
-              photoUrl: user?.photoURL,
-              role: "user",
-              gender: data.gender,
-              phone: data.phone,
-              address: data.address,
-            };
-
-            if (user.email && user.displayName) {
-              return axios
-                .post(
-                  "https://ayo-pintar-server.onrender.com/new-user",
-                  userImp
-                )
-                .then(() => {
-                  navigate("/");
-                  setError();
-                  return "Pendaftaran berhasil";
-                })
-                .catch((err) => {
-                  throw new Error(err);
-                });
-            }
-          })
-          .catch((err) => {
-            setError(err.code);
-            throw new Error(err);
-          });
+    try {
+      let photoUrl = "";
+      if (data.photo[0]) {
+        photoUrl = await uploadImage(data.photo[0]);
       }
-    });
+
+      const result = await signUp(data.email, data.password);
+      const user = result.user;
+      
+      if (user) {
+        await updateUser(data.name, photoUrl);
+        
+        const userImp = {
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+          role: "user",
+          gender: data.gender,
+          phone: data.phone,
+          address: data.address,
+        };
+
+        if (user.email && user.displayName) {
+          await axios.post("https://ayo-pintar-server.onrender.com/new-user", userImp);
+          navigate("/");
+          setError();
+          return "Pendaftaran berhasil";
+        }
+      }
+    } catch (err) {
+      setError(err.code);
+      console.error(err);
+    }
   };
 
   const password = watch("password");
+
   return (
     <div className="flex justify-center items-center pt-14 bg-array-100">
-      <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-6 dark:text-white">
-          Pendaftaran
+      <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-md mb-12">
+        <h2 className="text-2xl font-bold text-center mb-8 text-secondary dark:text-white font-serif">
+          PENDAFTARAN
         </h2>
 
         {/* FORM */}
         {/* {NAME} */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex items-center gap-5">
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <label
                 htmlFor="name"
                 className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
@@ -94,7 +108,7 @@ const Register = () => {
             </div>
 
             {/* EMAIL */}
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <label
                 htmlFor="email"
                 className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
@@ -113,7 +127,7 @@ const Register = () => {
 
           {/* PASSWORD */}
           <div className="flex items-center gap-5">
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <label
                 htmlFor="password"
                 className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
@@ -130,7 +144,7 @@ const Register = () => {
 
               {/* CONFIRM PASSWORD */}
             </div>
-            <div className="mb-4">
+            <div className="mb-4 w-full">
               <label
                 htmlFor="confimpassword"
                 className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
@@ -178,12 +192,11 @@ const Register = () => {
                 className="block text-gray-700 font-bold mb-2 dark:text-gray-300"
               >
                 <AiOutlinePicture className="inline-block mr-2 mb-1 text-lg" />
-                URL Foto
+                Foto
               </label>
               <input
-                type="text"
-                placeholder="Unggah foto"
-                {...register("photoUrl")}
+                type="file"
+                {...register("photo")}
                 className="w-full border-gray-300 border rounded-md py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               />
             </div>

@@ -56,12 +56,12 @@ const lastMenuItems = [
     icon: <BiHomeAlt className="text-2xl" />,
     label: "Home Page",
   },
-  { to: "/trending", icon: <TbBolt className="text-2xl" />, label: "Trending" },
-  {
-    to: "/browse",
-    icon: <GiFigurehead className="text-2xl" />,
-    label: "Mengikuti",
-  },
+  // { to: "/trending", icon: <TbBolt className="text-2xl" />, label: "Trending" },
+  // {
+  //   to: "/browse",
+  //   icon: <GiFigurehead className="text-2xl" />,
+  //   label: "Mengikuti",
+  // },
 ];
 
 // TUTOR NAV ITEMS
