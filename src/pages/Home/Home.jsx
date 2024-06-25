@@ -8,6 +8,8 @@ import Testimonial from "./Testimonial/Testimonial";
 import Faq from "./Faq/Faq";
 import AboutUs from "./AboutUs/AboutUs";
 import OurTeam from "./OurTeam/OurTeam";
+import Footer from "./Footer/Footer";
+import Layanan from "./Layanan/Layanan";
 
 // HOME
 const Home = () => {
@@ -19,12 +21,14 @@ const Home = () => {
       <HeroContainer />
       <div className="max-w-screen-xl mx-auto">
         <Gallery />
+        <Layanan />
         <PopularClasses />
         <PopularTutor />
         <Testimonial />
         <Faq />
         <AboutUs />
         <OurTeam />
+        <Footer />
       </div>
     </section>
   );

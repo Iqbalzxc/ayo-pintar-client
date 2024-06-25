@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bgImg from "../../../assets/home/banner-2.jpg";
-
 
 // DESIGN START HERO SECTION 2
 const Hero2 = () => {
@@ -12,26 +12,33 @@ const Hero2 = () => {
       <div className="min-h-screen flex justify-start pl-11 items-center text-white bg-black bg-opacity-60">
         <div>
           <div className="space-y-4">
-            <p className="md:text-4xl text-2xl">Pilihan Terbaik Tes 2</p>
+            <p className="md:text-4xl text-2xl">Pilihan Terbaik</p>
             <h1 className="md:text-7xl text-4xl font-bold">
-              Bagi Putra-Putri Anda Tes 2
+              Bagi Putra-Putri Anda
             </h1>
             <div className="md:w-1/2">
               <p>
-                Merupakan Bimbel & Privat terbaik di Kota & Kabupaten Cirebon
-                yang menawarkan pembelajaran terbaik dan menyenangkan untuk
-                semua. Disamping itu, kami menawarkan harga yang terjangkau yang
-                sesuai prinsip kami yakni Pendidikan ialah hak untuk semua
-                orang.
+                Kami menghadirkan pengalaman pembelajaran yang terintegrasi
+                dengan teknologi untuk memaksimalkan potensi belajar setiap
+                siswa. Dengan platform online kami, siswa dapat mengakses
+                materi, latihan, dan penilaian secara fleksibel, di mana pun dan
+                kapan pun mereka inginkan. Kami memahami bahwa setiap siswa
+                memiliki kebutuhan belajar yang unik, oleh karena itu, kami
+                menyediakan pendekatan yang personal dan adaptif untuk
+                memastikan kesuksesan akademik mereka.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5">
-              <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase">
-                Daftar Segera!
-              </button>
-              <button className="px-7 py-3 rounded-lg border hover:bg-secondary font-bold uppercase">
-                Lihat Kelas/Pelajaran
-              </button>
+              <Link to="/register">
+                <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase">
+                  Daftar Segera!
+                </button>
+              </Link>
+              <Link to="/classes">
+                <button className="px-7 py-3 rounded-lg border hover:bg-secondary font-bold uppercase">
+                  Lihat Kelas/Pelajaran
+                </button>
+              </Link>
             </div>
           </div>
         </div>

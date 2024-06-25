@@ -1,8 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bgImg from "../../../assets/home/banner-1.jpg";
 
-
-// DESIGN START HERO SECTION 1
 const Hero = () => {
   return (
     <div
@@ -26,12 +25,16 @@ const Hero = () => {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5">
-              <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase">
-                Daftar Segera!
-              </button>
-              <button className="px-7 py-3 rounded-lg border hover:bg-secondary font-bold uppercase">
-                Lihat Kelas/Pelajaran
-              </button>
+              <Link to="/register">
+                <button className="px-7 py-3 rounded-lg bg-secondary font-bold uppercase">
+                  Daftar Segera!
+                </button>
+              </Link>
+              <Link to="/classes">
+                <button className="px-7 py-3 rounded-lg border hover:bg-secondary font-bold uppercase">
+                  Lihat Kelas/Pelajaran
+                </button>
+              </Link>
             </div>
           </div>
         </div>
