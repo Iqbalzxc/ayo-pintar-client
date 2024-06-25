@@ -2,30 +2,31 @@ import React, { useEffect, useState } from "react";
 import useUser from "../../../../hooks/useUser";
 import useAxiosFetch from "../../../../hooks/useAxiosFetch";
 import { FiUser, FiMail, FiBriefcase, FiSend } from "react-icons/fi";
+import Swal from "sweetalert2";
 
 const AsTutor = () => {
   const { currentUser } = useUser();
-  const [submittedData, setSubmittedData] = useState({});
+  const [submittedData, setSubmittedData] = useState(null);
   const [loading, setLoading] = useState(true);
   const axiosFetch = useAxiosFetch();
 
   const onSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    console.log(name)
     const email = e.target.email.value;
-    console.log(email)
     const experience = e.target.experience.value;
-    console.log(experience)
-    const data = {
-      name, email, experience
-    }
+    const data = { name, email, experience };
 
-    axiosFetch.post(`/ass-tutor`, data).then(res => {
+    axiosFetch.post(`/ass-tutor`, data).then((res) => {
       console.log(res.data);
-      alert("Berhasil daftar")
-    })
-
+      setSubmittedData(data);
+      Swal.fire({
+        title: "Berhasil!",
+        text: "Anda berhasil mendaftar sebagai tutor.",
+        icon: "success",
+        confirmButtonText: "OK"
+      });
+    });
   };
 
   useEffect(() => {
@@ -42,13 +43,13 @@ const AsTutor = () => {
   }, [currentUser, axiosFetch]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="flex h-screen items-center justify-center">Loading...</p>;
   }
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        {!submittedData?.name ? (
+    <div className="container mx-auto p-4">
+      <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
+        {!submittedData ? (
           <form onSubmit={onSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700" htmlFor="name">
@@ -90,11 +91,11 @@ const AsTutor = () => {
               <label className="block text-gray-700" htmlFor="experience">
                 Pengalaman
               </label>
-              <div className="flex items-center mt-1">
-                <FiBriefcase className="text-gray-500" />
+              <div className="flex items-start mt-1">
+                <FiBriefcase className="text-gray-500 mt-2" />
                 <textarea
                   placeholder="Ceritakan pengalaman anda..."
-                  className="ml-2 w-full border-b border-gray-300 focus:border-secondary outline-none"
+                  className="ml-2 w-full h-32 border-b border-gray-300 focus:border-secondary outline-none resize-none"
                   id="experience"
                   name="experience"
                 ></textarea>
@@ -104,7 +105,7 @@ const AsTutor = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="flex items-center px-4 py-2 bg-secondary text-white rounded-md focus:outline-none"
+                className="flex items-center justify-center px-4 py-2 bg-secondary text-white rounded-md focus:outline-none hover:bg-secondary-dark transition duration-200"
               >
                 <FiSend className="mr-2" />
                 Kirim
@@ -113,10 +114,23 @@ const AsTutor = () => {
           </form>
         ) : (
           <div>
-            <h2 className="text-xl font-bold">Data yang Dikirim</h2>
-            <p>Nama: {submittedData.name}</p>
-            <p>Email: {submittedData.email}</p>
-            <p>Pengalaman: {submittedData.experience}</p>
+            <h2 className="text-xl font-bold mb-4 text-center">Data yang Dikirim</h2>
+            <div className="text-left">
+              <div className="grid gap-2">
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Nama:</span>
+                  <span className="text-justify">{submittedData.name}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Email:</span>
+                  <span className="text-justify">{submittedData.email}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="min-w-[120px] font-bold">Pengalaman:</span>
+                  <span className="text-justify">{submittedData.experience}</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>

@@ -14,63 +14,75 @@ SwiperCore.use([Pagination, Navigation]);
 const testimonialData = [
   {
     id: 1,
+<<<<<<< HEAD
     desc: "Mantap, berkat Ayo Pintar saya sudah bisa membaca ejaan bahasa Indonesia dengan baik dan benar",
+=======
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente",
+>>>>>>> 888ddce985ab820a716b6dd9deae7bec0b508685
     image: People1,
     name: "Azzura Starlee",
     school: "SDN 1 Karang Pilang",
   },
   {
     id: 2,
+<<<<<<< HEAD
     desc: "Saya tidak menyangka sekarang sudah punya bisnis sendiri. Setelah saya mengikuti kelas di Ayo Pintar saya sudah mendapat penghasilan sendiri padahal saya dulu sulit keluar dari rantai pinjol",
+=======
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente",
+>>>>>>> 888ddce985ab820a716b6dd9deae7bec0b508685
     image: People2,
     name: "Boedi Baike",
     school: "SMA 1 Surabaya",
   },
   {
     id: 3,
+<<<<<<< HEAD
     desc: "Terima kasih Ayo Pintar. Mimpi saya sekarang terwujud dan bisa selangkah lebih dekat untuk menjadi hokage",
+=======
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta",
+>>>>>>> 888ddce985ab820a716b6dd9deae7bec0b508685
     image: People3,
     name: "Raden Sakti",
     school: "SMA Negeri I Konoha",
   },
   {
     id: 4,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta qua",
     image: People1,
     name: "People 4",
     school: "SMP Negeri 1 Jakarta",
   },
   {
     id: 5,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse",
     image: People2,
     name: "People 5",
     school: "SMA Negeri 8 Jakarta",
   },
   {
     id: 6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit",
     image: People3,
     name: "People 6",
     school: "SD Negeri 1 Surabaya",
   },
   {
     id: 7,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo",
     image: People1,
     name: "People 7",
     school: "Universitas Airlangga",
   },
   {
     id: 8,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo",
     image: People2,
     name: "People 8",
     school: "SMP Negeri 2 Bandung",
   },
   {
     id: 9,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum,  vel optio corporis voluptatem?",
+    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum,",
     image: People3,
     name: "People 9",
     school: "SMA Negeri 3 Bandung",
@@ -111,26 +123,26 @@ const Testimonial = () => {
         {testimonialData.map((testimonial) => (
           <SwiperSlide
             key={testimonial.id}
-            className="shadow-md bg-gray-100 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
+            className="shadow-md bg-slate-50 dark:bg-zinc-900 rounded-lg px-8 mx-auto w-72 md:w-auto mb-2"
           >
             <div className="rounded-lg p-5 mb-2">
-              <div className="h-52 pr-5 overflow-y-auto mt-2 ">
-                <p className="text-lg text-justify font-semibold text-gray-800 dark:text-gray-300">
+              <div className="h-40 pr-5 overflow-y-auto">
+                <p className="text-base text-justify font-semibold text-gray-800 dark:text-gray-300 mt-5">
                   "{testimonial.desc}"
                 </p>
               </div>
-              <hr className="border-gray-300 dark:border-gray-600 mb-3" />
+              <hr className="border-gray-300 dark:border-gray-600 my-2" />
               <div className="flex items-center">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="rounded-full w-14 h-15 mr-4"
+                  className="rounded-full w-14 h-14 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-300">
+                  <h5 className="text-base font-semibold text-gray-800 dark:text-slate-300">
                     {testimonial.name}
                   </h5>
-                  <p className="font-semibold text-gray-600">
+                  <p className="text-sm font-semibold text-gray-500">
                     {testimonial.school}
                   </p>
                 </div>

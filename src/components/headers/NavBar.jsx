@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { ThemeProvider, THEME_ID, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Switch } from "@mui/material";
 import { motion } from "framer-motion";
 import photoUrl from "../../assets/home/foto-profile.jpg";
 import { FaBars } from "react-icons/fa";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
-// THIS IS LINK NAVBAR
 const navLinks = [
   { name: "Home", route: "/" },
   { name: "Tutor", route: "/tutors" },
@@ -17,7 +16,6 @@ const navLinks = [
   { name: "FAQ", route: "/faq" },
 ];
 
-// THEME NAVBAR
 const theme = createTheme({
   palette: { primary: { main: "#ff0000" }, secondary: { main: "#00ff00" } },
 });
@@ -31,7 +29,8 @@ const NavBar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isFixed, setIsFixed] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [navBg, setNavBg] = useState("bg-[#15151580]");
+  const [navBg, setNavBg] = useState("bg-transparent backdrop-filter backdrop-blur-xl");
+
   const { logout, user } = useContext(AuthContext);
 
   const toggleMobileMenu = () => {
@@ -51,9 +50,7 @@ const NavBar = () => {
   useEffect(() => {
     setIsHome(location.pathname === "/");
     setIsLogin(location.pathname === "/login");
-    setIsFixed(
-      location.pathname === "/register" || location.pathname === "/login"
-    );
+    setIsFixed(location.pathname === "/register" || location.pathname === "/login");
   }, [location]);
 
   useEffect(() => {
@@ -68,20 +65,12 @@ const NavBar = () => {
   useEffect(() => {
     if (scrollPosition > 100) {
       if (isHome) {
-        setNavBg(
-          "bg-white backdrop-filter backdrop-blur-xl bg-opacity-0 dark:text-white text-black"
-        );
+        setNavBg("bg-white backdrop-filter backdrop-blur-xl bg-opacity-0 dark:text-white text-black");
       } else {
         setNavBg("bg-white dark:bg-black dark:text-white text-black");
       }
     } else {
-      setNavBg(
-        `${
-          isHome || location.pathname === "/"
-            ? "bg-transparent"
-            : "bg-white dark:bg-black"
-        } dark:text-white text-white `
-      );
+      setNavBg(isHome || location.pathname === "/" ? "bg-transparent backdrop-filter backdrop-blur-xl" : "bg-white dark:bg-black dark:text-white text-white");
     }
   }, [scrollPosition]);
 
@@ -148,12 +137,20 @@ const NavBar = () => {
 
           {/* MOBILE MENU ICONS */}
           <div className="md:hidden flex items-center">
+            {/* COLOR TOGGLE MOBILE */}
+            <ThemeProvider theme={theme}>
+              <div className="flex flex-col justify-center items-center mr-2">
+                <Switch onChange={() => setIsDarkMode(!isDarkMode)} />
+                <h1 className="text-[7px]">Light/Dark</h1>
+              </div>
+            </ThemeProvider>
+            {/* MENU ICON */}
             <button
               type="button"
               onClick={toggleMobileMenu}
               className="text-gray-300 hover:text-white focus:outline-none"
             >
-              <FaBars className="h-6 w-6 hover:text-primary" />
+              <FaBars className="h-8 w-8 hover:text-primary" />
             </button>
           </div>
 
@@ -274,6 +271,81 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      {/* MOBILE MENU */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mb-3">
+          <ul
+            className={`flex flex-col items-center space-y-2 px-4 py-2 ${navBg} text-black dark:text-white`}
+          >
+            {navLinks.map((Link) => (
+              <li key={Link.route}>
+                <NavLink
+                  to={Link.route}
+                  style={{ whiteSpace: "nowrap" }}
+                  className={({ isActive }) =>
+                    `block font-bold ${
+                      isActive ? "text-secondary" : "text-black dark:text-white"
+                    } hover:text-secondary duration-300`
+                  }
+                  onClick={toggleMobileMenu}
+                >
+                  {Link.name}
+                </NavLink>
+              </li>
+            ))}
+            {user && (
+              <li>
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    `block font-bold ${
+                      isActive ? "text-secondary" : "text-black dark:text-white"
+                    } hover:text-secondary duration-300 mb-3`
+                  }
+                  onClick={toggleMobileMenu}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
+            {user ? (
+              <li className="flex items-center space-x-4">
+                <img
+                  src={photoUrl}
+                  alt="foto profile"
+                  className="h-[40px] rounded-full w-[40px]"
+                />
+                <NavLink
+                  onClick={handleLogout}
+                  className="block font-bold px-6 py-2 bg-secondary text-white rounded-xl"
+                >
+                  Log Out
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                {isLogin ? (
+                  <NavLink
+                    to="/register"
+                    className="block font-bold text-white bg-secondary px-6 py-2 rounded-xl"
+                    onClick={toggleMobileMenu}
+                  >
+                    Register
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    className="block font-bold text-secondary border border-secondary px-8 py-2 rounded-xl hover:text-white hover:bg-secondary duration-300"
+                    onClick={toggleMobileMenu}
+                  >
+                    Login
+                  </NavLink>
+                )}
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
     </motion.nav>
   );
 };
