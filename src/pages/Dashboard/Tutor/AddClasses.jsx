@@ -14,10 +14,10 @@ const AddClasses = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    console.log(formData);
+    // console.log(formData);
     const newData = Object.fromEntries(formData);
     formData.append("file", image);
-    console.log(newData);
+    // console.log(newData);
 
     fetch(API_URL, {
       method: "POST",
@@ -25,9 +25,9 @@ const AddClasses = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.success === true) {
-          console.log(data.data.display_url);
+          // console.log(data.data.display_url);
           newData.image = data.data.display_url;
           newData.tutorName = currentUser?.name;
           newData.tutorEmail = currentUser?.email;
@@ -41,7 +41,7 @@ const AddClasses = () => {
               icon: "success",
               confirmButtonText: "OK",
             });
-            console.log(res.data);
+            // console.log(res.data);
           });
         }
       });

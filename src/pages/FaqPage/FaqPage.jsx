@@ -6,51 +6,45 @@ import { Link } from "react-router-dom";
 const faq = [
   {
     id: 1,
-    question: "Apakah ini Berlangganan?",
+    eventKey: 0,
+    question: "Bagaimana cara daftar sebagai siswa Bimbel & Privat Ayo Pintar?",
     answer:
-      "text1 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan melakukan pendaftaran di halaman registrasi.",
   },
   {
     id: 2,
-    question: "Bagaimana Sistem Belajarnya?",
+    eventKey: 1,
+    question: "Apakah tutor di Bimbel & Privat Ayo Pintar kompeten?",
     answer:
-      "text2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Ya, tutor di Bimbel & Privat Ayo Pintar kompeten yang berpengalaman mengajar di bidangnya.",
   },
   {
     id: 3,
-    question: "Apakah boleh Ganti Tutor jika tidak cocok?",
+    eventKey: 2,
+    question: "Bagaimana cara melihat kelasnya?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan melihat di halaman kelas.",
   },
   {
     id: 4,
-    question: "Apakah Ada Grup Diskusi?",
+    eventKey: 3,
+    question: "Pembayaran bisa melalui apa saja?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Pembayaran dapat dilakukan melalui transfer Bank BRI 4190 0101 4378 533 a/n. Muhammad Iqbal Nugraha  .",
   },
   {
     id: 5,
+    eventKey: 4,
     question: "Apakah tersedia Kelas Privat?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Ya, kami menyediakan kelas privat untuk siswa yang ingin belajar.",
   },
   {
     id: 6,
-    question: "Bagaimana cara daftar sebagai siswa les privat?",
+    eventKey: 5,
+    question: "Bagaimana cara daftar sebagai tutor?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 7,
-    question: "Apakah Saya Boleh Mendownload Videonya?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  },
-  {
-    id: 8,
-    question: "Apakah boleh ganti Kelas ketika sudah Membeli?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan anda dapat mengunjungi halaman dashboard.",
   },
 ];
 
@@ -119,7 +113,7 @@ const FaqPage = () => {
       </div>
       <div className="mt-10 text-center">
         <Link
-          to="#"
+          to="https://wa.me/6285872893120"
           className="bg-secondary text-white px-5 py-3 rounded-full shadow hover:bg-secondary-dark transition inline-flex items-center"
         >
           <FiPhone className="mr-2" /> Contact Support

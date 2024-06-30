@@ -14,7 +14,7 @@ const AdminStats = ({ users }) => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <div className="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-4 sm:px-8">

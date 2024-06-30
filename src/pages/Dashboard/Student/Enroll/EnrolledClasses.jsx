@@ -10,11 +10,11 @@ const EnrolledClasses = () => {
 
   useEffect(() => {
     if (currentUser?.email) {
-      console.log("Fetching enrolled classes for email:", currentUser.email);
+      // console.log("Fetching enrolled classes for email:", currentUser.email);
       axiosSecure
         .get(`/enrolled-classes/${currentUser.email}`)
         .then((res) => {
-          console.log("Response from server:", res.data);
+          // console.log("Response from server:", res.data);
           setData(res.data);
         })
         .catch((err) => {

@@ -76,7 +76,7 @@ const NavBar = () => {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    console.log("Logged out");
+    // console.log("Logged out");
     Swal.fire({
       title: "Apakah anda yakin?",
       text: "Anda akan keluar dari sesi ini",
@@ -120,7 +120,7 @@ const NavBar = () => {
             onClick={() => navigate("/")}
             className="flex-shrink-0 cursor-pointer pl-7 md:p-0 flex items-center"
           >
-            <div className="dark:text-white">
+            <div className="text-secondary">
               <h1 className="text-2xl inline-flex gap-3 items-center font-bold">
                 Ayo Pintar{" "}
                 <img

@@ -13,9 +13,9 @@ import Layanan from "./Layanan/Layanan";
 
 // HOME
 const Home = () => {
-  console.log(import.meta.env.VITE_APIKEY);
+  // console.log(import.meta.env.VITE_APIKEY);
   const { user } = useAuth();
-  console.log(user);
+  // console.log(user);
   return (
     <section>
       <HeroContainer />

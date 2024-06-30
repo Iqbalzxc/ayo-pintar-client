@@ -9,7 +9,7 @@ import CheckoutPayment from '../Payment/CheckoutPayment';
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE)
 const Payment = () => {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const price = location?.state?.price;
   const cartItm = location?.state?.itemId;
   if(!price) {

@@ -14,74 +14,39 @@ SwiperCore.use([Pagination, Navigation]);
 const testimonialData = [
   {
     id: 1,
-    desc: "Mantap, berkat Ayo Pintar saya sudah bisa membaca ejaan bahasa Indonesia dengan baik dan benar",
+    desc: "Berkat Ayo Pintar anak saya lolos masuk ke SMA yang diinginkannya",
     image: People1,
     name: "Azzura Starlee",
-    school: "SDN 1 Karang Pilang",
+    school: "SMAN 1 Cirebon",
   },
   {
     id: 2,
-    desc: "Saya tidak menyangka sekarang sudah punya bisnis sendiri. Setelah saya mengikuti kelas di Ayo Pintar saya sudah mendapat penghasilan sendiri padahal saya dulu sulit keluar dari rantai pinjol",
+    desc: "Alhamdulillah, anak saya senang sekali belajar di Ayo Pintar karena tutornya sangat menyenangkan dalam mengajar",
     image: People2,
-    name: "Boedi Baike",
-    school: "SMA 1 Surabaya",
+    name: "Boedi",
+    school: "SMPN 1 Cirebon",
   },
   {
     id: 3,
-    desc: "Terima kasih Ayo Pintar. Mimpi saya sekarang terwujud dan bisa selangkah lebih dekat untuk menjadi hokage",
+    desc: "Terima kasih Ayo Pintar. Mimpi saya sekarang terwujud menggapai PTN impian",
     image: People3,
-    name: "Raden Sakti",
-    school: "SMA Negeri I Konoha",
+    name: "Raden Surya",
+    school: "UIN SSC Cirebon",
   },
   {
     id: 4,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
+    desc: "Terima kasih Ayo Pintar. Mimpi anak saya sekarang terwujud menggapai PTN impiannya",
     image: People1,
-    name: "People 4",
-    school: "SMP Negeri 1 Jakarta",
-  },
-  {
-    id: 5,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio corporis",
-    image: People2,
-    name: "People 5",
-    school: "SMA Negeri 8 Jakarta",
-  },
-  {
-    id: 6,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
-    image: People3,
-    name: "People 6",
-    school: "SD Negeri 1 Surabaya",
-  },
-  {
-    id: 7,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
-    image: People1,
-    name: "People 7",
-    school: "Universitas Airlangga",
-  },
-  {
-    id: 8,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum, vel optio",
-    image: People2,
-    name: "People 8",
-    school: "SMP Negeri 2 Bandung",
-  },
-  {
-    id: 9,
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor, saepe a. Quod eos non, dolores sapiente dicta quam esse reprehenderit explicabo vitae nesciunt ut laborum harum,  vel optio corporis voluptatem?",
-    image: People3,
-    name: "People 9",
-    school: "SMA Negeri 3 Bandung",
+    name: "Evi",
+    school: "Universitas Singaperbangsa Karawang",
   },
 ];
 
 const Testimonial = () => {
   return (
     <div className="md:w-[80] mx-auto my-36">
-      <h1 className="text-5xl font-bold text-center text-secondary dark:text-white">
-        Testimonial
+      <h1 className="text-5xl font-bold text-center text-secondary dark:text-secondary">
+        Testimoni
       </h1>
       <div className="w-[40%] text-center mx-auto my-4 mb-9">
         <p className="text-black dark:text-white">
@@ -115,11 +80,11 @@ const Testimonial = () => {
           >
             <div className="rounded-lg p-5 mb-2">
               <div className="h-52 pr-5 overflow-y-auto mt-2 ">
-                <p className="text-lg text-justify font-semibold text-white dark:text-gray-300">
+                <p className="text-lg text-justify font-semibold text-white dark:text-white">
                   "{testimonial.desc}"
                 </p>
               </div>
-              <hr className="border-gray-300 dark:border-gray-600 mb-3" />
+              <hr className="border-white dark:border-white" />
               <div className="flex items-center">
                 <img
                   src={testimonial.image}
@@ -127,7 +92,7 @@ const Testimonial = () => {
                   className="rounded-full w-14 h-15 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-white dark:text-slate-300">
+                  <h5 className="text-lg font-semibold text-white dark:text-white">
                     {testimonial.name}
                   </h5>
                   <p className="font-semibold text-white">

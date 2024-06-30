@@ -22,7 +22,7 @@ const SelectedClass = () => {
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           setLoading(false);
         });
     }
@@ -66,7 +66,7 @@ const SelectedClass = () => {
             }
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       }
     });

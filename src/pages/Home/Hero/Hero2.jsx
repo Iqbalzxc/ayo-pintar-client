@@ -18,14 +18,7 @@ const Hero2 = () => {
             </h1>
             <div className="md:w-1/2 text-justify">
               <p>
-                Kami menghadirkan pengalaman pembelajaran yang terintegrasi
-                dengan teknologi untuk memaksimalkan potensi belajar setiap
-                siswa. Dengan platform online kami, siswa dapat mengakses
-                materi, latihan, dan penilaian secara fleksibel, di mana pun dan
-                kapan pun mereka inginkan. Kami memahami bahwa setiap siswa
-                memiliki kebutuhan belajar yang unik, oleh karena itu, kami
-                menyediakan pendekatan yang personal dan adaptif untuk
-                memastikan kesuksesan akademik mereka.
+              Kami menawarkan pengalaman pembelajaran yang menyenangkan dengan tutor yang kompeten dan telaten. Kami juga menyediakan waktu yang fleksibel serta tutor yang datang ke rumah. Kami memahami bahwa setiap siswa memiliki kebutuhan belajar yang unik, oleh karena itu, kami menyediakan pendekatan yang personal dan adaptif untuk memastikan kesuksesan akademik mereka.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5">

@@ -13,7 +13,7 @@ const PopularTutor = () => {
         setTutors(data.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
   return (
@@ -40,7 +40,7 @@ const PopularTutor = () => {
                 <div className="flex-col flex gap-6 md:gap-8">
                   <img
                     className="rounded-full border-4 border-gray-300 h-24 w-24 mx-auto"
-                    src={tutor?.tutor?.photoUrl || `${img}`}
+                    src={tutor?.tutor?.photoUrl || tutor?.tutor?.photoURL || `${img}`}
                     alt="tutor.jpg"
                   />
 

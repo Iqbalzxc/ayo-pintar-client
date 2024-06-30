@@ -40,7 +40,7 @@ const GoogleLogin = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+        // console.log(errorMessage);
         // email of the user account used.
         // const email = error.customData.email;
         // authcredential type that was used

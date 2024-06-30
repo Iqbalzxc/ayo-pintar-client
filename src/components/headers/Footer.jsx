@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-gray-900 text-white py-8 p-4">
       <div className="md:w-[80%] mx-auto my-4">
         <div className="lg:flex lg:justify-between">
           {/* Bagian Logo dan Informasi Kontak */}
@@ -67,16 +67,16 @@ const Footer = () => {
                   className="flex items-center text-gray-300 hover:text-secondary"
                 >
                   <FaWhatsapp className="mr-2" />
-                  +62 858-7289-3120 (Iqbal)
+                  +62 858-7289-3120 (Admin)
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:person-email@gmail.com"
+                  href="mailto:mail.ayopintar@gmail.com"
                   className="flex items-center text-gray-300 hover:text-secondary"
                 >
                   <FaEnvelope className="mr-2" />
-                  AyoPintar@gmail.com
+                  mail.ayopintar@gmail.com
                 </a>
               </li>
             </ul>
@@ -126,7 +126,7 @@ const Footer = () => {
         {/* Bagian Kredit */}
         <hr className="border-gray-800 my-8" />
         <p className="text-center text-gray-300">
-          &copy; 2024 Ayo Pintar. Sanber Foundation. Tim Ayo Pintar.
+          &copy; 2024 Bimbel & Privat Ayo Pintar
         </p>
       </div>
     </footer>

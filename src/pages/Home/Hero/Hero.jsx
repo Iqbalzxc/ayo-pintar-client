@@ -19,9 +19,7 @@ const Hero = () => {
               <p>
                 Merupakan Bimbel & Privat terbaik di Kota & Kabupaten Cirebon
                 yang menawarkan pembelajaran terbaik dan menyenangkan untuk
-                semua. Disamping itu, kami menawarkan harga yang terjangkau yang
-                sesuai prinsip kami yakni Pendidikan ialah hak untuk semua
-                orang.
+                semua. Disamping itu, kami menawarkan harga yang terjangkau untuk semua orang dengan tutor yang kompeten.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5">

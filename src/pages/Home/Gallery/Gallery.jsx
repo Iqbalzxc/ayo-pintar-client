@@ -17,8 +17,8 @@ const Gallery = () => {
       </div>
 
       {/* Image container */}
-      <div className="md:grid grid-cols-3 gap-10">
-        <div className="col-span-1">
+      <div className="md:grid grid-cols-3 gap-10 w-full">
+        <div className="col-span-1 p-2">
           <img
             src={image1}
             alt="Image 1"
@@ -26,7 +26,7 @@ const Gallery = () => {
           />
         </div>
 
-        <div className="col-span-1">
+        <div className="col-span-1 p-2">
           <img
             src={image2}
             alt="Image 2"
@@ -34,7 +34,7 @@ const Gallery = () => {
           />
         </div>
 
-        <div className="col-span-1">
+        <div className="col-span-1 p-2">
           <img
             src={image3}
             alt="Image 3"

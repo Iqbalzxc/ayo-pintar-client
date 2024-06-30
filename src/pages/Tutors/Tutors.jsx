@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
-import img from "../../assets/home/foto-profile.jpg";
+// import img from "../../assets/home/foto-profile.jpg";
 
 const Tutors = () => {
   const [tutors, setTutors] = useState([]);
@@ -15,7 +15,7 @@ const Tutors = () => {
         setTutors(data.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [axiosFetch]);
 
@@ -38,11 +38,11 @@ const Tutors = () => {
   return (
     <div className="md:w-[80%] mx-auto my-36">
       <h1 className="text-5xl font-bold text-center dark:text-white">
-        <span className="text-secondary">Tutor</span> Favorit
+        <span className="text-secondary">Tutor</span> Ayo Pintar
       </h1>
       <div className="w-[40%] text-center mx-auto my-4">
-        <p className="text-gray-500">
-          Berikut ini merupakan Tutor favorit yang dipilih siswa.
+        <p className="text-black dark:text-white">
+          Berikut ini merupakan Tutor di Ayo Pintar.
         </p>
       </div>
 
@@ -69,14 +69,15 @@ const Tutors = () => {
               <div className="flex-col flex gap-6 md:gap-8">
                 <img
                   className="rounded-full border-4 border-gray-300 h-24 w-24 mx-auto"
-                  src={tutor.photoUrl || img}
+                  src={tutor.photoUrl || tutor.photoURL || "https://via.placeholder.com/150/"}
+                  // src={tutor.photoUrl || img}
                   alt="tutor.jpg"
                 />
                 <div className="flex flex-col text-center">
                   <p className="font-medium text-lg dark:text-white text-gray-800">
                     {tutor?.name}
                   </p>
-                  <p className="text-gray-500">{tutor?.email}</p>
+                  {/* <p className="text-gray-500">{tutor?.email}</p> */}
                   <p className="text-gray-500 mb-4">{tutor?.title}</p>
                   <p className="text-gray-500 mb-4">{tutor?.university}</p>
                 </div>

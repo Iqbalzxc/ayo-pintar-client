@@ -3,7 +3,6 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { DialogActions } from "@mui/material";
 import {
   FaBook,
   FaLanguage,
@@ -63,10 +62,10 @@ const SingleClass = () => {
             })
             .then((res) => {
               alert("Berhasil menambahkan kelas");
-              console.log(res.data);
+              // console.log(res.data);
             })
             .catch((err) => {
-              console.log(err);
+              // console.log(err);
               alert("Gagal menambahkan kelas");
               return navigate("/classes");
             });
@@ -74,7 +73,7 @@ const SingleClass = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
+        // console.log(err);
       });
   };
 

@@ -63,7 +63,7 @@ const Blog = () => {
         <span className="text-secondary">Blog</span> Ayo Pintar
       </h1>
       <div className="w-[80%] text-center mx-auto my-4">
-        <p className="text-gray-500">
+        <p className="text-black dark:text-white">
           Berikut ini merupakan dokumentasi pembelajaran dan kelas yang diikuti.
         </p>
       </div>

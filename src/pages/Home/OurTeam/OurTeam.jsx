@@ -1,8 +1,7 @@
 import React from "react";
 import Profil1 from "../../../assets/home/ourteam/profil-1.jpg";
 import Profil2 from "../../../assets/home/ourteam/profil-2.jpg";
-import Profil3 from "../../../assets/home/ourteam/profil-3.jpg";
-import Profil4 from "../../../assets/home/ourteam/profil-4.jpg";
+
 
 const OurTeam = () => {
   const TeamMember = ({ name, position, photo, collage }) => {
@@ -20,38 +19,26 @@ const OurTeam = () => {
 
   const teamData = [
     {
-      name: "Muhammad Iqbal Nugraha",
-      position: "Project Leader & Backend Developer",
-      collage: "STMIK IKMI Cirebon",
+      name: "Wiwin Windiana, S.Pd, M.A",
+      position: "Founder",
+      collage: "PhD candidate",
       photo: Profil1,
     },
     {
-      name: "Muhammad Leon Surya P.",
-      position: "Frontend Developer",
-      collage: "Universitas Negeri Surabaya",
+      name: "Muhammad Iqbal Nugraha",
+      position: "Co-Founder",
+      collage: "S.Kom candidate",
       photo: Profil2,
-    },
-    {
-      name: "Amelta Hendeli",
-      position: "Frontend Developer",
-      collage: "Universitas Muhammadiyah Riau",
-      photo: Profil3,
-    },
-    {
-      name: "Ikhtifadudin Al Ghifari R",
-      position: "UI/UX Designer",
-      collage: "IT Telkom Purwokerto",
-      photo: Profil4,
     },
   ];
 
   return (
     <div className="md:w-[80%] mx-auto my-32">
       <h1 className="text-5xl font-bold text-center dark:text-white mb-8">
-        <span className="text-secondary">Tim</span> Kami
+        <span className="text-secondary">Our</span> Team
       </h1>
       <div className="w-[30%] mx-auto my-5 border-b-2 border-secondary"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {teamData.map((member, index) => (
           <TeamMember
             key={index}

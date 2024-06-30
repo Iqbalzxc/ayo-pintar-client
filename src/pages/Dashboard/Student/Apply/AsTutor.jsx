@@ -18,7 +18,7 @@ const AsTutor = () => {
     const data = { name, email, experience };
 
     axiosFetch.post(`/ass-tutor`, data).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setSubmittedData(data);
       Swal.fire({
         title: "Berhasil!",
@@ -34,7 +34,7 @@ const AsTutor = () => {
       axiosFetch
         .get(`/applied-tutors/${currentUser.email}`)
         .then((res) => {
-          console.log("Fetched applied tutor data:", res.data);
+          // console.log("Fetched applied tutor data:", res.data);
           setSubmittedData(res.data);
           setLoading(false);
         })

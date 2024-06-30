@@ -35,12 +35,12 @@ const ManageClasses = () => {
   const handleApprove = async (id) => {
     try {
       const res = await axiosSecure.patch(`/change-status/${id}`, { status: 'approved' });
-      console.log(res.data);
+      // console.log(res.data);
       alert('Berhasil disetujui');
       const updateClasses = classes.map(cls => cls._id === id ? { ...cls, status: 'approved' } : cls);
       setClasses(updateClasses);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -73,7 +73,7 @@ const ManageClasses = () => {
         }
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -93,7 +93,7 @@ const ManageClasses = () => {
         Swal.fire('Umpan Balik Disimpan!', 'Umpan balik telah disimpan.', 'success');
       }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

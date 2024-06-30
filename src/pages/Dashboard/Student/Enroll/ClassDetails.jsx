@@ -15,7 +15,7 @@ const ClassDetails = () => {
       axiosSecure
         .get(`/class/${id}`)
         .then((res) => {
-          console.log("Response from server:", res.data);
+          // console.log("Response from server:", res.data);
           setData(res.data);
         })
         .catch((err) => {

@@ -15,7 +15,7 @@ const layananData = [
   {
     id: 1,
     description:
-      "Di Bimbel Ayo Pintar, kami menawarkan akses ke tutor-tutor favorit yang berkualitas. Para tutor kami dipilih secara ketat berdasarkan pengalaman & keahlian.",
+      "Di Bimbel & Privat Ayo Pintar, kami memiliki tutor-tutor yang berkualitas. Para tutor dipilih berdasarkan kualifikasi.",
     image: Layanan1,
     name: "Tutor Favorit Berkualitas",
     category: "Pendidikan",
@@ -23,7 +23,7 @@ const layananData = [
   {
     id: 2,
     description:
-      "Kami menyediakan berbagai kelas untuk setiap tingkatan pendidikan mulai dari TK, SD hingga SMA, yang dirancang untuk memenuhi kebutuhan belajar siswa secara komprehensif.",
+      "Kami menyediakan berbagai kelas dari jenjang pendidikan TK, SD, SMP hingga SMA yang dirancang untuk memenuhi kebutuhan belajar siswa secara komprehensif.",
     image: Layanan2,
     name: "Beragam Kelas Berkualitas",
     category: "Smart",
@@ -31,7 +31,7 @@ const layananData = [
   {
     id: 3,
     description:
-      "Solusi teknologi kami menyediakan platform pembelajaran online yang interaktif dan mudah digunakan.",
+      "Kami juga menyediakan pembelajaran secara online yang interaktif dan menyenangkan.",
     image: Layanan3,
     name: "Platform Pembelajaran Online",
     category: "Online Learning",
@@ -70,11 +70,11 @@ const Layanan = () => {
           >
             <div className="rounded-lg p-5 mb-2">
               <div className="h-52 pr-5 overflow-y-auto mt-2">
-                <p className="text-lg text-justify font-semibold text-white dark:text-gray-300">
+                <p className="text-lg text-justify font-semibold text-white dark:text-white">
                   "{layanan.description}"
                 </p>
               </div>
-              <hr className="border-gray-300 dark:border-gray-600 mb-3" />
+              <hr className="border-white dark:border-white mb-3" />
               <div className="flex items-center">
                 <img
                   src={layanan.image}
@@ -82,7 +82,7 @@ const Layanan = () => {
                   className="rounded-full w-14 h-15 mr-4"
                 />
                 <div>
-                  <h5 className="text-lg font-semibold text-white dark:text-slate-300">
+                  <h5 className="text-lg font-semibold text-white dark:text-white">
                     {layanan.name}
                   </h5>
                   <p className="font-semibold text-white underline">

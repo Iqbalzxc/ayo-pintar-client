@@ -6,44 +6,44 @@ const faq = [
   {
     id: 1,
     eventKey: 0,
-    question: "Apakah ini Berlangganan?",
+    question: "Bagaimana cara daftar sebagai siswa Bimbel & Privat Ayo Pintar?",
     answer:
-      "text1 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan melakukan pendaftaran di halaman registrasi.",
   },
   {
     id: 2,
     eventKey: 1,
-    question: "Bagaimana Sistem Belajarnya?",
+    question: "Apakah tutor di Bimbel & Privat Ayo Pintar kompeten?",
     answer:
-      "text2 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Ya, tutor di Bimbel & Privat Ayo Pintar kompeten yang berpengalaman mengajar di bidangnya.",
   },
   {
     id: 3,
     eventKey: 2,
-    question: "Apakah boleh Ganti Tutor jika tidak cocok?",
+    question: "Bagaimana cara melihat kelasnya?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan melihat di halaman kelas.",
   },
   {
     id: 4,
     eventKey: 3,
-    question: "Apakah Ada Grup Diskusi?",
+    question: "Pembayaran bisa melalui apa saja?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Pembayaran dapat dilakukan melalui transfer Bank BRI 4190 0101 4378 533 a/n. Muhammad Iqbal Nugraha  .",
   },
   {
     id: 5,
     eventKey: 4,
     question: "Apakah tersedia Kelas Privat?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Ya, kami menyediakan kelas privat untuk siswa yang ingin belajar.",
   },
   {
     id: 6,
     eventKey: 5,
-    question: "Bagaimana cara daftar sebagai siswa les privat?",
+    question: "Bagaimana cara daftar sebagai tutor?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Silahkan anda dapat mengunjungi halaman dashboard.",
   },
 ];
 
@@ -81,7 +81,7 @@ const Faq = () => {
               </span>
             </div>
             {activeKey === data.eventKey && (
-              <div className="bg-gray-100 dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-4 mt-2">
+              <div className="bg-gray-100 dark:bg-zinc-900 text-black dark:text-white p-4 mt-2">
                 {data.answer}
               </div>
             )}

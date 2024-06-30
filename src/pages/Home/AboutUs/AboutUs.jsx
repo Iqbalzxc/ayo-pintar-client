@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="max-w-4xl mx-auto my-36 px-4">
+    <div className="max-w-4xl mx-auto my-36 px-4 p-1">
       <h1 className="text-5xl font-bold text-center dark:text-white mb-8">
         <span className="text-secondary">Tentang</span> Kami
       </h1>
@@ -13,12 +13,7 @@ const AboutUs = () => {
           Sejarah
         </h2>
         <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
-          Ayo Pintar merupakan aplikasi di bidang pendidikan yang dibuat dengan
-          tujuan sebagai platform bimbingan belajar. Berdiri pada tahun 2022 di
-          Kota Cirebon, Jawa Barat, awalnya sebagai tempat bimbingan belajar
-          berbasis offline. Kini, Ayo Pintar telah berkembang menjadi aplikasi
-          yang dapat diakses secara online. Kami menyediakan mentor yang ahli
-          dan berpengalaman untuk siswa dari berbagai tingkatan pendidikan.
+        Dimulai dari kegelisahan orang tua yang mengeluhkan biaya les privat yang mahal serta kesulitan harus mengantar anak-anak ke tempat les. Sebagai solusi, kami menyediakan pembelajaran dengan harga terjangkau dan guru yang datang ke rumah sesuai dengan jadwal yang cocok dengan kesibukan anak-anak.
         </p>
       </div>
 
@@ -27,9 +22,7 @@ const AboutUs = () => {
           Visi
         </h2>
         <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
-          Menjadi platform bimbingan belajar terdepan yang memberikan akses
-          pendidikan berkualitas secara online untuk meningkatkan potensi
-          akademik dan pengembangan diri siswa di seluruh Indonesia.
+        Menjadikan anak bangsa pintar dengan belajar di Bimbel & Privat Ayo Pintar.
         </p>
       </div>
 
@@ -38,8 +31,11 @@ const AboutUs = () => {
           Misi
         </h2>
         <p className="text-black dark:text-white leading-relaxed text-center font-semibold">
-          Menyediakan pembelajaran yang interaktif dengan menyediakan tutor
-          terbaik dan lingkungan belajar yang mendukung pembelajaran siswa.
+          1.) Menyediakan layanan pendidikan dan pembelajaran terbaik serta terjangkau bagi siswa.
+          2.) Memastikan pengajar yang kompeten bagi siswa.
+          3.) Menyediakan waktu pembelajaran yang fleksibel.
+          4.) Memberikan pengajaran privat di rumah.
+          5.) Mengimplementasikan sistem manajemen yang mengutamakan kepuasan pelanggan.
         </p>
       </div>
     </div>

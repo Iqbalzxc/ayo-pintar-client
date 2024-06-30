@@ -13,7 +13,7 @@ const AdminHome = () => {
       .get("/users")
       .then((res) => {
         setUsers(res.data);
-        console.log(res.data);
+        // console.log(res.data);
       })
       .catch((err) => console.log(err));
   }, []);

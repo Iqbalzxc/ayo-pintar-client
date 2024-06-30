@@ -30,7 +30,7 @@ const MyPaymentHistory = () => {
     axiosFetch.get(`/payment-history/${currentUser?.email}`).then(res => {
       setPayments(res.data);
       setLoading(false);
-      console.log(res.data);
+      // console.log(res.data);
     }).catch(err => console.log(err));
   }, [currentUser.email]);
 

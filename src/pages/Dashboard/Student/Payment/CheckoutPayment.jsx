@@ -85,7 +85,7 @@ const CheckoutPayment = ({ price, cartItm }) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (
           res.deleteResult.deletedCount > 0 &&
           res.paymentResult.insertedId &&
@@ -111,8 +111,8 @@ const CheckoutPayment = ({ price, cartItm }) => {
       <div className="text-center mt-4">
         <div className="bg-secondary p-4 rounded text-white">
           <p className="text-lg">Transfer langsung ke rekening berikut:</p>
-          <p className="font-bold text-lg">BRI 0123456789</p>
-          <p className="text-lg">Atas Nama: Ayo Pintar</p>
+          <p className="font-bold text-lg">BRI 4190 0101 4378 533</p>
+          <p className="text-lg">Atas Nama: Muhammad Iqbal Nugraha</p>
           <p className="text-lg mt-2">Jumlah Transfer: <span className="font-bold border border-black p-1 bg-black text-white">Rp{price.toLocaleString("id-ID")}</span></p>
           <p className="text-sm mt-2">
             Setelah melakukan transfer, unggah bukti transfer di bawah ini dan

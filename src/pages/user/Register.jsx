@@ -13,12 +13,15 @@ import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
 import axios from "axios";
 
+const KEY = import.meta.env.VITE_IMG_TOKEN;
+
 // mengunggah gambar
 const uploadImage = async (file) => {
   const formData = new FormData();
   formData.append('image', file);
 
-  const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_TOKEN}`;
+  // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMG_TOKEN}`;
+  const url = `https://api.imgbb.com/1/upload?key=${KEY}&name=`;
 
   try {
     const response = await axios.post(url, formData);
