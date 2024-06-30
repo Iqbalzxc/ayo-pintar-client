@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="min-h-screen flex justify-start pl-11 items-center text-white bg-black bg-opacity-60">
         <div>
           <div className="space-y-4">
-            <p className="md:text-4xl text-2xl">Pilihan Terbaik</p>
+            <p className="md:text-4xl text-2xl">Pilihan <span className="text-secondary">Terbaik</span></p>
             <h1 className="md:text-7xl text-4xl font-bold">
               Bagi Putra-Putri Anda
             </h1>
-            <div className="md:w-1/2 text-justify">
+            <div className="md:w-1/2 text-justify pr-8">
               <p>
                 Merupakan Bimbel & Privat terbaik di Kota & Kabupaten Cirebon
                 yang menawarkan pembelajaran terbaik dan menyenangkan untuk
