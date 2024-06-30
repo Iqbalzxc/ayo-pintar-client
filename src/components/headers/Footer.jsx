@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaFacebook,
   FaInstagram,
-  FaTwitter,
   FaYoutube,
   FaWhatsapp,
   FaEnvelope,
@@ -109,12 +108,6 @@ const Footer = () => {
                 className="text-gray-300 hover:text-secondary mr-4"
               >
                 <FaInstagram />
-              </a>
-              <a
-                href="https://x.com"
-                className="text-gray-300 hover:text-secondary mr-4"
-              >
-                <FaTwitter />
               </a>
               <a href="https://youtube.com" className="text-gray-300 hover:text-secondary">
                 <FaYoutube />
