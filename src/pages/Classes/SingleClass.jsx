@@ -176,7 +176,7 @@ const SingleClass = () => {
                           </span>
                         </div>
                         <span className="text-base md:text-right sm:ml-auto">
-                          Menyesuaikan Siswa ( Tersedia di Kelas Privat )
+                          Menyesuaikan siswa
                         </span>
                       </li>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
@@ -187,7 +187,7 @@ const SingleClass = () => {
                           </span>
                         </div>
                         <span className="text-base md:text-right sm:ml-auto">
-                          1,5 Jam (2 pertemuan/minggu)
+                          90 menit / pertemuan
                         </span>
                       </li>
                       <li className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-b py-2">
@@ -220,12 +220,12 @@ const SingleClass = () => {
                           </span>
                         </div>
                         <span className="text-base md:text-right sm:ml-auto">
-                          Indonesia
+                          Indonesia & Inggris
                         </span>
                       </li>
                     </ul>
 
-                    <h3 className="text-xl font-bold">Rp{classes.price}</h3>
+                    <h3 className="text-xl font-bold">Rp{classes.price} / pertemuan</h3>
                     <button
                       onClick={() => handleSelect(classes._id)}
                       title={

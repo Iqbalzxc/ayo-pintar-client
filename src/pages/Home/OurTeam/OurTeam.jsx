@@ -1,6 +1,6 @@
 import React from "react";
 import Profil1 from "../../../assets/home/ourteam/profil-1.jpg";
-import Profil2 from "../../../assets/home/ourteam/profil-2.jpg";
+import Profil2 from "../../../assets/home/ourteam/profil-2.jpeg";
 
 
 const OurTeam = () => {

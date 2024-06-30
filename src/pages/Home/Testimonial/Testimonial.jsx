@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import People1 from "../../../assets/home/testimonial/people-1.jpg";
 import People2 from "../../../assets/home/testimonial/people-2.jpg";
 import People3 from "../../../assets/home/testimonial/people-3.jpg";
+import People4 from "../../../assets/home/testimonial/people-4.jpg";
 import SwiperCore, { Pagination, Navigation } from "swiper";
 import "swiper/swiper-bundle.min.css";
 
@@ -16,29 +17,29 @@ const testimonialData = [
     id: 1,
     desc: "Berkat Ayo Pintar anak saya lolos masuk ke SMA yang diinginkannya",
     image: People1,
-    name: "Azzura Starlee",
+    name: "Dwi Kurniasih",
     school: "SMAN 1 Cirebon",
   },
   {
     id: 2,
     desc: "Alhamdulillah, anak saya senang sekali belajar di Ayo Pintar karena tutornya sangat menyenangkan dalam mengajar",
     image: People2,
-    name: "Boedi",
+    name: "Budi Setiawan",
     school: "SMPN 1 Cirebon",
   },
   {
     id: 3,
     desc: "Terima kasih Ayo Pintar. Mimpi saya sekarang terwujud menggapai PTN impian",
     image: People3,
-    name: "Raden Surya",
-    school: "UIN SSC Cirebon",
+    name: "Teguh Putra",
+    school: "Universitas Indonesia",
   },
   {
     id: 4,
     desc: "Terima kasih Ayo Pintar. Mimpi anak saya sekarang terwujud menggapai PTN impiannya",
-    image: People1,
-    name: "Evi",
-    school: "Universitas Singaperbangsa Karawang",
+    image: People4,
+    name: "Farhat Mutaqin",
+    school: "Universitas Negeri Jakarta",
   },
 ];
 

@@ -121,7 +121,7 @@ const Classes = () => {
                   Kuota tersedia: {cls.availableSeats}
                 </span>
                 <span className="text-green-500 font-semibold">
-                  Rp. {cls.price}
+                  Rp{cls.price} <span className="text-black dark:text-white">/ Pertemuan</span>
                 </span>
               </div>
               <Link to={`/class/${cls._id}`}>

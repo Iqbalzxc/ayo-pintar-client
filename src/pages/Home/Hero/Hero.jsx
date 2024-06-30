@@ -17,9 +17,7 @@ const Hero = () => {
             </h1>
             <div className="md:w-1/2 text-justify pr-8">
               <p>
-                Merupakan Bimbel & Privat terbaik di Kota & Kabupaten Cirebon
-                yang menawarkan pembelajaran terbaik dan menyenangkan untuk
-                semua. Disamping itu, kami menawarkan harga yang terjangkau untuk semua orang dengan tutor yang kompeten.
+              Kami merupakan bimbingan belajar (Bimbel) dan les privat terbaik di Kota dan Kabupaten Cirebon, menyediakan pembelajaran menyenangkan di mana guru mengunjungi rumah Anda dan jadwal les privat disesuaikan dengan jadwal anak. Selain itu, kami menawarkan harga terjangkau dengan tutor yang kompeten.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-5">
