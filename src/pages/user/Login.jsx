@@ -3,6 +3,7 @@ import { MdOutlineAlternateEmail, MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 // LOGIN PAGE
 const Login = () => {
@@ -21,7 +22,12 @@ const Login = () => {
     setLoader(true);
     login(formData.email, formData.password)
       .then(() => {
-        alert("Login berhasil");
+        // alert("Login berhasil");
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Berhasil',
+          text: 'Anda telah berhasil login!',
+        });
         navigate(location.state?.from || "/dashboard");
       })
       .catch((err) => {

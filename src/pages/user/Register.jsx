@@ -12,6 +12,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import GoogleLogin from "../../components/headers/Social/GoogleLogin";
 import { AuthContext } from "../../utilities/providers/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const KEY = import.meta.env.VITE_IMG_TOKEN;
 
@@ -71,12 +72,22 @@ const Register = () => {
         if (user.email && user.displayName) {
           await axios.post("https://ayo-pintar-server.onrender.com/new-user", userImp);
           navigate("/");
+          Swal.fire({
+            icon: 'success',
+            title: 'Pendaftaran Berhasil',
+            text: 'Anda telah berhasil mendaftar!',
+          });
           setError();
           return "Pendaftaran berhasil";
         }
       }
     } catch (err) {
       setError(err.code);
+      Swal.fire({
+        icon: 'error',
+        title: 'Pendaftaran Gagal',
+        text: 'Terjadi kesalahan, silahkan coba lagi!',
+      });
       console.error(err);
     }
   };
