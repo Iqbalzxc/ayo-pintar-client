@@ -14,6 +14,7 @@ import {
   FaArrowLeft,
 } from "react-icons/fa";
 import { MdTimelapse, MdTimeline } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const SingleClass = () => {
   const classes = useLoaderData();
@@ -29,7 +30,11 @@ const SingleClass = () => {
   const handleSelect = (id) => {
     if (isLoading) return;
     if (!currentUser) {
-      alert("Silahkan login terlebih dahulu");
+      Swal.fire({
+        icon: 'info',
+        title: 'Anda Belum Login',
+        text: 'Silahkan login terlebih dahulu',
+      });
       return navigate("/login");
     }
 
@@ -45,9 +50,17 @@ const SingleClass = () => {
       .then((res) => {
         setIsLoading(false);
         if (res.data.classId === id) {
-          return alert("Sudah dipilih");
+          return Swal.fire({
+            icon: 'warning',
+            title: 'Sudah dipilih',
+            text: 'Kelas sudah ada di keranjang!',
+          });
         } else if (enrolledClasses.find((item) => item.classes._id === id)) {
-          return alert("Sudah bergabung");
+          return Swal.fire({
+            icon: 'info',
+            title: 'Sudah bergabung',
+            text: 'Anda sudah bergabung di kelas ini!',
+          });
         } else {
           const data = {
             classId: id,
@@ -61,13 +74,21 @@ const SingleClass = () => {
               },
             })
             .then((res) => {
-              alert("Berhasil menambahkan kelas");
+              Swal.fire({
+                icon: 'success',
+                title: 'Sukses',
+                text: 'Anda telah berhasil menambahkan kelas!',
+              });
               // console.log(res.data);
             })
             .catch((err) => {
               // console.log(err);
-              alert("Gagal menambahkan kelas");
-              return navigate("/classes");
+              Swal.fire({
+                icon: 'error',
+                title: 'Gagal menambahkan kelas',
+                text: 'Silahkan anda coba lagi!',
+              });
+              return navigate(`/classes/${_id}`);
             });
         }
       })

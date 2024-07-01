@@ -10,40 +10,35 @@ const useAxiosSecure = () => {
   const axiosSecure = axios.create({
     baseURL: "https://ayo-pintar-server.onrender.com",
   });
+
   useEffect(() => {
-    // ADD A REQUEST INTERCEPTOR
+    // Add a request interceptor
     const requestInterceptor = axiosSecure.interceptors.request.use(
       (config) => {
-        // DO SOMETHING BEFORE REQUEST IS SENT
         const token = localStorage.getItem("token");
-        // CONSOLE.LOG('TOKEN:', TOKEN);
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
       },
-      (error) => Promise.eject(error)
+      (error) => Promise.reject(error)
     );
 
-    // ADD A RESPONSE INTERCEPTOR
+    // Add a response interceptor
     const responseInterceptor = axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {
-        if (
-          error.response &&
-          (error.response.status === 401 || error.response.status === 403)
-        ) {
+        if (error.response && (error.response.status === 401 || error.response.status === 403)) {
           await logout();
           navigate("/login");
-          throw error;
         }
-
-        throw error;
+        return Promise.reject(error);
       }
     );
+
     return () => {
       axiosSecure.interceptors.request.eject(requestInterceptor);
-      axiosSecure.interceptors.request.eject(responseInterceptor);
+      axiosSecure.interceptors.response.eject(responseInterceptor);
     };
   }, [logout, navigate, axiosSecure]);
 
